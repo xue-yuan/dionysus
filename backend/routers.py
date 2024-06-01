@@ -1,20 +1,15 @@
+from handlers import heartbeat
 from utils import APIRouter
-
-
-def heartbeat():
-    return {"foo": "bar"}
-
-
-def get_user():
-    return {"foo": "bar"}
 
 
 apiRouter = APIRouter(prefix="/api")
 v1Router = APIRouter(prefix="/v1")
 userRouter = APIRouter(prefix="/user", tags=["user"])
 
-v1Router.add_api_route("/user", get_user)
-v1Router.add_api_auth_route("/test_user", get_user)
+userRouter.add_api_route("", heartbeat)
+userRouter.add_api_auth_route("/test_user", heartbeat)
 
-apiRouter.add_api_route("/heartbeat", heartbeat, tags=["test"])
+apiRouter.add_api_route("/heartbeat", heartbeat)
+
+v1Router.include_router(userRouter)
 apiRouter.include_router(v1Router)

@@ -17,5 +17,5 @@ def generate(user_id, hours=config.TOKEN_TTL):
 def validate(token):
     try:
         return jwt.decode(token, config.SECRET_KEY, algorithms=["HS256"])
-    except jwt.ExpiredSignatureError as e:
+    except jwt.ExpiredSignatureError:
         return ""
