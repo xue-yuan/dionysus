@@ -6,7 +6,7 @@ from starlette.status import (
     HTTP_403_FORBIDDEN, HTTP_500_INTERNAL_SERVER_ERROR
 )
 
-from constants.error import ClientError, ServerError
+from constants.error import ServerError
 
 
 class CustomException(HTTPException):
@@ -71,5 +71,5 @@ async def http_exception_handler(request, exc: HTTPException):
 async def integrity_exception_handler(request, exc: IntegrityError):
     return JSONResponse(
         status_code=HTTP_500_INTERNAL_SERVER_ERROR,
-        content={"error_code": ClientError.DATABASE_INTEGRITY_ERROR},
+        content={"error_code": ServerError.DATABASE_INTEGRITY_ERROR},
     )
