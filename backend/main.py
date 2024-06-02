@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.exceptions import HTTPException
 from sqlalchemy.exc import IntegrityError
 
+import database
 from routers import apiRouter
 from utils import get_openapi
 from utils.exceptions import (
@@ -16,6 +17,7 @@ from utils.exceptions import (
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # setup
+    database.initialize()
 
     yield
     # teardown

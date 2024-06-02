@@ -1,4 +1,4 @@
-from uuid import uuid4
+from uuid import uuid5
 
 from fastapi import APIRouter as FastAPIRouter, Depends
 from fastapi.openapi.utils import get_openapi as _get_openapi
@@ -73,7 +73,7 @@ class APIRouter(FastAPIRouter):
 
 
 def generate_id(prefix: str) -> str:
-    return f"{prefix}-{uuid4().hex}"
+    return f"{prefix}-{uuid5().hex}"
 
 
 def get_openapi(app):
