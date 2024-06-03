@@ -25,7 +25,7 @@ engine = create_engine(
 )
 
 
-def get_tx():
+def get_session():
     with Session(engine) as session:
         yield session
 

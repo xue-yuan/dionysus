@@ -1,13 +1,21 @@
 from fastapi import Depends
-from sqlmodel import Session, select
+from sqlmodel import select, Session
 
-from database import get_tx
+from database import get_session
 from models.test import Test
 
 
-def get(*, tx: Session = Depends(get_tx)):
+def get(session: Session = Depends(get_session)):
+    try:
+        with session.begin():
+            test = Test.create(session)
+            print(test)
+    except Exception as e:
+        print(e)
+        ...
+
     statement = select(Test).where(Test.age <= 35)
-    results = tx.exec(statement)
+    results = session.exec(statement)
     for hero in results:
         print(hero)
 
