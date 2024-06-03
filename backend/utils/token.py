@@ -6,10 +6,13 @@ import config
 
 
 def generate(user_id, hours=config.TOKEN_TTL):
-    token = jwt.encode({
-        "user_id": user_id,
-        "exp": datetime.now(tz=timezone.utc) + timedelta(hours=hours)
-    }, config.SECRET_KEY)
+    token = jwt.encode(
+        {
+            "user_id": user_id,
+            "exp": datetime.now(tz=timezone.utc) + timedelta(hours=hours),
+        },
+        config.SECRET_KEY,
+    )
 
     return token
 

@@ -28,47 +28,27 @@ class APIRouter(FastAPIRouter):
 
     def add_get(self, path, endpoint, auth=False, **kwargs):
         self._add_api_route(
-            path=path,
-            endpoint=endpoint,
-            methods=http.GET,
-            auth=auth,
-            **kwargs
+            path=path, endpoint=endpoint, methods=http.GET, auth=auth, **kwargs
         )
 
     def add_post(self, path, endpoint, auth=False, **kwargs):
         self._add_api_route(
-            path=path,
-            endpoint=endpoint,
-            methods=http.POST,
-            auth=auth,
-            **kwargs
+            path=path, endpoint=endpoint, methods=http.POST, auth=auth, **kwargs
         )
 
     def add_put(self, path, endpoint, auth=False, **kwargs):
         self._add_api_route(
-            path=path,
-            endpoint=endpoint,
-            methods=http.PUT,
-            auth=auth,
-            **kwargs
+            path=path, endpoint=endpoint, methods=http.PUT, auth=auth, **kwargs
         )
 
     def add_delete(self, path, endpoint, auth=False, **kwargs):
         self._add_api_route(
-            path=path,
-            endpoint=endpoint,
-            methods=http.DELETE,
-            auth=auth,
-            **kwargs
+            path=path, endpoint=endpoint, methods=http.DELETE, auth=auth, **kwargs
         )
 
     def add_patch(self, path, endpoint, auth=False, **kwargs):
         self._add_api_route(
-            path=path,
-            endpoint=endpoint,
-            methods=http.PATCH,
-            auth=auth,
-            **kwargs
+            path=path, endpoint=endpoint, methods=http.PATCH, auth=auth, **kwargs
         )
 
 
@@ -97,4 +77,5 @@ def get_openapi(app):
                     if "422" in responses:
                         del responses["422"]
         return app.openapi_schema
+
     return openapi
