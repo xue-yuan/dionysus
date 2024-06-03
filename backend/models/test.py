@@ -1,9 +1,11 @@
-from sqlalchemy import INTEGER, Column
-
-from models.base import Base
+from sqlmodel import Field, SQLModel
 
 
-class Test(Base):
-    __tablename__ = "test"
+class Test(SQLModel, table=True):
 
-    id = Column(INTEGER, primary_key=True, index=True)
+    __tablename__ = "tests"
+
+    id: int | None = Field(default=None, primary_key=True)
+    name: str
+    secret_name: str
+    age: int | None = None

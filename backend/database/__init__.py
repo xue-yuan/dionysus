@@ -1,10 +1,7 @@
-from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
-from sqlalchemy.orm import sessionmaker
+from sqlmodel import create_engine, Session, SQLModel
 
 import config
-
-from models.base import Base
 from models.test import Test
 
 
@@ -27,12 +24,11 @@ engine = create_engine(
     pool_timeout=config.DATABASE_POOL_TIMEOUT,
 )
 
-Session = sessionmaker(bind=engine, expire_on_commit=False)
-
 
 def get_tx():
-    return Session
+    with Session(engine) as session:
+        yield session
 
 
 def initialize():
-    Base.metadata.create_all(bind=engine)
+    SQLModel.metadata.create_all(bind=engine)

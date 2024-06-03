@@ -2,12 +2,15 @@ from handlers import heartbeat
 from utils import APIRouter
 
 
+from handlers.v1 import test
+
+
 apiRouter = APIRouter(prefix="/api")
 v1Router = APIRouter(prefix="/v1")
 userRouter = APIRouter(prefix="/user", tags=["user"])
 
 userRouter.add_api_route("", heartbeat)
-userRouter.add_get("/test_get", heartbeat, auth=True)
+userRouter.add_get("/test_get", test.get)
 userRouter.add_patch("/test_patch", heartbeat, auth=True)
 userRouter.add_delete("/test_delete", heartbeat)
 userRouter.add_post("/test_post", heartbeat)
