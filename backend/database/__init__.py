@@ -2,7 +2,7 @@ from sqlalchemy.engine import URL
 from sqlmodel import create_engine, Session, SQLModel
 
 import config
-from models.test import Test
+from models.recipe import Cocktail, Ingredient, CocktailIngredient, Alias, Tag
 
 
 url = URL.create(

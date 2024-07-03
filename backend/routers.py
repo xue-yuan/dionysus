@@ -1,22 +1,26 @@
 from handlers import heartbeat
 from utils import APIRouter
 
+from handlers.v1 import cocktail, ingredient
+from handlers.v1 import models
 
-from handlers.v1 import test
 
+userRouter = APIRouter(prefix="/user", tags=["User"])
+
+cocktailRouter = APIRouter(prefix="/cocktail", tags=["Cocktail"])
+cocktailRouter.add_get("", cocktail.get_cocktails)
+
+ingredientRouter = APIRouter(prefix="/ingredient", tags=["Ingredient"])
+ingredientRouter.add_get("", ingredient.get)
+ingredientRouter.add_post("", ingredient.create)
+ingredientRouter.add_put("", ingredient.update)
+ingredientRouter.add_delete("", ingredient.delete)
+
+v1Router = APIRouter(prefix="/v1")
+v1Router.include_router(userRouter)
+v1Router.include_router(cocktailRouter)
+v1Router.include_router(ingredientRouter)
 
 apiRouter = APIRouter(prefix="/api")
-v1Router = APIRouter(prefix="/v1")
-userRouter = APIRouter(prefix="/user", tags=["user"])
-
-userRouter.add_api_route("", heartbeat)
-userRouter.add_get("/test_get", test.get)
-userRouter.add_patch("/test_patch", heartbeat, auth=True)
-userRouter.add_delete("/test_delete", heartbeat)
-userRouter.add_post("/test_post", heartbeat)
-userRouter.add_put("/test_put", heartbeat, auth=True)
-
-apiRouter.add_api_route("/heartbeat", heartbeat)
-
-v1Router.include_router(userRouter)
+apiRouter.add_get("/heartbeat", heartbeat)
 apiRouter.include_router(v1Router)
