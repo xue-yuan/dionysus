@@ -13,3 +13,4 @@ class ClientError(IntEnum):
     DUPLICATE_USERNAME = auto()
     INCORRECT_USERNAME_OR_PASSWORD = auto()
     INVALID_USER_OPERATION = auto()
+    RESULT_NOT_FOUND = auto()

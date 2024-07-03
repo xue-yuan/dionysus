@@ -24,5 +24,5 @@ REDIS_HOST = os.getenv("REDIS_HOST")
 REDIS_PORT = int(os.getenv("REDIS_PORT"))
 REDIS_PASSWORD = os.getenv("REDIS_PASSWORD")
 
-TOKEN_TTL = 2  # 24 hours
+TOKEN_TTL = 2  # 2 hours
 OLD_TOKEN_TTL = 1  # 1 hour

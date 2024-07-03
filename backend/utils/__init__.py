@@ -9,7 +9,9 @@ from utils.security import jwt_scheme
 
 class APIRouter(FastAPIRouter):
 
-    def add_api_auth_route(self, path, endpoint, *, methods=None, **kwargs):
+    def add_api_auth_route(
+        self, path, endpoint, response_model, *, methods=None, **kwargs
+    ):
         if methods is None:
             methods = ["GET"]
 
@@ -17,38 +19,71 @@ class APIRouter(FastAPIRouter):
         dependencies.append(Depends(jwt_scheme))
         kwargs["dependencies"] = dependencies
 
-        self.add_api_route(path, endpoint, methods=methods, **kwargs)
+        self.add_api_route(
+            path, endpoint, methods=methods, response_model=response_model, **kwargs
+        )
 
-    def _add_api_route(self, path, endpoint, auth=False, *, methods, **kwargs):
+    def _add_api_route(
+        self, path, endpoint, response_model, auth=False, *, methods, **kwargs
+    ):
         if auth:
-            self.add_api_auth_route(path, endpoint, methods=methods, **kwargs)
+            self.add_api_auth_route(
+                path, endpoint, methods=methods, response_model=response_model, **kwargs
+            )
             return
 
-        self.add_api_route(path, endpoint, methods=methods, **kwargs)
-
-    def add_get(self, path, endpoint, auth=False, **kwargs):
-        self._add_api_route(
-            path=path, endpoint=endpoint, methods=http.GET, auth=auth, **kwargs
+        self.add_api_route(
+            path, endpoint, methods=methods, response_model=response_model, **kwargs
         )
 
-    def add_post(self, path, endpoint, auth=False, **kwargs):
+    def add_get(self, path, endpoint, auth=False, response_model={}, **kwargs):
         self._add_api_route(
-            path=path, endpoint=endpoint, methods=http.POST, auth=auth, **kwargs
+            path=path,
+            endpoint=endpoint,
+            methods=http.GET,
+            auth=auth,
+            response_model=response_model,
+            **kwargs,
         )
 
-    def add_put(self, path, endpoint, auth=False, **kwargs):
+    def add_post(self, path, endpoint, auth=False, response_model={}, **kwargs):
         self._add_api_route(
-            path=path, endpoint=endpoint, methods=http.PUT, auth=auth, **kwargs
+            path=path,
+            endpoint=endpoint,
+            methods=http.POST,
+            auth=auth,
+            response_model=response_model,
+            **kwargs,
         )
 
-    def add_delete(self, path, endpoint, auth=False, **kwargs):
+    def add_put(self, path, endpoint, auth=False, response_model={}, **kwargs):
         self._add_api_route(
-            path=path, endpoint=endpoint, methods=http.DELETE, auth=auth, **kwargs
+            path=path,
+            endpoint=endpoint,
+            methods=http.PUT,
+            auth=auth,
+            response_model=response_model,
+            **kwargs,
         )
 
-    def add_patch(self, path, endpoint, auth=False, **kwargs):
+    def add_delete(self, path, endpoint, auth=False, response_model={}, **kwargs):
         self._add_api_route(
-            path=path, endpoint=endpoint, methods=http.PATCH, auth=auth, **kwargs
+            path=path,
+            endpoint=endpoint,
+            methods=http.DELETE,
+            auth=auth,
+            response_model=response_model,
+            **kwargs,
+        )
+
+    def add_patch(self, path, endpoint, auth=False, response_model={}, **kwargs):
+        self._add_api_route(
+            path=path,
+            endpoint=endpoint,
+            methods=http.PATCH,
+            auth=auth,
+            response_model=response_model,
+            **kwargs,
         )
 
 
@@ -76,6 +111,8 @@ def get_openapi(app):
                     responses = param.get("responses")
                     if "422" in responses:
                         del responses["422"]
+                    # if "200" in responses:
+                    #     del responses["200"]
         return app.openapi_schema
 
     return openapi
