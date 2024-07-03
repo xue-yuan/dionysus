@@ -164,3 +164,4 @@ cython_debug/
 .vscode/
 
 ROADMAP.md
+.DS_Store
