@@ -30,7 +30,7 @@ class Redis(metaclass=Singleton):
     def _getConnection(self):
         self._conn = redis.Redis(connection_pool=self.pool)
 
-    def set(self, name, value, ttl):
+    def set(self, name, value, ttl=None):
         self.conn.set(
             name=name,
             value=value,

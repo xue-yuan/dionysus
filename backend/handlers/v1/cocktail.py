@@ -7,10 +7,14 @@ from database import get_session
 from models.recipe import Cocktail
 from utils.exceptions import BadRequestException
 
+from redis_helper import Redis
+
 
 def get(id: int, session: Session = Depends(get_session)):
     try:
-        return Cocktail.get_by_id(session, id)
+        Redis().set("TEST", 5, 100000)
+        return {}
+        # return Cocktail.get_by_id(session, id)
     except NoResultFound as e:
         raise BadRequestException(error_code=ClientError.RESULT_NOT_FOUND)
 

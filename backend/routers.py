@@ -8,7 +8,7 @@ from handlers.v1 import models
 userRouter = APIRouter(prefix="/user", tags=["User"])
 
 cocktailRouter = APIRouter(prefix="/cocktail", tags=["Cocktail"])
-cocktailRouter.add_get("", cocktail.get_cocktails)
+cocktailRouter.add_get("", cocktail.get)
 
 ingredientRouter = APIRouter(prefix="/ingredient", tags=["Ingredient"])
 ingredientRouter.add_get("", ingredient.get)
