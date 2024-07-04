@@ -30,11 +30,21 @@ class Redis(metaclass=Singleton):
     def _getConnection(self):
         self._conn = redis.Redis(connection_pool=self.pool)
 
-    def set(self, name, value, ttl=None):
+    def sadd(self, name, *values):
+        self.conn.sadd(name, *values)
+
+    def smembers(self, name):
+        return self.conn.smembers(name)
+
+    def smismember(self, name, values):
+        self.conn.smismember(name, values)
+
+    # The unit of "ex" is seconds, can use either `int` or `timedelta`
+    def set(self, name, value, ex=None):
         self.conn.set(
             name=name,
             value=value,
-            ex=ttl,
+            ex=ex,
         )
 
     def get(self, name):

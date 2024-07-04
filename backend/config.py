@@ -1,5 +1,6 @@
-from dotenv import load_dotenv
 import os
+from datetime import timedelta
+from dotenv import load_dotenv
 
 
 load_dotenv()
@@ -24,5 +25,5 @@ REDIS_HOST = os.getenv("REDIS_HOST")
 REDIS_PORT = int(os.getenv("REDIS_PORT"))
 REDIS_PASSWORD = os.getenv("REDIS_PASSWORD")
 
-TOKEN_TTL = 2  # 2 hours
-OLD_TOKEN_TTL = 1  # 1 hour
+TOKEN_TTL = timedelta(hours=2)  # 2 hours
+OLD_TOKEN_TTL = timedelta(hours=1)  # 1 hour

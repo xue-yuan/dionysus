@@ -12,7 +12,7 @@ from redis_helper import Redis
 
 def get(id: int, session: Session = Depends(get_session)):
     try:
-        Redis().set("TEST", 5, 100000)
+        Redis().set("TEST", 5, 10)
         return {}
         # return Cocktail.get_by_id(session, id)
     except NoResultFound as e:
