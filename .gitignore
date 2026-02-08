@@ -2,4 +2,5 @@ seed_data.json
 *.log
 .DS_Store
 tmp_api
+tmp_api_build
 .env
