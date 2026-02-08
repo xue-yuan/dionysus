@@ -62,7 +62,7 @@ type RecipeMatch struct {
 	Sweetness          int      `json:"sweetness" db:"sweetness"`
 	Sourness           int      `json:"sourness" db:"sourness"`
 	Strength           int      `json:"strength" db:"strength"`
-	Tags               []string `json:"tags,omitempty"`
+	Tags               []Tag    `json:"tags,omitempty"`
 	Glassware          string   `json:"glassware" db:"glassware"`
 	Method             string   `json:"method" db:"method"`
 }

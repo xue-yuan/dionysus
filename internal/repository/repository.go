@@ -243,14 +243,20 @@ func (r *Repository) FindMatchingRecipes(ownedIngredientIDs []string, minStrengt
 	for i, m := range matches {
 		if m.MissingCount > 0 {
 			var missingID string
-			err := r.DB.Get(&missingID, `
-				SELECT ingredient_id 
-				FROM recipe_ingredients 
-				WHERE recipe_id = $1 AND NOT (ingredient_id = ANY($2))
-			`, m.ID, (ownedIngredientIDs))
+			query := "SELECT ingredient_id FROM recipe_ingredients WHERE recipe_id = ? AND ingredient_id NOT IN (?)"
+			query, args, err := sqlx.In(query, m.ID, ownedIngredientIDs)
+			if err != nil {
+				log.Printf("Error constructing IN query for recipe %s: %v", m.ID, err)
+				continue
+			}
+			query = r.DB.Rebind(query)
 
+			err = r.DB.Get(&missingID, query, args...)
 			if err == nil {
 				matches[i].MissingIngredients = []string{missingID}
+				log.Printf("Found missing ingredient for recipe %s: %s", m.ID, missingID)
+			} else {
+				log.Printf("Error fetching missing ingredient for recipe %s: %v. Query: %s Args: %v", m.ID, err, query, args)
 			}
 		}
 	}
@@ -262,7 +268,7 @@ func (r *Repository) FindMatchingRecipes(ownedIngredientIDs []string, minStrengt
 		}
 
 		queryTags := `
-			SELECT rt.recipe_id, t.name
+			SELECT rt.recipe_id, t.id, t.name, t.type
 			FROM recipe_tags rt
 			JOIN tags t ON rt.tag_id = t.id
 			WHERE rt.recipe_id IN (?)
@@ -279,20 +285,21 @@ func (r *Repository) FindMatchingRecipes(ownedIngredientIDs []string, minStrengt
 		}
 		defer rows.Close()
 
-		tagMap := make(map[string][]string)
+		tagMap := make(map[string][]model.Tag)
 		for rows.Next() {
-			var rID, tName string
-			if err := rows.Scan(&rID, &tName); err != nil {
+			var rID string
+			var t model.Tag
+			if err := rows.Scan(&rID, &t.ID, &t.Name, &t.Type); err != nil {
 				return nil, err
 			}
-			tagMap[rID] = append(tagMap[rID], tName)
+			tagMap[rID] = append(tagMap[rID], t)
 		}
 
 		for i := range matches {
 			if tags, ok := tagMap[matches[i].ID]; ok {
 				matches[i].Tags = tags
 			} else {
-				matches[i].Tags = []string{}
+				matches[i].Tags = []model.Tag{}
 			}
 		}
 	}
