@@ -18,9 +18,9 @@ func main() {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
 
-	if err := database.Migrate("../../schema.sql"); err != nil {
+	if err := database.Migrate("schema.sql"); err != nil {
 		log.Printf("Warning: Migration failed (might be path issue if running from binary): %v", err)
-		if err := database.Migrate("schema.sql"); err != nil {
+		if err := database.Migrate("../../schema.sql"); err != nil {
 			log.Printf("Warning: Migration retry failed: %v", err)
 		}
 	}

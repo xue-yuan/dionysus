@@ -7,26 +7,29 @@ import (
 )
 
 type Ingredient struct {
-	ID       uuid.UUID `db:"id" json:"id"`
-	Name     string    `db:"name" json:"name"`
-	Category string    `db:"category" json:"category"`
+	ID             uuid.UUID `db:"id" json:"id"`
+	Name           string    `db:"name" json:"name"`
+	Category       string    `db:"category" json:"category"`
+	TranslationKey string    `db:"translation_key" json:"translation_key"`
 }
 
 type Recipe struct {
-	ID          uuid.UUID `db:"id" json:"id"`
-	Title       string    `db:"title" json:"title"`
-	Description string    `db:"description" json:"description"`
-	Glassware   string    `db:"glassware" json:"glassware"`
-	Method      string    `db:"method" json:"method"`
-	Steps       string    `db:"steps" json:"steps"`
-	ImageURL    string    `db:"image_url" json:"image_url"`
-	Sweetness   int       `db:"sweetness" json:"sweetness"`
-	Sourness    int       `db:"sourness" json:"sourness"`
-	Strength    int       `db:"strength" json:"strength"`
-	CreatedAt   time.Time `db:"created_at" json:"created_at"`
+	ID             uuid.UUID `db:"id" json:"id"`
+	Title          string    `db:"title" json:"title"`
+	Description    string    `db:"description" json:"description"`
+	Glassware      string    `db:"glassware" json:"glassware"`
+	Method         string    `db:"method" json:"method"`
+	Steps          string    `db:"steps" json:"steps"`
+	ImageURL       string    `db:"image_url" json:"image_url"`
+	Sweetness      int       `db:"sweetness" json:"sweetness"`
+	Sourness       int       `db:"sourness" json:"sourness"`
+	Strength       int       `db:"strength" json:"strength"`
+	TranslationKey string    `db:"translation_key" json:"translation_key"`
+	CreatedAt      time.Time `db:"created_at" json:"created_at"`
 
-	Ingredients []RecipeIngredientDetail `json:"ingredients,omitempty"`
-	Tags        []Tag                    `json:"tags,omitempty"`
+	Ingredients      []RecipeIngredientDetail `json:"ingredients,omitempty"`
+	Tags             []Tag                    `json:"tags,omitempty"`
+	TotalIngredients int                      `db:"total_ingredients" json:"total_ingredients"`
 }
 
 type Tag struct {
@@ -43,11 +46,12 @@ type RecipeIngredient struct {
 }
 
 type RecipeIngredientDetail struct {
-	IngredientID uuid.UUID `db:"ingredient_id" json:"ingredient_id"`
-	Name         string    `db:"name" json:"name"`
-	Category     string    `db:"category" json:"category"`
-	Amount       string    `db:"amount" json:"amount"`
-	Unit         string    `db:"unit" json:"unit"`
+	IngredientID   uuid.UUID `db:"ingredient_id" json:"ingredient_id"`
+	Name           string    `db:"name" json:"name"`
+	Category       string    `db:"category" json:"category"`
+	TranslationKey string    `db:"translation_key" json:"translation_key"`
+	Amount         string    `db:"amount" json:"amount"`
+	Unit           string    `db:"unit" json:"unit"`
 }
 
 type RecipeMatch struct {
@@ -65,4 +69,5 @@ type RecipeMatch struct {
 	Tags               []Tag    `json:"tags,omitempty"`
 	Glassware          string   `json:"glassware" db:"glassware"`
 	Method             string   `json:"method" db:"method"`
+	TranslationKey     string   `json:"translation_key" db:"translation_key"`
 }

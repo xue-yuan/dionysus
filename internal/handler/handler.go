@@ -82,6 +82,7 @@ func (h *Handler) GetRecipes(c fiber.Ctx) error {
 	page, _ := strconv.Atoi(c.Query("page", "1"))
 	limit, _ := strconv.Atoi(c.Query("limit", "12"))
 	sort := c.Query("sort", "desc")
+	search := c.Query("search", "")
 
 	if page < 1 {
 		page = 1
@@ -91,7 +92,7 @@ func (h *Handler) GetRecipes(c fiber.Ctx) error {
 	}
 	offset := (page - 1) * limit
 
-	recipes, total, err := h.Repo.GetRecipes(limit, offset, sort)
+	recipes, total, err := h.Repo.GetRecipes(limit, offset, sort, search)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Failed to fetch recipes"})
 	}
@@ -122,6 +123,7 @@ func (h *Handler) MatchCocktails(c fiber.Ctx) error {
 		OwnedIngredientIDs []string `json:"owned_ingredient_ids"`
 		MinStrength        int      `json:"min_strength"`
 		TagIDs             []string `json:"tag_ids"`
+		AllowSubstitutes   bool     `json:"allow_substitutes"`
 	}
 
 	var req MatchRequest
@@ -131,7 +133,7 @@ func (h *Handler) MatchCocktails(c fiber.Ctx) error {
 		})
 	}
 
-	matches, err := h.Repo.FindMatchingRecipes(req.OwnedIngredientIDs, req.MinStrength, req.TagIDs)
+	matches, err := h.Repo.FindMatchingRecipes(req.OwnedIngredientIDs, req.MinStrength, req.TagIDs, req.AllowSubstitutes)
 	if err != nil {
 		log.Printf("MatchCocktails Error: %v", err)
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{

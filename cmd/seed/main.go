@@ -18,8 +18,9 @@ type SeedData struct {
 }
 
 type IngredientSeed struct {
-	Name     string `json:"name"`
-	Category string `json:"category"`
+	Name           string `json:"name"`
+	Category       string `json:"category"`
+	TranslationKey string `json:"translation_key"`
 }
 
 type TagSeed struct {
@@ -34,16 +35,17 @@ type RecipeIngredientSeed struct {
 }
 
 type RecipeSeed struct {
-	Title       string                 `json:"title"`
-	Description string                 `json:"description"`
-	Glassware   string                 `json:"glassware"`
-	Method      string                 `json:"method"`
-	Steps       string                 `json:"steps"`
-	Sweetness   int                    `json:"sweetness"`
-	Sourness    int                    `json:"sourness"`
-	Strength    int                    `json:"strength"`
-	Ingredients []RecipeIngredientSeed `json:"ingredients"`
-	Tags        []string               `json:"tags"`
+	Title          string                 `json:"title"`
+	Description    string                 `json:"description"`
+	Glassware      string                 `json:"glassware"`
+	Method         string                 `json:"method"`
+	Steps          string                 `json:"steps"`
+	Sweetness      int                    `json:"sweetness"`
+	Sourness       int                    `json:"sourness"`
+	Strength       int                    `json:"strength"`
+	TranslationKey string                 `json:"translation_key"`
+	Ingredients    []RecipeIngredientSeed `json:"ingredients"`
+	Tags           []string               `json:"tags"`
 }
 
 func main() {
@@ -76,9 +78,10 @@ func seedData(db *sqlx.DB) {
 		var id string
 		err := db.Get(&id, "SELECT id FROM ingredients WHERE name = $1", ing.Name)
 		if err == nil {
+			_, _ = db.Exec(`UPDATE ingredients SET translation_key = $1 WHERE id = $2`, ing.TranslationKey, id)
 			ingMap[ing.Name] = id
 		} else {
-			err := db.QueryRow(`INSERT INTO ingredients (name, category) VALUES ($1, $2) RETURNING id`, ing.Name, ing.Category).Scan(&id)
+			err := db.QueryRow(`INSERT INTO ingredients (name, category, translation_key) VALUES ($1, $2, $3) RETURNING id`, ing.Name, ing.Category, ing.TranslationKey).Scan(&id)
 			if err != nil {
 				log.Printf("Error inserting ingredient %s: %v", ing.Name, err)
 				continue
@@ -113,13 +116,14 @@ func seedData(db *sqlx.DB) {
 
 		if err == nil {
 			log.Printf("Recipe '%s' already exists. Checking associations...", r.Title)
+			_, _ = db.Exec(`UPDATE recipes SET translation_key = $1 WHERE id = $2`, r.TranslationKey, recipeID)
 		} else {
 			err = db.QueryRow(`
-				INSERT INTO recipes (title, description, glassware, method, steps, sweetness, sourness, strength) 
-				VALUES ($1, $2, $3, $4, $5, $6, $7, $8) 
+				INSERT INTO recipes (title, description, glassware, method, steps, sweetness, sourness, strength, translation_key) 
+				VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) 
 				RETURNING id`,
 				r.Title, r.Description, r.Glassware, r.Method, r.Steps,
-				r.Sweetness, r.Sourness, r.Strength).Scan(&recipeID)
+				r.Sweetness, r.Sourness, r.Strength, r.TranslationKey).Scan(&recipeID)
 
 			if err != nil {
 				log.Printf("Error seeding recipe %s: %v", r.Title, err)

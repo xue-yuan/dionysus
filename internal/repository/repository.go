@@ -35,8 +35,8 @@ func (r *Repository) CreateRecipe(recipe *model.Recipe, ingredients []model.Reci
 	}
 	defer tx.Rollback()
 
-	query := `INSERT INTO recipes (title, description, glassware, method, steps, image_url, sweetness, sourness, strength) 
-              VALUES (:title, :description, :glassware, :method, :steps, :image_url, :sweetness, :sourness, :strength) 
+	query := `INSERT INTO recipes (title, description, glassware, method, steps, image_url, sweetness, sourness, strength)
+              VALUES (:title, :description, :glassware, :method, :steps, :image_url, :sweetness, :sourness, :strength)
               RETURNING id, created_at`
 	stmt, err := tx.PrepareNamed(query)
 	if err != nil {
@@ -67,22 +67,46 @@ func (r *Repository) CreateRecipe(recipe *model.Recipe, ingredients []model.Reci
 	return tx.Commit()
 }
 
-func (r *Repository) GetRecipes(limit, offset int, sortDirection string) ([]model.Recipe, int64, error) {
+func (r *Repository) GetRecipes(limit, offset int, sortDirection string, search string) ([]model.Recipe, int64, error) {
 	var recipes []model.Recipe
 	var total int64
-	err := r.DB.Get(&total, "SELECT COUNT(*) FROM recipes")
-	if err != nil {
-		return nil, 0, err
-	}
+	var err error
 
 	order := "DESC"
 	if sortDirection == "asc" {
 		order = "ASC"
 	}
 
-	query := `SELECT * FROM recipes ORDER BY strength ` + order + ` LIMIT $1 OFFSET $2`
+	if search != "" {
+		searchPattern := "%" + search + "%"
+		err = r.DB.Get(&total, "SELECT COUNT(*) FROM recipes WHERE title ILIKE $1 OR description ILIKE $1", searchPattern)
+		if err != nil {
+			return nil, 0, err
+		}
 
-	err = r.DB.Select(&recipes, query, limit, offset)
+		query := `
+			SELECT r.*, r.translation_key, (SELECT COUNT(*) FROM recipe_ingredients ri WHERE ri.recipe_id = r.id) as total_ingredients
+			FROM recipes r
+			WHERE r.title ILIKE $3 OR r.description ILIKE $3
+			ORDER BY r.strength ` + order + `
+			LIMIT $1 OFFSET $2`
+
+		err = r.DB.Select(&recipes, query, limit, offset, searchPattern)
+	} else {
+		err = r.DB.Get(&total, "SELECT COUNT(*) FROM recipes")
+		if err != nil {
+			return nil, 0, err
+		}
+
+		query := `
+			SELECT r.*, r.translation_key, (SELECT COUNT(*) FROM recipe_ingredients ri WHERE ri.recipe_id = r.id) as total_ingredients
+			FROM recipes r
+			ORDER BY r.strength ` + order + `
+			LIMIT $1 OFFSET $2`
+
+		err = r.DB.Select(&recipes, query, limit, offset)
+	}
+
 	if err != nil {
 		return nil, 0, err
 	}
@@ -145,7 +169,7 @@ func (r *Repository) GetRecipeWithIngredients(id uuid.UUID) (*model.Recipe, erro
 
 	var details []model.RecipeIngredientDetail
 	query := `
-		SELECT i.id as ingredient_id, i.name, i.category, ri.amount, ri.unit
+		SELECT i.id as ingredient_id, i.name, i.category, i.translation_key, ri.amount, ri.unit
 		FROM recipe_ingredients ri
 		JOIN ingredients i ON ri.ingredient_id = i.id
 		WHERE ri.recipe_id = $1
@@ -175,10 +199,65 @@ func (r *Repository) GetRecipeWithIngredients(id uuid.UUID) (*model.Recipe, erro
 	return &recipe, nil
 }
 
-func (r *Repository) FindMatchingRecipes(ownedIngredientIDs []string, minStrength int, tagIDs []string) ([]model.RecipeMatch, error) {
+func (r *Repository) FindMatchingRecipes(ownedIngredientIDs []string, minStrength int, tagIDs []string, allowSubstitutes bool) ([]model.RecipeMatch, error) {
 	if len(ownedIngredientIDs) == 0 {
 		return []model.RecipeMatch{}, nil
 	}
+
+	finalOwnedIDs := ownedIngredientIDs
+	if allowSubstitutes {
+		var allIngredients []model.Ingredient
+		err := r.DB.Select(&allIngredients, "SELECT id, name FROM ingredients")
+		if err == nil {
+			idToName := make(map[string]string)
+			nameToID := make(map[string]string)
+			for _, ing := range allIngredients {
+				idStr := ing.ID.String()
+				idToName[idStr] = ing.Name
+				nameToID[ing.Name] = idStr
+			}
+
+			equivalentGroups := [][]string{
+				{"Bourbon", "Rye Whiskey", "Irish Whiskey", "Blended Scotch Whisky", "Islay Scotch Whisky", "Japanese Whisky"},
+				{"London Dry Gin", "Navy Strength Gin", "Old Tom Gin", "Plymouth Gin"},
+				{"Light Rum", "Dark Rum", "Aged Rum", "Overproof Rum", "Spiced Rum"},
+				{"Blanco Tequila", "Reposado Tequila", "Añejo Tequila", "Mezcal"},
+				{"Cognac", "Brandy", "Apple Brandy", "Pisco"},
+				{"Cointreau", "Triple Sec", "Dry Curaçao", "Orange Curaçao", "Grand Marnier", "Blue Curaçao"},
+				{"Simple Syrup", "Demerara Syrup", "Sugar Cube", "Agave Syrup", "Honey Syrup", "Maple Syrup"},
+				{"Sweet Vermouth", "Lillet Blanc"},
+			}
+
+			ownedSet := make(map[string]bool)
+			for _, id := range ownedIngredientIDs {
+				ownedSet[id] = true
+				if name, ok := idToName[id]; ok {
+					for _, group := range equivalentGroups {
+						inGroup := false
+						for _, member := range group {
+							if member == name {
+								inGroup = true
+								break
+							}
+						}
+						if inGroup {
+							for _, member := range group {
+								if mID, ok := nameToID[member]; ok {
+									ownedSet[mID] = true
+								}
+							}
+						}
+					}
+				}
+			}
+
+			finalOwnedIDs = make([]string, 0, len(ownedSet))
+			for id := range ownedSet {
+				finalOwnedIDs = append(finalOwnedIDs, id)
+			}
+		}
+	}
+
 	query := `
 		WITH recipe_counts AS (
 			SELECT recipe_id, COUNT(*) as total_ingredients
@@ -191,9 +270,9 @@ func (r *Repository) FindMatchingRecipes(ownedIngredientIDs []string, minStrengt
 			WHERE ri.ingredient_id = ANY(:owned_ids)
 			GROUP BY ri.recipe_id
 		)
-		SELECT 
+		SELECT
 			r.id, r.title, r.description, r.image_url,
-			r.glassware, r.method,
+			r.glassware, r.method, r.translation_key,
             r.sweetness, r.sourness, r.strength,
 			rc.total_ingredients,
 			COALESCE(um.owned_count, 0) as owned_count,
@@ -205,7 +284,7 @@ func (r *Repository) FindMatchingRecipes(ownedIngredientIDs []string, minStrengt
 	`
 
 	args := map[string]interface{}{
-		"owned_ids": ownedIngredientIDs,
+		"owned_ids": finalOwnedIDs,
 	}
 
 	if minStrength > 0 {
@@ -215,8 +294,8 @@ func (r *Repository) FindMatchingRecipes(ownedIngredientIDs []string, minStrengt
 
 	if len(tagIDs) > 0 {
 		query += ` AND EXISTS (
-            SELECT 1 FROM recipe_tags rt 
-            WHERE rt.recipe_id = r.id 
+            SELECT 1 FROM recipe_tags rt
+            WHERE rt.recipe_id = r.id
             AND rt.tag_id = ANY(:tag_ids)
         )`
 		args["tag_ids"] = tagIDs
@@ -244,7 +323,7 @@ func (r *Repository) FindMatchingRecipes(ownedIngredientIDs []string, minStrengt
 		if m.MissingCount > 0 {
 			var missingID string
 			query := "SELECT ingredient_id FROM recipe_ingredients WHERE recipe_id = ? AND ingredient_id NOT IN (?)"
-			query, args, err := sqlx.In(query, m.ID, ownedIngredientIDs)
+			query, args, err := sqlx.In(query, m.ID, finalOwnedIDs)
 			if err != nil {
 				log.Printf("Error constructing IN query for recipe %s: %v", m.ID, err)
 				continue
