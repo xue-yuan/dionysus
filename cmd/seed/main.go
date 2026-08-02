@@ -1,15 +1,24 @@
 package main
 
 import (
+	"context"
+	_ "embed"
 	"encoding/json"
-	"io/ioutil"
+	"flag"
+	"fmt"
 	"log"
 	"os"
+	"time"
 
 	"github.com/jmoiron/sqlx"
 	"github.com/xue-yuan/dionysus/internal/config"
 	"github.com/xue-yuan/dionysus/internal/database"
 )
+
+// Embedded so the seeder no longer depends on being run from the server root.
+//
+//go:embed seed_data.json
+var embeddedSeed []byte
 
 type SeedData struct {
 	Ingredients []IngredientSeed `json:"ingredients"`
@@ -21,17 +30,20 @@ type IngredientSeed struct {
 	Name           string `json:"name"`
 	Category       string `json:"category"`
 	TranslationKey string `json:"translation_key"`
+	Family         string `json:"family"`
 }
 
 type TagSeed struct {
-	Name string `json:"name"`
-	Type string `json:"type"`
+	Name           string `json:"name"`
+	Type           string `json:"type"`
+	TranslationKey string `json:"translation_key"`
 }
 
 type RecipeIngredientSeed struct {
 	Name   string `json:"name"`
 	Amount string `json:"amount"`
 	Unit   string `json:"unit"`
+	Strict bool   `json:"strict"`
 }
 
 type RecipeSeed struct {
@@ -49,130 +61,136 @@ type RecipeSeed struct {
 }
 
 func main() {
-	cfg := config.Load()
-	if err := database.Connect(cfg); err != nil {
-		log.Fatalf("Failed to connect to database: %v", err)
+	file := flag.String("file", "", "read seed data from this path instead of the embedded copy")
+	flag.Parse()
+
+	raw := embeddedSeed
+	if *file != "" {
+		var err error
+		if raw, err = os.ReadFile(*file); err != nil {
+			log.Fatalf("read %s: %v", *file, err)
+		}
 	}
-
-	seedData(database.DB)
-}
-
-func seedData(db *sqlx.DB) {
-	log.Println("Starting Smart Database Seeding...")
-
-	jsonFile, err := os.Open("cmd/seed/seed_data.json")
-	if err != nil {
-		log.Fatalf("Failed to open seed_data.json: %v", err)
-	}
-	defer jsonFile.Close()
-
-	byteValue, _ := ioutil.ReadAll(jsonFile)
 
 	var data SeedData
-	if err := json.Unmarshal(byteValue, &data); err != nil {
-		log.Fatalf("Failed to parse JSON: %v", err)
+	if err := json.Unmarshal(raw, &data); err != nil {
+		log.Fatalf("parse seed data: %v", err)
 	}
 
-	ingMap := make(map[string]string)
+	cfg := config.Load()
+	db, err := database.Connect(cfg)
+	if err != nil {
+		log.Fatalf("connect to database: %v", err)
+	}
+	defer db.Close()
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
+	defer cancel()
+
+	if err := database.Migrate(ctx, db); err != nil {
+		log.Fatalf("migrate: %v", err)
+	}
+	if err := seed(ctx, db, data); err != nil {
+		log.Fatalf("seed: %v", err)
+	}
+	log.Println("seeding complete")
+}
+
+// seed upserts the whole dataset in one transaction, so a reference to a missing
+// ingredient aborts the run instead of leaving the database half-updated.
+func seed(ctx context.Context, db *sqlx.DB, data SeedData) error {
+	tx, err := db.BeginTxx(ctx, nil)
+	if err != nil {
+		return err
+	}
+	defer tx.Rollback()
+
+	ingredientIDs := make(map[string]string, len(data.Ingredients))
 	for _, ing := range data.Ingredients {
 		var id string
-		err := db.Get(&id, "SELECT id FROM ingredients WHERE name = $1", ing.Name)
-		if err == nil {
-			_, _ = db.Exec(`UPDATE ingredients SET translation_key = $1 WHERE id = $2`, ing.TranslationKey, id)
-			ingMap[ing.Name] = id
-		} else {
-			err := db.QueryRow(`INSERT INTO ingredients (name, category, translation_key) VALUES ($1, $2, $3) RETURNING id`, ing.Name, ing.Category, ing.TranslationKey).Scan(&id)
-			if err != nil {
-				log.Printf("Error inserting ingredient %s: %v", ing.Name, err)
-				continue
-			}
-			log.Printf("Inserted new ingredient: %s", ing.Name)
-			ingMap[ing.Name] = id
+		err := tx.GetContext(ctx, &id, `
+			INSERT INTO ingredients (name, category, translation_key, family)
+			VALUES ($1, $2, $3, $4)
+			ON CONFLICT (name) DO UPDATE
+			SET category = EXCLUDED.category,
+			    translation_key = EXCLUDED.translation_key,
+			    family = EXCLUDED.family
+			RETURNING id`, ing.Name, ing.Category, ing.TranslationKey, ing.Family)
+		if err != nil {
+			return fmt.Errorf("ingredient %q: %w", ing.Name, err)
 		}
+		ingredientIDs[ing.Name] = id
 	}
-	log.Printf("Processed %d ingredients.", len(data.Ingredients))
+	log.Printf("ingredients upserted: %d", len(ingredientIDs))
 
-	tagMap := make(map[string]string)
+	tagIDs := make(map[string]string, len(data.Tags))
 	for _, t := range data.Tags {
 		var id string
-		err := db.Get(&id, "SELECT id FROM tags WHERE name = $1 AND type = $2", t.Name, t.Type)
-		if err == nil {
-			tagMap[t.Name] = id
-		} else {
-			err := db.QueryRow(`INSERT INTO tags (name, type) VALUES ($1, $2) RETURNING id`, t.Name, t.Type).Scan(&id)
-			if err != nil {
-				log.Printf("Error inserting tag %s: %v", t.Name, err)
-				continue
-			}
-			log.Printf("Inserted new tag: %s", t.Name)
-			tagMap[t.Name] = id
+		err := tx.GetContext(ctx, &id, `
+			INSERT INTO tags (name, type, translation_key)
+			VALUES ($1, $2, $3)
+			ON CONFLICT (name) DO UPDATE
+			SET type = EXCLUDED.type, translation_key = EXCLUDED.translation_key
+			RETURNING id`, t.Name, t.Type, t.TranslationKey)
+		if err != nil {
+			return fmt.Errorf("tag %q: %w", t.Name, err)
 		}
+		tagIDs[t.Name] = id
 	}
-	log.Printf("Processed %d tags.", len(data.Tags))
+	log.Printf("tags upserted: %d", len(tagIDs))
 
 	for _, r := range data.Recipes {
 		var recipeID string
-		err := db.Get(&recipeID, "SELECT id FROM recipes WHERE title = $1", r.Title)
-
-		if err == nil {
-			log.Printf("Recipe '%s' already exists. Checking associations...", r.Title)
-			_, _ = db.Exec(`UPDATE recipes SET translation_key = $1 WHERE id = $2`, r.TranslationKey, recipeID)
-		} else {
-			err = db.QueryRow(`
-				INSERT INTO recipes (title, description, glassware, method, steps, sweetness, sourness, strength, translation_key) 
-				VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) 
-				RETURNING id`,
-				r.Title, r.Description, r.Glassware, r.Method, r.Steps,
-				r.Sweetness, r.Sourness, r.Strength, r.TranslationKey).Scan(&recipeID)
-
-			if err != nil {
-				log.Printf("Error seeding recipe %s: %v", r.Title, err)
-				continue
-			}
-			log.Printf("Inserted new recipe: %s", r.Title)
+		err := tx.GetContext(ctx, &recipeID, `
+			INSERT INTO recipes (title, description, glassware, method, steps,
+			                     sweetness, sourness, strength, translation_key)
+			VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+			ON CONFLICT (title) DO UPDATE
+			SET description = EXCLUDED.description,
+			    glassware = EXCLUDED.glassware,
+			    method = EXCLUDED.method,
+			    steps = EXCLUDED.steps,
+			    sweetness = EXCLUDED.sweetness,
+			    sourness = EXCLUDED.sourness,
+			    strength = EXCLUDED.strength,
+			    translation_key = EXCLUDED.translation_key
+			RETURNING id`,
+			r.Title, r.Description, r.Glassware, r.Method, r.Steps,
+			r.Sweetness, r.Sourness, r.Strength, r.TranslationKey)
+		if err != nil {
+			return fmt.Errorf("recipe %q: %w", r.Title, err)
 		}
 
 		for _, ri := range r.Ingredients {
-			ingID, ok := ingMap[ri.Name]
+			id, ok := ingredientIDs[ri.Name]
 			if !ok {
-				err := db.Get(&ingID, "SELECT id FROM ingredients WHERE name=$1", ri.Name)
-				if err != nil {
-					log.Printf("WARNING: Missing ingredient '%s' for recipe '%s'. Skipping.", ri.Name, r.Title)
-					continue
-				}
+				return fmt.Errorf("recipe %q references unknown ingredient %q", r.Title, ri.Name)
 			}
-			_, err = db.Exec(`
-				INSERT INTO recipe_ingredients (recipe_id, ingredient_id, amount, unit) 
-				VALUES ($1, $2, $3, $4)
-				ON CONFLICT (recipe_id, ingredient_id) DO UPDATE 
-				SET amount = EXCLUDED.amount, unit = EXCLUDED.unit`,
-				recipeID, ingID, ri.Amount, ri.Unit)
-
+			_, err = tx.ExecContext(ctx, `
+				INSERT INTO recipe_ingredients (recipe_id, ingredient_id, amount, unit, strict)
+				VALUES ($1, $2, $3, $4, $5)
+				ON CONFLICT (recipe_id, ingredient_id) DO UPDATE
+				SET amount = EXCLUDED.amount, unit = EXCLUDED.unit, strict = EXCLUDED.strict`,
+				recipeID, id, ri.Amount, ri.Unit, ri.Strict)
 			if err != nil {
-				log.Printf("Error linking ingredient %s to %s: %v", ri.Name, r.Title, err)
+				return fmt.Errorf("recipe %q ingredient %q: %w", r.Title, ri.Name, err)
 			}
 		}
 
-		for _, t := range r.Tags {
-			tagID, ok := tagMap[t]
+		for _, name := range r.Tags {
+			id, ok := tagIDs[name]
 			if !ok {
-				err := db.Get(&tagID, "SELECT id FROM tags WHERE name=$1", t)
-				if err != nil {
-					log.Printf("WARNING: Missing tag '%s' for recipe '%s'. Skipping.", t, r.Title)
-					continue
-				}
+				return fmt.Errorf("recipe %q references unknown tag %q", r.Title, name)
 			}
-			_, err = db.Exec(`
-				INSERT INTO recipe_tags (recipe_id, tag_id) 
-				VALUES ($1, $2)
-				ON CONFLICT (recipe_id, tag_id) DO NOTHING`,
-				recipeID, tagID)
-
+			_, err = tx.ExecContext(ctx, `
+				INSERT INTO recipe_tags (recipe_id, tag_id) VALUES ($1, $2)
+				ON CONFLICT (recipe_id, tag_id) DO NOTHING`, recipeID, id)
 			if err != nil {
-				log.Printf("Error linking tag %s to %s: %v", t, r.Title, err)
+				return fmt.Errorf("recipe %q tag %q: %w", r.Title, name, err)
 			}
 		}
 	}
+	log.Printf("recipes upserted: %d", len(data.Recipes))
 
-	log.Printf("Seeding check complete.")
+	return tx.Commit()
 }

@@ -1,4 +1,5 @@
-seed_data.json
+# seed_data.json is deliberately tracked: it is the content of the app, and
+# losing it means losing every recipe.
 *.log
 .DS_Store
 tmp_api

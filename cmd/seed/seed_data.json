@@ -1,0 +1,6012 @@
+{
+  "ingredients": [
+    {
+      "name": "Vodka",
+      "category": "Spirit",
+      "translation_key": "ingredient.vodka",
+      "family": "Vodka"
+    },
+    {
+      "name": "London Dry Gin",
+      "category": "Spirit",
+      "translation_key": "ingredient.london_dry_gin",
+      "family": "Gin"
+    },
+    {
+      "name": "Old Tom Gin",
+      "category": "Spirit",
+      "translation_key": "ingredient.old_tom_gin",
+      "family": "Gin"
+    },
+    {
+      "name": "Plymouth Gin",
+      "category": "Spirit",
+      "translation_key": "ingredient.plymouth_gin",
+      "family": "Gin"
+    },
+    {
+      "name": "Navy Strength Gin",
+      "category": "Spirit",
+      "translation_key": "ingredient.navy_strength_gin",
+      "family": "Gin"
+    },
+    {
+      "name": "Blanco Tequila",
+      "category": "Spirit",
+      "translation_key": "ingredient.blanco_tequila",
+      "family": "Agave"
+    },
+    {
+      "name": "Reposado Tequila",
+      "category": "Spirit",
+      "translation_key": "ingredient.reposado_tequila",
+      "family": "Agave"
+    },
+    {
+      "name": "Añejo Tequila",
+      "category": "Spirit",
+      "translation_key": "ingredient.a_ejo_tequila",
+      "family": "Agave"
+    },
+    {
+      "name": "Mezcal",
+      "category": "Spirit",
+      "translation_key": "ingredient.mezcal",
+      "family": "Agave"
+    },
+    {
+      "name": "Light Rum",
+      "category": "Spirit",
+      "translation_key": "ingredient.light_rum",
+      "family": "Rum"
+    },
+    {
+      "name": "Dark Rum",
+      "category": "Spirit",
+      "translation_key": "ingredient.dark_rum",
+      "family": "Rum"
+    },
+    {
+      "name": "Aged Rum",
+      "category": "Spirit",
+      "translation_key": "ingredient.aged_rum",
+      "family": "Rum"
+    },
+    {
+      "name": "Overproof Rum",
+      "category": "Spirit",
+      "translation_key": "ingredient.overproof_rum",
+      "family": "Rum"
+    },
+    {
+      "name": "Spiced Rum",
+      "category": "Spirit",
+      "translation_key": "ingredient.spiced_rum",
+      "family": "Rum"
+    },
+    {
+      "name": "Cachaça",
+      "category": "Spirit",
+      "translation_key": "ingredient.cacha_a",
+      "family": ""
+    },
+    {
+      "name": "Bourbon",
+      "category": "Spirit",
+      "translation_key": "ingredient.bourbon",
+      "family": "Whiskey"
+    },
+    {
+      "name": "Rye Whiskey",
+      "category": "Spirit",
+      "translation_key": "ingredient.rye_whiskey",
+      "family": "Whiskey"
+    },
+    {
+      "name": "Irish Whiskey",
+      "category": "Spirit",
+      "translation_key": "ingredient.irish_whiskey",
+      "family": "Whiskey"
+    },
+    {
+      "name": "Blended Scotch Whisky",
+      "category": "Spirit",
+      "translation_key": "ingredient.blended_scotch_whisky",
+      "family": "Whiskey"
+    },
+    {
+      "name": "Islay Scotch Whisky",
+      "category": "Spirit",
+      "translation_key": "ingredient.islay_scotch_whisky",
+      "family": "Whiskey"
+    },
+    {
+      "name": "Japanese Whisky",
+      "category": "Spirit",
+      "translation_key": "ingredient.japanese_whisky",
+      "family": "Whiskey"
+    },
+    {
+      "name": "Cognac",
+      "category": "Spirit",
+      "translation_key": "ingredient.cognac",
+      "family": "Brandy"
+    },
+    {
+      "name": "Pisco",
+      "category": "Spirit",
+      "translation_key": "ingredient.pisco",
+      "family": ""
+    },
+    {
+      "name": "Brandy",
+      "category": "Spirit",
+      "translation_key": "ingredient.brandy",
+      "family": "Brandy"
+    },
+    {
+      "name": "Absinthe",
+      "category": "Spirit",
+      "translation_key": "ingredient.absinthe",
+      "family": ""
+    },
+    {
+      "name": "Apple Brandy",
+      "category": "Spirit",
+      "translation_key": "ingredient.apple_brandy",
+      "family": ""
+    },
+    {
+      "name": "Sweet Vermouth",
+      "category": "Liqueur",
+      "translation_key": "ingredient.sweet_vermouth",
+      "family": ""
+    },
+    {
+      "name": "Dry Vermouth",
+      "category": "Liqueur",
+      "translation_key": "ingredient.dry_vermouth",
+      "family": ""
+    },
+    {
+      "name": "Lillet Blanc",
+      "category": "Liqueur",
+      "translation_key": "ingredient.lillet_blanc",
+      "family": "Blanc Aperitif"
+    },
+    {
+      "name": "Campari",
+      "category": "Liqueur",
+      "translation_key": "ingredient.campari",
+      "family": ""
+    },
+    {
+      "name": "Aperol",
+      "category": "Liqueur",
+      "translation_key": "ingredient.aperol",
+      "family": ""
+    },
+    {
+      "name": "Cynar",
+      "category": "Liqueur",
+      "translation_key": "ingredient.cynar",
+      "family": ""
+    },
+    {
+      "name": "Fernet-Branca",
+      "category": "Liqueur",
+      "translation_key": "ingredient.fernet_branca",
+      "family": ""
+    },
+    {
+      "name": "Amaro Nonino",
+      "category": "Liqueur",
+      "translation_key": "ingredient.amaro_nonino",
+      "family": ""
+    },
+    {
+      "name": "Amaro Montenegro",
+      "category": "Liqueur",
+      "translation_key": "ingredient.amaro_montenegro",
+      "family": ""
+    },
+    {
+      "name": "Green Chartreuse",
+      "category": "Liqueur",
+      "translation_key": "ingredient.green_chartreuse",
+      "family": ""
+    },
+    {
+      "name": "Yellow Chartreuse",
+      "category": "Liqueur",
+      "translation_key": "ingredient.yellow_chartreuse",
+      "family": ""
+    },
+    {
+      "name": "Benedictine",
+      "category": "Liqueur",
+      "translation_key": "ingredient.benedictine",
+      "family": ""
+    },
+    {
+      "name": "Suze",
+      "category": "Liqueur",
+      "translation_key": "ingredient.suze",
+      "family": ""
+    },
+    {
+      "name": "Maraschino Liqueur",
+      "category": "Liqueur",
+      "translation_key": "ingredient.maraschino_liqueur",
+      "family": ""
+    },
+    {
+      "name": "Cointreau",
+      "category": "Liqueur",
+      "translation_key": "ingredient.cointreau",
+      "family": "Orange Liqueur"
+    },
+    {
+      "name": "Grand Marnier",
+      "category": "Liqueur",
+      "translation_key": "ingredient.grand_marnier",
+      "family": "Orange Liqueur"
+    },
+    {
+      "name": "Dry Curaçao",
+      "category": "Liqueur",
+      "translation_key": "ingredient.dry_cura_ao",
+      "family": "Orange Liqueur"
+    },
+    {
+      "name": "Coffee Liqueur",
+      "category": "Liqueur",
+      "translation_key": "ingredient.coffee_liqueur",
+      "family": ""
+    },
+    {
+      "name": "Amaretto",
+      "category": "Liqueur",
+      "translation_key": "ingredient.amaretto",
+      "family": ""
+    },
+    {
+      "name": "St. Germain",
+      "category": "Liqueur",
+      "translation_key": "ingredient.st_germain",
+      "family": ""
+    },
+    {
+      "name": "Crème de Cassis",
+      "category": "Liqueur",
+      "translation_key": "ingredient.cr_me_de_cassis",
+      "family": ""
+    },
+    {
+      "name": "Crème de Violette",
+      "category": "Liqueur",
+      "translation_key": "ingredient.cr_me_de_violette",
+      "family": ""
+    },
+    {
+      "name": "Chambord",
+      "category": "Liqueur",
+      "translation_key": "ingredient.chambord",
+      "family": ""
+    },
+    {
+      "name": "Drambuie",
+      "category": "Liqueur",
+      "translation_key": "ingredient.drambuie",
+      "family": ""
+    },
+    {
+      "name": "Galliano",
+      "category": "Liqueur",
+      "translation_key": "ingredient.galliano",
+      "family": ""
+    },
+    {
+      "name": "Peach Schnapps",
+      "category": "Liqueur",
+      "translation_key": "ingredient.peach_schnapps",
+      "family": ""
+    },
+    {
+      "name": "Limoncello",
+      "category": "Liqueur",
+      "translation_key": "ingredient.limoncello",
+      "family": ""
+    },
+    {
+      "name": "Falernum",
+      "category": "Liqueur",
+      "translation_key": "ingredient.falernum",
+      "family": ""
+    },
+    {
+      "name": "Allspice Dram",
+      "category": "Liqueur",
+      "translation_key": "ingredient.allspice_dram",
+      "family": ""
+    },
+    {
+      "name": "Simple Syrup",
+      "category": "Syrup",
+      "translation_key": "ingredient.simple_syrup",
+      "family": "Sweetener"
+    },
+    {
+      "name": "Demerara Syrup",
+      "category": "Syrup",
+      "translation_key": "ingredient.demerara_syrup",
+      "family": "Sweetener"
+    },
+    {
+      "name": "Honey Syrup",
+      "category": "Syrup",
+      "translation_key": "ingredient.honey_syrup",
+      "family": "Sweetener"
+    },
+    {
+      "name": "Agave Syrup",
+      "category": "Syrup",
+      "translation_key": "ingredient.agave_syrup",
+      "family": "Sweetener"
+    },
+    {
+      "name": "Grenadine",
+      "category": "Syrup",
+      "translation_key": "ingredient.grenadine",
+      "family": ""
+    },
+    {
+      "name": "Orgeat",
+      "category": "Syrup",
+      "translation_key": "ingredient.orgeat",
+      "family": ""
+    },
+    {
+      "name": "Ginger Syrup",
+      "category": "Syrup",
+      "translation_key": "ingredient.ginger_syrup",
+      "family": ""
+    },
+    {
+      "name": "Cinnamon Syrup",
+      "category": "Syrup",
+      "translation_key": "ingredient.cinnamon_syrup",
+      "family": ""
+    },
+    {
+      "name": "Vanilla Syrup",
+      "category": "Syrup",
+      "translation_key": "ingredient.vanilla_syrup",
+      "family": ""
+    },
+    {
+      "name": "Passion Fruit Syrup",
+      "category": "Syrup",
+      "translation_key": "ingredient.passion_fruit_syrup",
+      "family": ""
+    },
+    {
+      "name": "Maple Syrup",
+      "category": "Syrup",
+      "translation_key": "ingredient.maple_syrup",
+      "family": "Sweetener"
+    },
+    {
+      "name": "Sugar Cube",
+      "category": "Syrup",
+      "translation_key": "ingredient.sugar_cube",
+      "family": "Sweetener"
+    },
+    {
+      "name": "Fresh Lemon Juice",
+      "category": "Mixer",
+      "translation_key": "ingredient.fresh_lemon_juice",
+      "family": ""
+    },
+    {
+      "name": "Fresh Lime Juice",
+      "category": "Mixer",
+      "translation_key": "ingredient.fresh_lime_juice",
+      "family": ""
+    },
+    {
+      "name": "Fresh Orange Juice",
+      "category": "Mixer",
+      "translation_key": "ingredient.fresh_orange_juice",
+      "family": ""
+    },
+    {
+      "name": "Fresh Grapefruit Juice",
+      "category": "Mixer",
+      "translation_key": "ingredient.fresh_grapefruit_juice",
+      "family": ""
+    },
+    {
+      "name": "Pineapple Juice",
+      "category": "Mixer",
+      "translation_key": "ingredient.pineapple_juice",
+      "family": ""
+    },
+    {
+      "name": "Cranberry Juice",
+      "category": "Mixer",
+      "translation_key": "ingredient.cranberry_juice",
+      "family": ""
+    },
+    {
+      "name": "Tomato Juice",
+      "category": "Mixer",
+      "translation_key": "ingredient.tomato_juice",
+      "family": ""
+    },
+    {
+      "name": "Soda Water",
+      "category": "Mixer",
+      "translation_key": "ingredient.soda_water",
+      "family": ""
+    },
+    {
+      "name": "Tonic Water",
+      "category": "Mixer",
+      "translation_key": "ingredient.tonic_water",
+      "family": ""
+    },
+    {
+      "name": "Ginger Beer",
+      "category": "Mixer",
+      "translation_key": "ingredient.ginger_beer",
+      "family": ""
+    },
+    {
+      "name": "Ginger Ale",
+      "category": "Mixer",
+      "translation_key": "ingredient.ginger_ale",
+      "family": ""
+    },
+    {
+      "name": "Cola",
+      "category": "Mixer",
+      "translation_key": "ingredient.cola",
+      "family": ""
+    },
+    {
+      "name": "Sprite",
+      "category": "Mixer",
+      "translation_key": "ingredient.sprite",
+      "family": ""
+    },
+    {
+      "name": "Egg White",
+      "category": "Mixer",
+      "translation_key": "ingredient.egg_white",
+      "family": ""
+    },
+    {
+      "name": "Heavy Cream",
+      "category": "Mixer",
+      "translation_key": "ingredient.heavy_cream",
+      "family": ""
+    },
+    {
+      "name": "Coconut Cream",
+      "category": "Mixer",
+      "translation_key": "ingredient.coconut_cream",
+      "family": ""
+    },
+    {
+      "name": "Milk",
+      "category": "Mixer",
+      "translation_key": "ingredient.milk",
+      "family": ""
+    },
+    {
+      "name": "Espresso",
+      "category": "Mixer",
+      "translation_key": "ingredient.espresso",
+      "family": ""
+    },
+    {
+      "name": "Hot Coffee",
+      "category": "Mixer",
+      "translation_key": "ingredient.hot_coffee",
+      "family": ""
+    },
+    {
+      "name": "Angostura Bitters",
+      "category": "Bitters",
+      "translation_key": "ingredient.angostura_bitters",
+      "family": ""
+    },
+    {
+      "name": "Orange Bitters",
+      "category": "Bitters",
+      "translation_key": "ingredient.orange_bitters",
+      "family": ""
+    },
+    {
+      "name": "Peychaud's Bitters",
+      "category": "Bitters",
+      "translation_key": "ingredient.peychauds_bitters",
+      "family": ""
+    },
+    {
+      "name": "Chocolate Bitters",
+      "category": "Bitters",
+      "translation_key": "ingredient.chocolate_bitters",
+      "family": ""
+    },
+    {
+      "name": "Grapefruit Bitters",
+      "category": "Bitters",
+      "translation_key": "ingredient.grapefruit_bitters",
+      "family": ""
+    },
+    {
+      "name": "Celery Bitters",
+      "category": "Bitters",
+      "translation_key": "ingredient.celery_bitters",
+      "family": ""
+    },
+    {
+      "name": "Black Walnut Bitters",
+      "category": "Bitters",
+      "translation_key": "ingredient.black_walnut_bitters",
+      "family": ""
+    },
+    {
+      "name": "Lemon Twist",
+      "category": "Garnish",
+      "translation_key": "ingredient.lemon_twist",
+      "family": ""
+    },
+    {
+      "name": "Orange Twist",
+      "category": "Garnish",
+      "translation_key": "ingredient.orange_twist",
+      "family": ""
+    },
+    {
+      "name": "Lime Twist",
+      "category": "Garnish",
+      "translation_key": "ingredient.lime_twist",
+      "family": ""
+    },
+    {
+      "name": "Grapefruit Twist",
+      "category": "Garnish",
+      "translation_key": "ingredient.grapefruit_twist",
+      "family": ""
+    },
+    {
+      "name": "Lemon Wedge",
+      "category": "Garnish",
+      "translation_key": "ingredient.lemon_wedge",
+      "family": ""
+    },
+    {
+      "name": "Lime Wedge",
+      "category": "Garnish",
+      "translation_key": "ingredient.lime_wedge",
+      "family": ""
+    },
+    {
+      "name": "Orange Slice",
+      "category": "Garnish",
+      "translation_key": "ingredient.orange_slice",
+      "family": ""
+    },
+    {
+      "name": "Maraschino Cherry",
+      "category": "Garnish",
+      "translation_key": "ingredient.maraschino_cherry",
+      "family": ""
+    },
+    {
+      "name": "Luxardo Cherry",
+      "category": "Garnish",
+      "translation_key": "ingredient.luxardo_cherry",
+      "family": ""
+    },
+    {
+      "name": "Brandied Cherry",
+      "category": "Garnish",
+      "translation_key": "ingredient.brandied_cherry",
+      "family": ""
+    },
+    {
+      "name": "Olive",
+      "category": "Garnish",
+      "translation_key": "ingredient.olive",
+      "family": ""
+    },
+    {
+      "name": "Cocktail Onion",
+      "category": "Garnish",
+      "translation_key": "ingredient.cocktail_onion",
+      "family": ""
+    },
+    {
+      "name": "Fresh Mint",
+      "category": "Garnish",
+      "translation_key": "ingredient.fresh_mint",
+      "family": ""
+    },
+    {
+      "name": "Basil Leaf",
+      "category": "Garnish",
+      "translation_key": "ingredient.basil_leaf",
+      "family": ""
+    },
+    {
+      "name": "Rosemary Sprig",
+      "category": "Garnish",
+      "translation_key": "ingredient.rosemary_sprig",
+      "family": ""
+    },
+    {
+      "name": "Cucumber Slice",
+      "category": "Garnish",
+      "translation_key": "ingredient.cucumber_slice",
+      "family": ""
+    },
+    {
+      "name": "Celery Stalk",
+      "category": "Garnish",
+      "translation_key": "ingredient.celery_stalk",
+      "family": ""
+    },
+    {
+      "name": "Cinnamon Stick",
+      "category": "Garnish",
+      "translation_key": "ingredient.cinnamon_stick",
+      "family": ""
+    },
+    {
+      "name": "Grated Nutmeg",
+      "category": "Garnish",
+      "translation_key": "ingredient.grated_nutmeg",
+      "family": ""
+    },
+    {
+      "name": "Salt",
+      "category": "Garnish",
+      "translation_key": "ingredient.salt",
+      "family": ""
+    },
+    {
+      "name": "Sugar",
+      "category": "Garnish",
+      "translation_key": "ingredient.sugar",
+      "family": ""
+    },
+    {
+      "name": "Tajin",
+      "category": "Garnish",
+      "translation_key": "ingredient.tajin",
+      "family": ""
+    },
+    {
+      "name": "Cherry Heering",
+      "category": "Liqueur",
+      "translation_key": "ingredient.cherry_heering",
+      "family": ""
+    },
+    {
+      "name": "Crème de Mûre",
+      "category": "Liqueur",
+      "translation_key": "ingredient.cr_me_de_m_re",
+      "family": ""
+    },
+    {
+      "name": "Orange Flower Water",
+      "category": "Mixer",
+      "translation_key": "ingredient.orange_flower_water",
+      "family": ""
+    },
+    {
+      "name": "Orange Marmalade",
+      "category": "Mixer",
+      "translation_key": "ingredient.orange_marmalade",
+      "family": ""
+    },
+    {
+      "name": "Raspberry Syrup",
+      "category": "Syrup",
+      "translation_key": "ingredient.raspberry_syrup",
+      "family": ""
+    },
+    {
+      "name": "Grapefruit Soda",
+      "category": "Mixer",
+      "translation_key": "ingredient.grapefruit_soda",
+      "family": ""
+    },
+    {
+      "name": "Fresh Raspberries",
+      "category": "Garnish",
+      "translation_key": "ingredient.fresh_raspberries",
+      "family": ""
+    },
+    {
+      "name": "Fresh Blackberries",
+      "category": "Garnish",
+      "translation_key": "ingredient.fresh_blackberries",
+      "family": ""
+    },
+    {
+      "name": "Candied Ginger",
+      "category": "Garnish",
+      "translation_key": "ingredient.candied_ginger",
+      "family": ""
+    },
+    {
+      "name": "Prosecco",
+      "category": "Mixer",
+      "translation_key": "ingredient.prosecco",
+      "family": ""
+    },
+    {
+      "name": "Champagne",
+      "category": "Mixer",
+      "translation_key": "ingredient.champagne",
+      "family": ""
+    },
+    {
+      "name": "Fino Sherry",
+      "category": "Liqueur",
+      "translation_key": "ingredient.fino_sherry",
+      "family": ""
+    },
+    {
+      "name": "Red Wine",
+      "category": "Mixer",
+      "translation_key": "ingredient.red_wine",
+      "family": ""
+    },
+    {
+      "name": "Fresh Grapes",
+      "category": "Garnish",
+      "translation_key": "ingredient.fresh_grapes",
+      "family": ""
+    },
+    {
+      "name": "Amer Picon",
+      "category": "Liqueur",
+      "translation_key": "ingredient.amer_picon",
+      "family": ""
+    },
+    {
+      "name": "Mole Bitters",
+      "category": "Bitters",
+      "translation_key": "ingredient.mole_bitters",
+      "family": ""
+    },
+    {
+      "name": "White Peach Puree",
+      "category": "Mixer",
+      "translation_key": "ingredient.white_peach_puree",
+      "family": ""
+    },
+    {
+      "name": "Vodka Citron",
+      "category": "Spirit",
+      "translation_key": "ingredient.vodka_citron",
+      "family": "Vodka"
+    },
+    {
+      "name": "White Crème de Cacao",
+      "category": "Liqueur",
+      "translation_key": "ingredient.white_cr_me_de_cacao",
+      "family": ""
+    },
+    {
+      "name": "Orange Curaçao",
+      "category": "Liqueur",
+      "translation_key": "ingredient.orange_cura_ao",
+      "family": "Orange Liqueur"
+    },
+    {
+      "name": "Green Crème de Menthe",
+      "category": "Liqueur",
+      "translation_key": "ingredient.green_cr_me_de_menthe",
+      "family": ""
+    },
+    {
+      "name": "Dark Crème de Cacao",
+      "category": "Liqueur",
+      "translation_key": "ingredient.dark_cr_me_de_cacao",
+      "family": ""
+    },
+    {
+      "name": "Sloe Gin",
+      "category": "Liqueur",
+      "translation_key": "ingredient.sloe_gin",
+      "family": ""
+    },
+    {
+      "name": "Raspberry Liqueur",
+      "category": "Liqueur",
+      "translation_key": "ingredient.raspberry_liqueur",
+      "family": ""
+    },
+    {
+      "name": "Worcestershire Sauce",
+      "category": "Mixer",
+      "translation_key": "ingredient.worcestershire_sauce",
+      "family": ""
+    },
+    {
+      "name": "Tabasco",
+      "category": "Mixer",
+      "translation_key": "ingredient.tabasco",
+      "family": ""
+    },
+    {
+      "name": "Celery Salt",
+      "category": "Garnish",
+      "translation_key": "ingredient.celery_salt",
+      "family": ""
+    },
+    {
+      "name": "Black Pepper",
+      "category": "Garnish",
+      "translation_key": "ingredient.black_pepper",
+      "family": ""
+    },
+    {
+      "name": "Celery",
+      "category": "Garnish",
+      "translation_key": "ingredient.celery",
+      "family": ""
+    },
+    {
+      "name": "Coca-Cola",
+      "category": "Mixer",
+      "translation_key": "ingredient.coca_cola",
+      "family": ""
+    },
+    {
+      "name": "Demerara Sugar",
+      "category": "Syrup",
+      "translation_key": "ingredient.demerara_sugar",
+      "family": ""
+    },
+    {
+      "name": "Fresh Basil",
+      "category": "Garnish",
+      "translation_key": "ingredient.fresh_basil",
+      "family": ""
+    },
+    {
+      "name": "Pickled Pearl Onion",
+      "category": "Garnish",
+      "translation_key": "ingredient.pickled_pearl_onion",
+      "family": ""
+    },
+    {
+      "name": "Olive Brine",
+      "category": "Mixer",
+      "translation_key": "ingredient.olive_brine",
+      "family": ""
+    },
+    {
+      "name": "Green Olive",
+      "category": "Garnish",
+      "translation_key": "ingredient.green_olive",
+      "family": ""
+    },
+    {
+      "name": "Blanc Vermouth",
+      "category": "Liqueur",
+      "translation_key": "ingredient.blanc_vermouth",
+      "family": "Blanc Aperitif"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Shaker",
+      "type": "Equipment",
+      "translation_key": "tag.shaker"
+    },
+    {
+      "name": "Mixing Glass",
+      "type": "Equipment",
+      "translation_key": "tag.mixing_glass"
+    },
+    {
+      "name": "Bar Spoon",
+      "type": "Equipment",
+      "translation_key": "tag.bar_spoon"
+    },
+    {
+      "name": "Hawthorne Strainer",
+      "type": "Equipment",
+      "translation_key": "tag.hawthorne_strainer"
+    },
+    {
+      "name": "Julep Strainer",
+      "type": "Equipment",
+      "translation_key": "tag.julep_strainer"
+    },
+    {
+      "name": "Fine Strainer",
+      "type": "Equipment",
+      "translation_key": "tag.fine_strainer"
+    },
+    {
+      "name": "Muddler",
+      "type": "Equipment",
+      "translation_key": "tag.muddler"
+    },
+    {
+      "name": "Jigger",
+      "type": "Equipment",
+      "translation_key": "tag.jigger"
+    },
+    {
+      "name": "Citrus Press",
+      "type": "Equipment",
+      "translation_key": "tag.citrus_press"
+    },
+    {
+      "name": "Peeler",
+      "type": "Equipment",
+      "translation_key": "tag.peeler"
+    },
+    {
+      "name": "Blender",
+      "type": "Equipment",
+      "translation_key": "tag.blender"
+    },
+    {
+      "name": "Smoker",
+      "type": "Equipment",
+      "translation_key": "tag.smoker"
+    },
+    {
+      "name": "Spirit-Forward",
+      "type": "Palate",
+      "translation_key": "tag.spirit_forward"
+    },
+    {
+      "name": "Sour",
+      "type": "Palate",
+      "translation_key": "tag.sour"
+    },
+    {
+      "name": "Sweet",
+      "type": "Palate",
+      "translation_key": "tag.sweet"
+    },
+    {
+      "name": "Bitter",
+      "type": "Palate",
+      "translation_key": "tag.bitter"
+    },
+    {
+      "name": "Herbal",
+      "type": "Palate",
+      "translation_key": "tag.herbal"
+    },
+    {
+      "name": "Floral",
+      "type": "Palate",
+      "translation_key": "tag.floral"
+    },
+    {
+      "name": "Fruity",
+      "type": "Palate",
+      "translation_key": "tag.fruity"
+    },
+    {
+      "name": "Spicy",
+      "type": "Palate",
+      "translation_key": "tag.spicy"
+    },
+    {
+      "name": "Smoky",
+      "type": "Palate",
+      "translation_key": "tag.smoky"
+    },
+    {
+      "name": "Creamy",
+      "type": "Palate",
+      "translation_key": "tag.creamy"
+    },
+    {
+      "name": "Fizzy",
+      "type": "Palate",
+      "translation_key": "tag.fizzy"
+    },
+    {
+      "name": "Dry",
+      "type": "Palate",
+      "translation_key": "tag.dry"
+    },
+    {
+      "name": "Refreshing",
+      "type": "Palate",
+      "translation_key": "tag.refreshing"
+    },
+    {
+      "name": "Complex",
+      "type": "Palate",
+      "translation_key": "tag.complex"
+    },
+    {
+      "name": "Savory",
+      "type": "Palate",
+      "translation_key": "tag.savory"
+    },
+    {
+      "name": "Nutty",
+      "type": "Palate",
+      "translation_key": "tag.nutty"
+    },
+    {
+      "name": "Tropical",
+      "type": "Palate",
+      "translation_key": "tag.tropical"
+    },
+    {
+      "name": "Citrusy",
+      "type": "Palate",
+      "translation_key": "tag.citrusy"
+    },
+    {
+      "name": "Boozy",
+      "type": "Palate",
+      "translation_key": "tag.boozy"
+    },
+    {
+      "name": "Low-ABV",
+      "type": "Palate",
+      "translation_key": "tag.low_abv"
+    },
+    {
+      "name": "Booster",
+      "type": "Palate",
+      "translation_key": "tag.booster"
+    },
+    {
+      "name": "Energizing",
+      "type": "Palate",
+      "translation_key": "tag.energizing"
+    },
+    {
+      "name": "Bittersweet",
+      "type": "Palate",
+      "translation_key": "tag.bittersweet"
+    },
+    {
+      "name": "Earthy",
+      "type": "Palate",
+      "translation_key": "tag.earthy"
+    },
+    {
+      "name": "Classic",
+      "type": "Palate",
+      "translation_key": "tag.classic"
+    },
+    {
+      "name": "Celebratory",
+      "type": "Palate",
+      "translation_key": "tag.celebratory"
+    },
+    {
+      "name": "Highball",
+      "type": "Palate",
+      "translation_key": "tag.highball"
+    },
+    {
+      "name": "Rustic",
+      "type": "Palate",
+      "translation_key": "tag.rustic"
+    },
+    {
+      "name": "Deep",
+      "type": "Palate",
+      "translation_key": "tag.deep"
+    },
+    {
+      "name": "Strong",
+      "type": "Palate",
+      "translation_key": "tag.strong"
+    },
+    {
+      "name": "Brunch",
+      "type": "Palate",
+      "translation_key": "tag.brunch"
+    },
+    {
+      "name": "Modern Classic",
+      "type": "Palate",
+      "translation_key": "tag.modern_classic"
+    },
+    {
+      "name": "Dessert",
+      "type": "Palate",
+      "translation_key": "tag.dessert"
+    },
+    {
+      "name": "Tiki",
+      "type": "Palate",
+      "translation_key": "tag.tiki"
+    },
+    {
+      "name": "Party Drink",
+      "type": "Palate",
+      "translation_key": "tag.party_drink"
+    }
+  ],
+  "recipes": [
+    {
+      "title": "Old Fashioned",
+      "description": "The definition of a cocktail: spirits, sugar, water, and bitters. A well-made Old Fashioned respects the base spirit, enhancing its character rather than masking it. We use a rich sugar syrup and aromatic bitters to bridge the gap between the fiery whiskey and the melting ice.",
+      "glassware": "Rocks",
+      "method": "Stir",
+      "steps": "1. Place the sugar cube in the mixing glass and saturate it with bitters and a splash of soda or water.\n2. Muddle until dissolved.\n3. Add the whiskey and fill the glass with large ice cubes.\n4. Stir gently for 20-30 seconds to chill and dilute.\n5. Strain into a rocks glass over a single large ice cube.\n6. Express the oil of an orange peel over the glass and drop it in.",
+      "sweetness": 2,
+      "sourness": 0,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Bourbon",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Angostura Bitters",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        },
+        {
+          "name": "Orange Twist",
+          "amount": "1",
+          "unit": "strip",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Dry",
+        "Complex",
+        "Mixing Glass",
+        "Bar Spoon",
+        "Classic"
+      ],
+      "translation_key": "recipe.old_fashioned"
+    },
+    {
+      "title": "Negroni",
+      "description": "A perfect equilibrium of three ingredients. The Negroni is the quintessential Italian aperitivo—bitter, sweet, and botanical. It demands high-quality vermouth and a reliable gin to stand up to the bold Campari.",
+      "glassware": "Rocks",
+      "method": "Stir",
+      "steps": "1. Combine Gin, Sweet Vermouth, and Campari in a mixing glass.\n2. Fill with ice and stir for 20 seconds until well-chilled.\n3. Strain into a rocks glass filled with fresh ice.\n4. Garnish with an orange peel, expressing the oils over the drink first.",
+      "sweetness": 3,
+      "sourness": 0,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Campari",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orange Twist",
+          "amount": "1",
+          "unit": "strip",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Bitter",
+        "Spirit-Forward",
+        "Herbal",
+        "Complex",
+        "Mixing Glass",
+        "Classic"
+      ],
+      "translation_key": "recipe.negroni"
+    },
+    {
+      "title": "Daiquiri",
+      "description": "Simplicity is the ultimate sophistication. The Daiquiri is often mishandled, but when balanced correctly, it is a crisp, refreshing, and elegant sour. The key is fresh lime juice and a vigorous shake to ensure proper aeration.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Pour the light rum, fresh lime juice, and rich simple syrup into a shaker.\n2. Fill the shaker with plenty of ice.\n3. Shake vigorously for 10-12 seconds until the shaker is frosty.\n4. Double strain through a fine mesh strainer into a chilled coupe glass to catch any ice chips.",
+      "sweetness": 2,
+      "sourness": 4,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Light Rum",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Refreshing",
+        "Citrusy",
+        "Shaker",
+        "Fine Strainer",
+        "Classic"
+      ],
+      "translation_key": "recipe.daiquiri"
+    },
+    {
+      "title": "Martini (Dry)",
+      "description": "Cold, clean, and razor-sharp. The Dry Martini is a test of temperature and dilution. We serve this 'dry', meaning less vermouth, allowing the botanicals of a premium gin to shine through.",
+      "glassware": "Martini",
+      "method": "Stir",
+      "steps": "1. Chill your martini glass in the freezer beforehand.\n2. Add gin and dry vermouth to a mixing glass.\n3. Fill with very cold, dry ice.\n4. Stir smoothly for at least 30 seconds. The goal is to chill without bruising the spirit.\n5. Strain into the frozen glass.\n6. Garnish with a lemon twist for freshness or an olive for a savory note.",
+      "sweetness": 0,
+      "sourness": 0,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Dry Vermouth",
+          "amount": "10",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Lemon Twist",
+          "amount": "1",
+          "unit": "strip",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Dry",
+        "Herbal",
+        "Boozy",
+        "Mixing Glass",
+        "Classic"
+      ],
+      "translation_key": "recipe.martini_dry"
+    },
+    {
+      "title": "Whiskey Sour",
+      "description": "A crowd-pleaser that dates back to the mid-19th century. We include egg white for a silky mouthfeel and a beautiful frothy head, which also softens the lemon's sharp acidity.",
+      "glassware": "Coupe",
+      "method": "Reverse Dry Shake",
+      "steps": "1. Combine whiskey, lemon juice, sugar syrup, and egg white in a shaker.\n2. Shake vigorously without ice (dry shake) to emulsify the egg white.\n3. Add ice and shake again to chill.\n4. Double strain into a chilled coupe or rocks glass.\n5. Garnish with a few drops of Angostura bitters on the foam for aroma.",
+      "sweetness": 3,
+      "sourness": 4,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Bourbon",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Egg White",
+          "amount": "1",
+          "unit": "dash",
+          "strict": false
+        },
+        {
+          "name": "Angostura Bitters",
+          "amount": "3",
+          "unit": "drops",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Creamy",
+        "Refreshing",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.whiskey_sour"
+    },
+    {
+      "title": "Margarita",
+      "description": "A perfect harmony of sweet, sour, and earthy agave notes. We skip the sour mix and use only fresh lime and quality triple sec to honor this Mexican classic.",
+      "glassware": "Rocks",
+      "method": "Shake",
+      "steps": "1. Rim half of a rocks glass with salt.\n2. Combine blanco tequila, lime juice, and Cointreau in a cocktail shaker.\n3. Add ice and shake until well-chilled.\n4. Strain into the prepared glass over fresh ice.\n5. Garnish with a lime wheel.",
+      "sweetness": 2,
+      "sourness": 4,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Blanco Tequila",
+          "amount": "50",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cointreau",
+          "amount": "20",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "rim",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Citrusy",
+        "Refreshing",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.margarita"
+    },
+    {
+      "title": "Espresso Martini",
+      "description": "Created by Dick Bradsell in London for a model who wanted to 'wake up and get messed up'. It's rich, creamy, and keeps the party going. Using fresh hot espresso ensures a fantastic foam.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Brew a fresh shot of espresso.\n2. Pour vodka, coffee liqueur, sugar syrup, and the hot espresso into a shaker.\n3. Fill with ice and shake impeccably hard—we need aeration for the foam!\n4. Strain quickly into a chilled coupe glass.\n5. Garnish with three coffee beans arranged in a petal formation.",
+      "sweetness": 3,
+      "sourness": 0,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Vodka",
+          "amount": "50",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Coffee Liqueur",
+          "amount": "20",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Espresso",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "10",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sweet",
+        "Creamy",
+        "Energizing",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.espresso_martini"
+    },
+    {
+      "title": "Mai Tai",
+      "description": "The crown jewel of Tiki culture. 'Mai Tai' means 'Out of this world' in Tahitian. It's a complex, nutty, and tart drink that showcases the rum. No grenadine or pineapple juice here—just the 1944 original recipe.",
+      "glassware": "Rocks",
+      "method": "Shake",
+      "steps": "1. Combine rums, lime juice, dry curaçao, and orgeat in a shaker.\n2. Add crushed ice and shake briefly to chill.\n3. Pour the entire contents (ice and all) into a rocks glass.\n4. Top with more crushed ice if needed.\n5. Garnish lavishly with a mint sprig (slapped to release oils) and a lime shell to represent an island.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Aged Rum",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Dry Curaçao",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orgeat",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Mint",
+          "amount": "1",
+          "unit": "sprig",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tropical",
+        "Nutty",
+        "Complex",
+        "Sour",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.mai_tai"
+    },
+    {
+      "title": "Manhattan",
+      "description": "A sophisticated whiskey classic from the 1870s. The spicy bite of rye whiskey is smoothed out by sweet vermouth, with bitters providing the aromatic backbone.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Add rye whiskey, sweet vermouth, and Angostura bitters to a mixing glass.\n2. Fill with ice and stir for 30 seconds.\n3. Strain into a chilled coupe glass.\n4. Garnish with a premium Maraschino or brandied cherry.",
+      "sweetness": 3,
+      "sourness": 0,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Rye Whiskey",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Angostura Bitters",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        },
+        {
+          "name": "Luxardo Cherry",
+          "amount": "1",
+          "unit": "whole",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Bittersweet",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.manhattan"
+    },
+    {
+      "title": "Aviation",
+      "description": "A pre-Prohibition gem with a stunning pale violet hue. Floral, tart, and dry, this drink balances the pine of gin with the unique floral notes of Crème de Violette.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Add gin, lemon juice, maraschino liqueur, and crème de violette to a shaker.\n2. Shake with ice until well-chilled.\n3. Double strain into a chilled coupe.\n4. Garnish with a cherry dropped to the bottom.",
+      "sweetness": 3,
+      "sourness": 4,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Maraschino Liqueur",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Crème de Violette",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Floral",
+        "Sour",
+        "Complex",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.aviation"
+    },
+    {
+      "title": "Gimlet",
+      "description": "A sharp and refreshing cocktail originally drunk by sailors to fight scurvy. While the original used Rose's Lime Cordial, we prefer a modern homemade lime cordial or a mix of fresh lime and syrup for a cleaner taste.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Combine gin, fresh lime juice, and simple syrup in a shaker.\n2. Shake vigorously with ice.\n3. Strain into a chilled coupe.\n4. Garnish with a lime wheel.",
+      "sweetness": 2,
+      "sourness": 4,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Citrusy",
+        "Refreshing",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.gimlet"
+    },
+    {
+      "title": "Sazerac",
+      "description": "New Orleans in a glass. This official cocktail of NOLA is a variation of the Old Fashioned, utilizing the anise notes of Absinthe and the bright red Peychaud's bitters.",
+      "glassware": "Rocks",
+      "method": "Stir",
+      "steps": "1. Rinse a chilled rocks glass with a splash of absinthe, coating the inside, then discard the excess.\n2. In a mixing glass, muddle a sugar cube with the Peychaud's bitters.\n3. Add the rye whiskey and ice, then stir well.\n4. Strain into the prepared absinthe-rinsed glass (no ice).\n5. Express a lemon twist over the drink and discard the peel.",
+      "sweetness": 2,
+      "sourness": 0,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Rye Whiskey",
+          "amount": "60",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Peychaud's Bitters",
+          "amount": "4",
+          "unit": "dashes",
+          "strict": false
+        },
+        {
+          "name": "Sugar Cube",
+          "amount": "1",
+          "unit": "cube",
+          "strict": false
+        },
+        {
+          "name": "Absinthe",
+          "amount": "1",
+          "unit": "rinse",
+          "strict": false
+        },
+        {
+          "name": "Lemon Twist",
+          "amount": "1",
+          "unit": "strip",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Herbal",
+        "Complex",
+        "Mixing Glass",
+        "Classic"
+      ],
+      "translation_key": "recipe.sazerac"
+    },
+    {
+      "title": "Vieux Carré",
+      "description": "Named after the French Quarter of New Orleans. A potent, complex blend of rye, cognac, and vermouth, smoothed out by Benedictine. It's like a Manhattan but darker, deeper, and more mysterious.",
+      "glassware": "Rocks",
+      "method": "Stir",
+      "steps": "1. Combine rye, cognac, sweet vermouth, Benedictine, and both bitters in a mixing glass.\n2. Add ice and stir until cold and properly diluted.\n3. Strain into a rocks glass over fresh ice.\n4. Garnish with a lemon twist or cherry.",
+      "sweetness": 3,
+      "sourness": 0,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Rye Whiskey",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cognac",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Benedictine",
+          "amount": "10",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Peychaud's Bitters",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        },
+        {
+          "name": "Angostura Bitters",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Complex",
+        "Herbal",
+        "Boozy",
+        "Mixing Glass",
+        "Classic"
+      ],
+      "translation_key": "recipe.vieux_carr"
+    },
+    {
+      "title": "Last Word",
+      "description": "A Prohibition-era cocktail from the Detroit Athletic Club. Equal parts of four distinct ingredients create a flavor profile that is greater than the sum of its parts: pale green, sharp, and herbal.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Add gin, Green Chartreuse, Maraschino liqueur, and lime juice to a shaker.\n2. Shake vigorously with ice.\n3. Double strain into a chilled coupe glass.\n4. No garnish is traditionally needed, but a cherry works well.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Green Chartreuse",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Maraschino Liqueur",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Herbal",
+        "Sour",
+        "Complex",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.last_word"
+    },
+    {
+      "title": "Penicillin",
+      "description": "A modern classic created by Sam Ross. It behaves like a whiskey sour but adds the spicy kick of ginger and the smoky aroma of Islay scotch. It's 'cure-all' in a glass.",
+      "glassware": "Rocks",
+      "method": "Shake",
+      "steps": "1. Muddle fresh ginger slices in a shaker (if not using ginger syrup).\n2. Add blended scotch, lemon juice, and honey syrup.\n3. Shake vigorously with ice.\n4. Strain into a rocks glass over fresh ice.\n5. Gently float the Islay scotch on top using a bar spoon.\n6. Garnish with candied ginger.",
+      "sweetness": 3,
+      "sourness": 4,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Blended Scotch Whisky",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Honey Syrup",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Ginger Syrup",
+          "amount": "10",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Islay Scotch Whisky",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": true
+        }
+      ],
+      "tags": [
+        "Smoky",
+        "Spicy",
+        "Sour",
+        "Complex",
+        "Shaker",
+        "Bar Spoon",
+        "Classic"
+      ],
+      "translation_key": "recipe.penicillin"
+    },
+    {
+      "title": "Corpse Reviver No. 2",
+      "description": "Intended as a hangover cure (hair of the dog) from the 1930s Savoy Cocktail Book. 'Four of these taken in quick succession will unrevive the corpse again.' Tart, refreshing, and dangerously drinkable.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Rinse a coupe glass with absinthe.\n2. Combine gin, Cointreau, Lillet Blanc, and lemon juice in a shaker.\n3. Shake with ice.\n4. Strain into the rinsed glass.\n5. Garnish with a lemon twist.",
+      "sweetness": 2,
+      "sourness": 4,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cointreau",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Lillet Blanc",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Absinthe",
+          "amount": "1",
+          "unit": "rinse",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Herbal",
+        "Citrusy",
+        "Refreshing",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.corpse_reviver_no_2"
+    },
+    {
+      "title": "French 75",
+      "description": "Named after the 75mm field gun used in WWI because it 'hits with the same precision'. A delightful, effervescent combination of gin and champagne.",
+      "glassware": "Champagne Flute",
+      "method": "Shake & Build",
+      "steps": "1. Combine gin, lemon juice, and simple syrup in a shaker with ice.\n2. Shake well to chill.\n3. Strain into a champagne flute.\n4. Top slowly with champagne (or high-quality sparkling wine).\n5. Garnish with a long lemon twist.",
+      "sweetness": 2,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Soda Water",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Fizzy",
+        "Refreshing",
+        "Celebratory",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.french_75"
+    },
+    {
+      "title": "Pisco Sour",
+      "description": "The national drink of Peru. Pisco (an unaged grape brandy) is shaken with lime, sugar, and egg white to create a drink that is simultaneously earthy, tart, and creamy.",
+      "glassware": "Coupe",
+      "method": "Reverse Dry Shake",
+      "steps": "1. Combine pisco, lime juice, simple syrup, and egg white in a shaker.\n2. Dry shake (no ice) vigorously to foam the egg.\n3. Add ice and shake again to chill.\n4. Strain into a chilled glass.\n5. Garnish with 3 drops of Angostura bitters on the foam.",
+      "sweetness": 3,
+      "sourness": 5,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Pisco",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Egg White",
+          "amount": "1",
+          "unit": "dash",
+          "strict": false
+        },
+        {
+          "name": "Angostura Bitters",
+          "amount": "3",
+          "unit": "drops",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Creamy",
+        "Earthy",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.pisco_sour"
+    },
+    {
+      "title": "Mojito",
+      "description": "A Cuban highball that is iconic for good reason. It requires care to not bruise the mint too much—you want the oils, not the bitter chlorophyll.",
+      "glassware": "Highball",
+      "method": "Muddle & Build",
+      "steps": "1. Place mint leaves and simple syrup in a highball glass.\n2. Lightly press (don't shred!) the mint with a muddler.\n3. Add the lime juice and rum.\n4. Fill glass with crushed ice and top with soda water.\n5. Stir gently to lift the mint from the bottom.\n6. Top with more ice and a generous mint sprig garnish.",
+      "sweetness": 3,
+      "sourness": 2,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Light Rum",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Mint",
+          "amount": "10",
+          "unit": "leaves",
+          "strict": false
+        },
+        {
+          "name": "Soda Water",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Refreshing",
+        "Fizzy",
+        "Herbal",
+        "Tropical",
+        "Muddler",
+        "Classic"
+      ],
+      "translation_key": "recipe.mojito"
+    },
+    {
+      "title": "Boulevardier",
+      "description": "The Whiskey Negroni. Created by Erskine Gwynne for his magazine 'The Boulevardier' in Paris. Replacing gin with bourbon adds a rich sweetness and oaky depth that pairs beautifully with Campari.",
+      "glassware": "Rocks",
+      "method": "Stir",
+      "steps": "1. Combine bourbon, Campari, and sweet vermouth in a mixing glass.\n2. Add ice and stir until well-chilled.\n3. Strain into a rocks glass over fresh ice.\n4. Garnish with an orange twist.",
+      "sweetness": 3,
+      "sourness": 0,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Bourbon",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Campari",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orange Twist",
+          "amount": "1",
+          "unit": "strip",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Bittersweet",
+        "Spirit-Forward",
+        "Complex",
+        "Mixing Glass",
+        "Classic"
+      ],
+      "translation_key": "recipe.boulevardier"
+    },
+    {
+      "title": "Paper Plane",
+      "description": "A modern classic created by Sam Ross in 2008. Named after the M.I.A. track 'Paper Planes'. It’s an equal-parts cocktail that strikes a perfect balance between bitter, sour, and herbal. A cousin to the Last Word.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Add Bourbon, Aperol, Amaro Nonino, and lemon juice to a shaker.\n2. Shake vigorously with ice.\n3. Fine strain into a chilled coupe glass.\n4. Garnish with a small paper plane (optional) or lemon twist.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Bourbon",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Aperol",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Amaro Nonino",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Bittersweet",
+        "Herbal",
+        "Complex",
+        "Sour",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.paper_plane"
+    },
+    {
+      "title": "Naked and Famous",
+      "description": "Another Joaquín Simó modern classic. Ideally balanced, smoky, herbal, and citrusy. It's an equal-parts rift on the Last Word and Paper Plane, featuring Mezcal and Yellow Chartreuse.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Combine Mezcal, Yellow Chartreuse, Aperol, and lime juice in a shaker.\n2. Shake with ice until well-chilled.\n3. Fine strain into a chilled coupe.\n4. No garnish needed, but a lime wheel works.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Mezcal",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Yellow Chartreuse",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Aperol",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Smoky",
+        "Herbal",
+        "Bittersweet",
+        "Sour",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.naked_and_famous"
+    },
+    {
+      "title": "Trinidad Sour",
+      "description": "A game-changer from Giuseppe Gonzalez. It defies logic by using Angostura Bitters as a base spirit (a full 45ml!). The result is surprisingly balanced, deep, and spicy, not overwhelmingly bitter.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Yes, verify the measurements: 45ml of Angostura.\n2. Add Angostura, rye whiskey, orgeat, and lemon juice to a shaker.\n3. Shake hard with ice.\n4. Strain into a chilled coupe.\n5. No garnish.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Angostura Bitters",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Rye Whiskey",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orgeat",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spicy",
+        "Complex",
+        "Sour",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.trinidad_sour"
+    },
+    {
+      "title": "Blood and Sand",
+      "description": "A 1922 classic named after the Rudolph Valentino movie. It's one of the few scotch cocktails that uses citrus. When made with fresh orange juice (and a good sweet vermouth), it's excellent.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Add Scotch, Cherry Heering, Sweet Vermouth, and fresh orange juice to a shaker.\n2. Shake vigorously with ice.\n3. Strain into a chilled coupe or cocktail glass.\n4. Garnish with a marinated cherry.",
+      "sweetness": 4,
+      "sourness": 2,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Blended Scotch Whisky",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Cherry Heering",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Orange Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Fruity",
+        "Complex",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.blood_and_sand"
+    },
+    {
+      "title": "Hanky Panky",
+      "description": "Created by Ada Coleman at the Savoy Hotel in the early 1900s. Basically a sweet martini with a 'kick' of Fernet-Branca. A true bartender's handshake.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Combine gin and sweet vermouth in a mixing glass.\n2. Add the dashes of Fernet-Branca.\n3. Fill with ice and stir well.\n4. Strain into a chilled cocktail glass.\n5. Express an orange peel over the top and discard.",
+      "sweetness": 3,
+      "sourness": 0,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fernet-Branca",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Herbal",
+        "Bitter",
+        "Spirit-Forward",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.hanky_panky"
+    },
+    {
+      "title": "Ramos Gin Fizz",
+      "description": "The ultimate arm workout. Invented by Henry C. Ramos in 1888. It's a meringue in a glass—rich, creamy, floral, and demanding. The shake sequence is critical.",
+      "glassware": "Highball",
+      "method": "Dry Shake & Shake",
+      "steps": "1. Combine gin, citrus juices, syrup, cream, egg white, and orange flower water in a shaker.\n2. Dry shake (no ice) vigorously for 1-2 minutes. Seriously.\n3. Add ice and shake hard for another minute to chill and dilute.\n4. Strain into a chilled highball glass (no ice).\n5. Let it settle for a moment, then slowly top with soda water to lift the foam head like a soufflé.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 2,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Heavy Cream",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Egg White",
+          "amount": "1",
+          "unit": "whole",
+          "strict": false
+        },
+        {
+          "name": "Orange Flower Water",
+          "amount": "3",
+          "unit": "drops",
+          "strict": false
+        },
+        {
+          "name": "Soda Water",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Creamy",
+        "Floral",
+        "Fizzy",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.ramos_gin_fizz"
+    },
+    {
+      "title": "Bramble",
+      "description": "Created by Dick Bradsell in 1980s London. A spring cocktail that showcases crushed ice and blackberry liqueur. It blooms in the glass.",
+      "glassware": "Rocks",
+      "method": "Build",
+      "steps": "1. Build gin, lemon juice, and syrup in a rocks glass.\n2. Fill with crushed ice and stir.\n3. Top with more crushed ice to form a mound.\n4. Drizzle Crème de Mûre over the top to create a 'bleeding' effect.\n5. Garnish with a lemon slice and a slightly mashed blackberry.",
+      "sweetness": 4,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Crème de Mûre",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Blackberries",
+          "amount": "2",
+          "unit": "whole",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Fruity",
+        "Refreshing",
+        "Sweet",
+        "Classic"
+      ],
+      "translation_key": "recipe.bramble"
+    },
+    {
+      "title": "Caipirinha",
+      "description": "Brazil's national cocktail. Rustic, strong, and refreshing. The secret is extracting the lime oils by muddling the fruit chunks directly with sugar.",
+      "glassware": "Rocks",
+      "method": "Muddle",
+      "steps": "1. Cut half a lime into wedges and place in a rocks glass.\n2. Add sugar (granulated/sugar cube is traditional for abrasion).\n3. Muddle firmly to release juice and oils.\n4. Add Cachaça and stir to dissolve sugar.\n5. Fill with chopped ice and stir again.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Cachaça",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sugar",
+          "amount": "2",
+          "unit": "tsp",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "Half",
+          "unit": "lime",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Refreshing",
+        "Rustic",
+        "Muddler",
+        "Classic"
+      ],
+      "translation_key": "recipe.caipirinha"
+    },
+    {
+      "title": "Breakfast Martini",
+      "description": "Salvatore Calabrese's gift to the morning. A Gin Sour with a spoonful of high-quality orange marmalade, providing texture and a bitter-sweet complexity.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Stir the marmalade with the gin in the base of the shaker to dissolve it slightly.\n2. Add Cointreau and lemon juice.\n3. Fill with ice and shake vigorously.\n4. Double strain into a chilled coupe.\n5. Garnish with a toast point or orange twist.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "50",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cointreau",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orange Marmalade",
+          "amount": "1",
+          "unit": "spoon",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Bittersweet",
+        "Fruity",
+        "Sour",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.breakfast_martini"
+    },
+    {
+      "title": "Clover Club",
+      "description": "A pre-Prohibition classic from Philadelphia. Raspberry syrup and dry vermouth (in some variations, here simple) modify the gin. The egg white provides a luxurious texture.",
+      "glassware": "Coupe",
+      "method": "Reverse Dry Shake",
+      "steps": "1. Add gin, lemon juice, raspberry syrup, and egg white to a shaker.\n2. Dry shake to emulsify.\n3. Add ice and shake to chill.\n4. Strain into a chilled coupe.\n5. Garnish with fresh raspberries on a skewer.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Raspberry Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Dry Vermouth",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Egg White",
+          "amount": "1",
+          "unit": "dash",
+          "strict": false
+        },
+        {
+          "name": "Fresh Raspberries",
+          "amount": "3",
+          "unit": "whole",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Fruity",
+        "Creamy",
+        "Sour",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.clover_club"
+    },
+    {
+      "title": "Martinez",
+      "description": "The missing link between the Manhattan and the Martini. Sweet, herbal, and rich. Must be made with Old Tom Gin and Sweet Vermouth.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Combine Old Tom Gin, Sweet Vermouth, Maraschino, and Orange Bitters in a mixing glass.\n2. Stir with ice until chilled.\n3. Strain into a chilled coupe.\n4. Garnish with a lemon twist.",
+      "sweetness": 4,
+      "sourness": 0,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Old Tom Gin",
+          "amount": "45",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Maraschino Liqueur",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orange Bitters",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Sweet",
+        "Herbal",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.martinez"
+    },
+    {
+      "title": "Zombie",
+      "description": "Donn Beach's 1934 masterpiece. So strong he limited customers to two. A complex blend of rums, fruit juices, and spices. It defines the Zombie genre.",
+      "glassware": "Tiki Mug",
+      "method": "Shake (Flash Blend)",
+      "steps": "1. Combine rums, lime, grapefruit, cinnamon syrup, falernum, grenadine, absinthe, and bitters in a shaker or blender.\n2. Flash blend with crushed ice for 5 seconds OR shake hard with crushed ice.\n3. Pour unstrained into a tall glass or Tiki mug.\n4. Top with more crushed ice and garnish with a mint sprig.",
+      "sweetness": 4,
+      "sourness": 4,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Dark Rum",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Spiced Rum",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Overproof Rum",
+          "amount": "15",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Grapefruit Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cinnamon Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Falernum",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Grenadine",
+          "amount": "5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Absinthe",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        },
+        {
+          "name": "Angostura Bitters",
+          "amount": "1",
+          "unit": "dash",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tropical",
+        "Spicy",
+        "Complex",
+        "Boozy",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.zombie"
+    },
+    {
+      "title": "Painkiller",
+      "description": "The trademark drink of the British Virgin Islands. A richer, creamier cousin to the Piña Colada, featuring dark rum and fresh nutmeg.",
+      "glassware": "Hurricane",
+      "method": "Shake",
+      "steps": "1. Combine dark rum, pineapple juice, orange juice, and coconut cream in a shaker.\n2. Shake vigorously with ice.\n3. Strain into a glass filled with crushed ice.\n4. Dust liberally with freshly grated nutmeg.",
+      "sweetness": 5,
+      "sourness": 2,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Dark Rum",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Pineapple Juice",
+          "amount": "120",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Orange Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Coconut Cream",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Grated Nutmeg",
+          "amount": "1",
+          "unit": "pinch",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tropical",
+        "Creamy",
+        "Sweet",
+        "Fruity",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.painkiller"
+    },
+    {
+      "title": "Jungle Bird",
+      "description": "A tiki drink from the Aviary Bar in Kuala Lumpur (1970s). Unique for its use of bitter Campari against rich rum and pineapple. A balanced, complex tropical sipper.",
+      "glassware": "Rocks",
+      "method": "Shake",
+      "steps": "1. Add dark rum, Campari, pineapple juice, lime juice, and syrup to a shaker.\n2. Shake well with ice.\n3. Strain into a rocks glass filled with fresh ice.\n4. Garnish with a pineapple wedge and cherry.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Dark Rum",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Campari",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Pineapple Juice",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tropical",
+        "Bittersweet",
+        "Fruity",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.jungle_bird"
+    },
+    {
+      "title": "Bee's Knees",
+      "description": "A Prohibition classic. Given the harshness of bathtub gin, honey and lemon were used to mask the flavor. With high-quality gin today, it's a delightful, floral sour.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Add gin, honey syrup, and lemon juice to a shaker.\n2. Shake vigorously with ice to chill.\n3. Fine strain into a chilled coupe.\n4. Garnish with a lemon twist.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Honey Syrup",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Sweet",
+        "Floral",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.bees_knees"
+    },
+    {
+      "title": "Southside",
+      "description": "Essentially a Gin Mojito. Associated with the South Side of Chicago during Prohibition. Fresh mint, lime, and gin. Crisp and botanical.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Place mint leaves in shaker. \n2. Add gin, lime juice, and syrup.\n3. Fill with ice and shake vigorously (the ice will bruise the mint sufficiently).\n4. Double strain into a chilled coupe to remove mint flecks.\n5. Garnish with a slapped mint leaf.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Mint",
+          "amount": "6",
+          "unit": "leaves",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Refreshing",
+        "Herbal",
+        "Sour",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.southside"
+    },
+    {
+      "title": "Hemingway Daiquiri",
+      "description": "Also known as the Papa Doble. Ernest Hemingway's preferred variation: double the rum, no sugar, grapefruit, and maraschino. Our version adds a touch of sugar for balance.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Combine light rum, maraschino liqueur, grapefruit juice, and lime juice in a shaker.\n2. Shake well with ice.\n3. Strain into a chilled coupe.\n4. Garnish with a lime wheel.",
+      "sweetness": 2,
+      "sourness": 4,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Light Rum",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Maraschino Liqueur",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Grapefruit Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Dry",
+        "Complex",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.hemingway_daiquiri"
+    },
+    {
+      "title": "Dark 'N' Stormy",
+      "description": "The national drink of Bermuda. Deep, spicy, and refreshing. It technically requires Gosling's Black Seal Rum to be official. The rum floats on the ginger beer like a storm cloud.",
+      "glassware": "Highball",
+      "method": "Build",
+      "steps": "1. Fill a highball glass with ice.\n2. Pour in the ginger beer and squeeze in a lime wedge.\n3. Slowly float the dark rum on top.\n4. Garnish with a lime wedge.",
+      "sweetness": 3,
+      "sourness": 2,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Dark Rum",
+          "amount": "60",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Ginger Beer",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spicy",
+        "Fizzy",
+        "Refreshing",
+        "Highball",
+        "Classic"
+      ],
+      "translation_key": "recipe.dark_n_stormy"
+    },
+    {
+      "title": "Aperol Spritz",
+      "description": "The quintessential Italian aperitivo. Bright orange, bittersweet, and bubbly. It's sunshine in a glass.",
+      "glassware": "Wine Glass",
+      "method": "Build",
+      "steps": "1. Fill a wine glass with plenty of ice.\n2. Add Prosecco, followed by Aperol.\n3. Top with a splash of soda water.\n4. Stir gently to mix.\n5. Garnish with an orange slice.",
+      "sweetness": 3,
+      "sourness": 1,
+      "strength": 2,
+      "ingredients": [
+        {
+          "name": "Prosecco",
+          "amount": "90",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Aperol",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Soda Water",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orange Slice",
+          "amount": "1",
+          "unit": "slice",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Bittersweet",
+        "Fizzy",
+        "Refreshing",
+        "Low-ABV",
+        "Classic"
+      ],
+      "translation_key": "recipe.aperol_spritz"
+    },
+    {
+      "title": "Americano",
+      "description": "The precursor to the Negroni. First served in the 1860s at Gaspare Campari's bar in Milan. It was originally known as the 'Milano-Torino'.",
+      "glassware": "Highball",
+      "method": "Build",
+      "steps": "1. Fill a highball glass with ice.\n2. Add Campari and Sweet Vermouth.\n3. Top with soda water and stir gently.\n4. Garnish with an orange slice or twist.",
+      "sweetness": 3,
+      "sourness": 0,
+      "strength": 2,
+      "ingredients": [
+        {
+          "name": "Campari",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Soda Water",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        },
+        {
+          "name": "Orange Slice",
+          "amount": "1",
+          "unit": "slice",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Bitter",
+        "Fizzy",
+        "Refreshing",
+        "Low-ABV",
+        "Classic"
+      ],
+      "translation_key": "recipe.americano"
+    },
+    {
+      "title": "Negroni Sbagliato",
+      "description": "A 'mistaken' Negroni created at Bar Basso in Milan when a bartender grabbed Prosecco instead of Gin. A lighter, bubblier take on the classic.",
+      "glassware": "Rocks",
+      "method": "Build",
+      "steps": "1. Fill a rocks glass (or wine glass) with ice.\n2. Add Campari and Sweet Vermouth.\n3. Top with Prosecco and stir gently.\n4. Garnish with an orange slice.",
+      "sweetness": 3,
+      "sourness": 1,
+      "strength": 2,
+      "ingredients": [
+        {
+          "name": "Campari",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Prosecco",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        },
+        {
+          "name": "Orange Slice",
+          "amount": "1",
+          "unit": "slice",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Bittersweet",
+        "Fizzy",
+        "Refreshing",
+        "Low-ABV",
+        "Classic"
+      ],
+      "translation_key": "recipe.negroni_sbagliato"
+    },
+    {
+      "title": "Kir Royale",
+      "description": "A French classic made with blackcurrant liqueur (Crème de Cassis) topped with Champagne. Elegant and simple.",
+      "glassware": "Champagne Flute",
+      "method": "Build",
+      "steps": "1. Pour Crème de Cassis into a champagne flute.\n2. Top slowly with Champagne.\n3. Garnish with a blackberry or lemon twist (optional).",
+      "sweetness": 3,
+      "sourness": 2,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Crème de Cassis",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Champagne",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Fruity",
+        "Fizzy",
+        "Celebratory",
+        "Classic"
+      ],
+      "translation_key": "recipe.kir_royale"
+    },
+    {
+      "title": "Airmail",
+      "description": "A Caribbean classic that bridges the gap between a Daiquiri and a French 75. Rum, Honey, Lime, and Champagne. It delivers!",
+      "glassware": "Coupe",
+      "method": "Shake & Build",
+      "steps": "1. Combine rum, lime juice, and honey syrup in a shaker with ice.\n2. Shake well to chill.\n3. Strain into a chilled flute or coupe.\n4. Top with Champagne.\n5. Garnish with a lime twist or mint sprig.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Aged Rum",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Honey Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Champagne",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tropical",
+        "Fizzy",
+        "Refreshing",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.airmail"
+    },
+    {
+      "title": "Bamboo",
+      "description": "A low-ABV classic from the 1890s. Sherry and Vermouth combine for a complex, savory, and dry aperitif.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Add Sherry, Dry Vermouth, and Orange Bitters to a mixing glass with ice.\n2. Stir until well-chilled.\n3. Strain into a chilled coupe.\n4. Garnish with a lemon twist.",
+      "sweetness": 1,
+      "sourness": 0,
+      "strength": 2,
+      "ingredients": [
+        {
+          "name": "Fino Sherry",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Dry Vermouth",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orange Bitters",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Dry",
+        "Savory",
+        "Low-ABV",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.bamboo"
+    },
+    {
+      "title": "Adonis",
+      "description": "Similar to the Bamboo but uses Sweet Vermouth. Named after a Broadway musical in 1884. Richer and nuttier.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Add Sherry, Sweet Vermouth, and Orange Bitters to a mixing glass with ice.\n2. Stir until well-chilled.\n3. Strain into a chilled coupe.\n4. Garnish with an orange twist.",
+      "sweetness": 2,
+      "sourness": 0,
+      "strength": 2,
+      "ingredients": [
+        {
+          "name": "Fino Sherry",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orange Bitters",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Nutty",
+        "Savory",
+        "Low-ABV",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.adonis"
+    },
+    {
+      "title": "British Champagne Cocktail",
+      "description": "One of the oldest cocktails, dating back to the mid-1800s. The sugar cube dissolves slowly, creating a fountain of bubbles.",
+      "glassware": "Champagne Flute",
+      "method": "Build",
+      "steps": "1. Place a sugar cube on a napkin and saturate it with Angostura bitters.\n2. Drop the soaked cube into a champagne flute.\n3. Add Cognac.\n4. Slowly top with Champagne.\n5. Garnish with a lemon twist.",
+      "sweetness": 3,
+      "sourness": 1,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Sugar Cube",
+          "amount": "1",
+          "unit": "cube",
+          "strict": true
+        },
+        {
+          "name": "Angostura Bitters",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        },
+        {
+          "name": "Cognac",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Champagne",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Fizzy",
+        "Celebratory",
+        "Classic"
+      ],
+      "translation_key": "recipe.british_champagne_cocktail"
+    },
+    {
+      "title": "Bellini",
+      "description": "Created at Harry's Bar in Venice. Fresh white peach puree matches perfectly with Prosecco. Simple, seasonal, and delicious.",
+      "glassware": "Champagne Flute",
+      "method": "Stir",
+      "steps": "1. Pour white peach puree into a mixing glass (or directly into the flute if careful).\n2. Add Prosecco and stir gently to combine without losing bubbles.\n3. Strain into a champagne flute.\n4. No garnish needed.",
+      "sweetness": 3,
+      "sourness": 1,
+      "strength": 2,
+      "ingredients": [
+        {
+          "name": "White Peach Puree",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Prosecco",
+          "amount": "90",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Fruity",
+        "Fizzy",
+        "Brunch",
+        "Classic"
+      ],
+      "translation_key": "recipe.bellini"
+    },
+    {
+      "title": "Mimosa",
+      "description": "The quintessential brunch cocktail. Named after the yellow mimosa flower. Use fresh orange juice for the best result.",
+      "glassware": "Champagne Flute",
+      "method": "Build",
+      "steps": "1. Pour fresh orange juice into a champagne flute.\n2. Top with Champagne.\n3. Optional: add a splash of Grand Marnier for depth.",
+      "sweetness": 3,
+      "sourness": 2,
+      "strength": 2,
+      "ingredients": [
+        {
+          "name": "Fresh Orange Juice",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Champagne",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Fruity",
+        "Fizzy",
+        "Brunch",
+        "Classic"
+      ],
+      "translation_key": "recipe.mimosa"
+    },
+    {
+      "title": "Sidecar",
+      "description": "The definition of a Cognac Sour. Created in Paris/London during WWI. The sugared rim is traditional and balances the tartness.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Rim a coupe glass with sugar (optional but recommended).\n2. Combine Cognac, Cointreau, and lemon juice in a shaker with ice.\n3. Shake vigorously.\n4. Strain into the prepared glass.\n5. Garnish with an orange twist.",
+      "sweetness": 3,
+      "sourness": 4,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Cognac",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cointreau",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Citrusy",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.sidecar"
+    },
+    {
+      "title": "Cosmopolitan",
+      "description": "The 90s icon. When made with fresh lime and high-quality Citron vodka, it's a perfectly balanced, sophisticated sour.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Add Vodka Citron, Cointreau, lime juice, and cranberry juice to a shaker.\n2. Shake vigorously with ice.\n3. Fine strain into a chilled coupe.\n4. Garnish with a flaming orange twist.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Vodka Citron",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cointreau",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cranberry Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Fruity",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.cosmopolitan"
+    },
+    {
+      "title": "White Lady",
+      "description": "A Gin Sidecar. Clean, spectral, and elegant. The egg white softens the edges.",
+      "glassware": "Coupe",
+      "method": "Reverse Dry Shake",
+      "steps": "1. Combine gin, Cointreau, lemon juice, and egg white in a shaker.\n2. Dry shake to emulsify.\n3. Add ice and shake to chill.\n4. Strain into a chilled coupe.\n5. Garnish with a lemon twist.",
+      "sweetness": 3,
+      "sourness": 4,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cointreau",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Egg White",
+          "amount": "1",
+          "unit": "dash",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Citrusy",
+        "Creamy",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.white_lady"
+    },
+    {
+      "title": "20th Century",
+      "description": "Named after the 20th Century Limited train. A unique combination of gin, lemon, Lillet, and cacao that is surprisingly harmonious.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Combine gin, Lillet Blanc, white creme de cacao, and lemon juice in a shaker.\n2. Shake with ice.\n3. Strain into a chilled coupe.\n4. Garnish with a lemon twist.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Lillet Blanc",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "White Crème de Cacao",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Floral",
+        "Complex",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.20th_century"
+    },
+    {
+      "title": "Corpse Reviver No. 1",
+      "description": "The lesser-known but potent predecessor to the No. 2. A rich, stirred drink of brandy and vermouth.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Combine Cognac, Apple Brandy, and Sweet Vermouth in a mixing glass.\n2. Stir with ice until chilled.\n3. Strain into a chilled coupe.\n4. Garnish with a lemon twist.",
+      "sweetness": 3,
+      "sourness": 0,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Cognac",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Apple Brandy",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Boozy",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.corpse_reviver_no_1"
+    },
+    {
+      "title": "Pegu Club",
+      "description": "The house cocktail of the Pegu Club in Rangoon, Burma. A sophisticated gin sour with orange accents and a dash of bitters.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Combine gin, orange curacao, lime juice, and bitters in a shaker.\n2. Shake with ice.\n3. Strain into a chilled coupe.\n4. Garnish with a lime wedge.",
+      "sweetness": 2,
+      "sourness": 4,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orange Curaçao",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Angostura Bitters",
+          "amount": "1",
+          "unit": "dash",
+          "strict": false
+        },
+        {
+          "name": "Orange Bitters",
+          "amount": "1",
+          "unit": "dash",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Citrusy",
+        "Complex",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.pegu_club"
+    },
+    {
+      "title": "Jack Rose",
+      "description": "A classic Apple Brandy sour sweetened with Grenadine. Popular in the 1920s/30s.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Combine Apple Brandy, Grenadine, and Lemon juice in a shaker.\n2. Shake with ice.\n3. Strain into a chilled coupe.\n4. Garnish with a lemon twist.",
+      "sweetness": 3,
+      "sourness": 4,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Apple Brandy",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Grenadine",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Fruity",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.jack_rose"
+    },
+    {
+      "title": "Brown Derby",
+      "description": "A Hollywood classic named after the famous Hat-shaped restaurant. Bourbon, Grapefruit, and Honey. Simple and perfect.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Combine Bourbon, Grapefruit Juice, and Honey Syrup in a shaker.\n2. Shake with ice.\n3. Strain into a chilled coupe.\n4. Garnish with a grapefruit twist.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Bourbon",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Grapefruit Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Honey Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": true
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Fruity",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.brown_derby"
+    },
+    {
+      "title": "Amaretto Sour",
+      "description": "Jeffrey Morgenthaler's upgraded version. The addition of cask-strength bourbon and egg white transforms a once-cloying disco drink into a balanced masterpiece.",
+      "glassware": "Rocks",
+      "method": "Reverse Dry Shake",
+      "steps": "1. Combine Amaretto, Bourbon, Lemon Juice, Syrup, and Egg White in a shaker.\n2. Dry shake vigorously.\n3. Add ice and shake to chill.\n4. Strain into a rocks glass over fresh ice.\n5. Garnish with a lemon twist and cherry.",
+      "sweetness": 4,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Amaretto",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Bourbon",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Egg White",
+          "amount": "1",
+          "unit": "white",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Nutty",
+        "Creamy",
+        "Modern Classic",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.amaretto_sour"
+    },
+    {
+      "title": "New York Sour",
+      "description": "A Whiskey Sour with a float of dry red wine. The wine adds a tannic dryness and visual flair that separates it from the standard sour.",
+      "glassware": "Rocks",
+      "method": "Shake & Build",
+      "steps": "1. Make a whiskey sour: shake whiskey, lemon, and syrup with ice.\n2. Strain into a rocks glass with fresh ice.\n3. Slowly float red wine over the back of a spoon to create a layer.\n4. No Garnish.",
+      "sweetness": 3,
+      "sourness": 4,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Rye Whiskey",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Red Wine",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Fruity",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.new_york_sour"
+    },
+    {
+      "title": "Gold Rush",
+      "description": "A modern classic from Milk & Honey. Essentially a Whiskey Sour with Honey Syrup instead of sugar. The honey adds a rich, floral depth.",
+      "glassware": "Rocks",
+      "method": "Shake",
+      "steps": "1. Combine bourbon, fresh lemon juice, and honey syrup in a shaker.\n2. Shake with ice.\n3. Strain into a rocks glass over a large ice cube.\n4. No garnish.",
+      "sweetness": 3,
+      "sourness": 4,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Bourbon",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Honey Syrup",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": true
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Sweet",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.gold_rush"
+    },
+    {
+      "title": "Enzoni",
+      "description": "A modern classic by Vincenzo Errico. A cross between a Negroni and a Gin Sour, muddling fresh grapes for a unique freshness.",
+      "glassware": "Rocks",
+      "method": "Muddle & Shake",
+      "steps": "1. Muddle grapes in the bottom of a shaker.\n2. Add gin, Campari, lemon juice, and simple syrup.\n3. Shake with ice.\n4. Double strain into a rocks glass over fresh ice.\n5. Garnish with a skewered grape.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Campari",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Grapes",
+          "amount": "5",
+          "unit": "whole",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Bittersweet",
+        "Fruity",
+        "Modern Classic",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.enzoni"
+    },
+    {
+      "title": "Tom Collins",
+      "description": "The grandfather of all highballs. Gin, lemon, sugar, and soda. Refreshing, tall, and timeless.",
+      "glassware": "Highball",
+      "method": "Build",
+      "steps": "1. Build gin, lemon juice, and sugar syrup in a highball glass with ice.\n2. Stir to combine.\n3. Top with soda water.\n4. Garnish with a lemon wheel and cherry.",
+      "sweetness": 2,
+      "sourness": 3,
+      "strength": 2,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Soda Water",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sour",
+        "Fizzy",
+        "Refreshing",
+        "Highball",
+        "Classic"
+      ],
+      "translation_key": "recipe.tom_collins"
+    },
+    {
+      "title": "Moscow Mule",
+      "description": "The drink that sold vodka to America. Vodka, lime, and spicy ginger beer. Best served in a copper mug to keep it ice cold.",
+      "glassware": "Copper Mug",
+      "method": "Build",
+      "steps": "1. Squeeze lime into a copper mug (or highball glass) and drop in the shell.\n2. Add vodka and ice.\n3. Top with ginger beer.\n4. Garnish with a lime wedge.",
+      "sweetness": 3,
+      "sourness": 2,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Vodka",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Ginger Beer",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spicy",
+        "Fizzy",
+        "Refreshing",
+        "Highball",
+        "Classic"
+      ],
+      "translation_key": "recipe.moscow_mule"
+    },
+    {
+      "title": "Paloma",
+      "description": "Mexico's most popular cocktail. Tequila and grapefruit soda. We add a heavy pinch of salt to make the flavors pop.",
+      "glassware": "Highball",
+      "method": "Build",
+      "steps": "1. Rim a highball glass with salt.\n2. Fill with ice.\n3. Add tequila and lime juice.\n4. Top with grapefruit soda.\n5. Garnish with a grapefruit wedge.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Blanco Tequila",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Grapefruit Soda",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "pinch",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Fruity",
+        "Fizzy",
+        "Refreshing",
+        "Highball",
+        "Classic"
+      ],
+      "translation_key": "recipe.paloma"
+    },
+    {
+      "title": "Vesper",
+      "description": "James Bond's invention in Casino Royale. 'Three measures of Gordon's, one of vodka, half a measure of Kina Lillet. Shake it very well until it's ice-cold, then add a large thin slice of lemon peel.'",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Combine Gin, Vodka, and Lillet Blanc in a shaker.\n2. Shake well with ice (Bond was wrong, but it makes it colder).\n3. Strain into a chilled coupe.\n4. Express a large lemon twist over the drink.",
+      "sweetness": 1,
+      "sourness": 0,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Vodka",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Lillet Blanc",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": true
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Boozy",
+        "Dry",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.vesper"
+    },
+    {
+      "title": "Brooklyn",
+      "description": "A Manhattan variation featuring Dry Vermouth and Maraschino, with Amer Picon (hard to find, but essential). drier and funkier than a Manhattan.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Add Rye, Dry Vermouth, Amer Picon, and Maraschino to a mixing glass.\n2. Stir with ice.\n3. Strain into a chilled coupe.\n4. Garnish with a cherry.",
+      "sweetness": 2,
+      "sourness": 0,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Rye Whiskey",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Dry Vermouth",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Amer Picon",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Maraschino Liqueur",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Complex",
+        "Dry",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.brooklyn"
+    },
+    {
+      "title": "Toronto",
+      "description": "A Canadian classic (though basically a Fernet Old Fashioned). Rye whiskey meets the minty, bitter punch of Fernet Branca.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Combine Rye, Fernet-Branca, syrup, and bitters in a mixing glass.\n2. Stir with ice.\n3. Strain into a chilled coupe.\n4. Garnish with an orange twist.",
+      "sweetness": 2,
+      "sourness": 0,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Rye Whiskey",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fernet-Branca",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Angostura Bitters",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Bitter",
+        "Herbal",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.toronto"
+    },
+    {
+      "title": "Rob Roy",
+      "description": "A Scotch Manhattan. Named after the operetta about the Scottish folk hero. Best made with a blended scotch.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Combine Scotch, Sweet Vermouth, and Angostura in a mixing glass.\n2. Stir with ice.\n3. Strain into a chilled coupe.\n4. Garnish with a cherry.",
+      "sweetness": 3,
+      "sourness": 0,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Blended Scotch Whisky",
+          "amount": "60",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Angostura Bitters",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Bittersweet",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.rob_roy"
+    },
+    {
+      "title": "Rusty Nail",
+      "description": "A mid-century classic. Scotch and Drambuie (honey-herb scotch liqueur). A slow sipper.",
+      "glassware": "Rocks",
+      "method": "Build",
+      "steps": "1. Pour Scotch and Drambuie into a rocks glass filled with ice.\n2. Stir gently.\n3. Garnish with a lemon twist.",
+      "sweetness": 4,
+      "sourness": 0,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Blended Scotch Whisky",
+          "amount": "45",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Drambuie",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Sweet",
+        "Herbal",
+        "Classic"
+      ],
+      "translation_key": "recipe.rusty_nail"
+    },
+    {
+      "title": "Godfather",
+      "description": "The drink of the 70s. Scotch and Amaretto. Sweet, almondy, and strong. 'Make him an offer he can't refuse.'",
+      "glassware": "Rocks",
+      "method": "Build",
+      "steps": "1. Build Scotch and Amaretto in a rocks glass with ice.\n2. Stir gently.",
+      "sweetness": 4,
+      "sourness": 0,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Blended Scotch Whisky",
+          "amount": "45",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Amaretto",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Sweet",
+        "Nutty",
+        "Classic"
+      ],
+      "translation_key": "recipe.godfather"
+    },
+    {
+      "title": "White Russian",
+      "description": "The Dude abides. Vodka, Coffee Liqueur, and Cream. A dessert cocktail that is incredibly satisfying.",
+      "glassware": "Rocks",
+      "method": "Build",
+      "steps": "1. Add vodka and coffee liqueur to a rocks glass with ice.\n2. Float fresh cream on top.\n3. Stir gently if desired, or leave layered.",
+      "sweetness": 5,
+      "sourness": 0,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Vodka",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Coffee Liqueur",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Heavy Cream",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Sweet",
+        "Creamy",
+        "Dessert",
+        "Classic"
+      ],
+      "translation_key": "recipe.white_russian"
+    },
+    {
+      "title": "Black Russian",
+      "description": "The older, starker brother of the White Russian. Just Vodka and Coffee Liqueur. Dark and mysterious.",
+      "glassware": "Rocks",
+      "method": "Build",
+      "steps": "1. Build vodka and coffee liqueur in a rocks glass with ice.\n2. Stir well.",
+      "sweetness": 4,
+      "sourness": 0,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Vodka",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Coffee Liqueur",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Sweet",
+        "Classic"
+      ],
+      "translation_key": "recipe.black_russian"
+    },
+    {
+      "title": "Tipperary",
+      "description": "An Irish cocktail that packs a punch. Irish Whiskey, Sweet Vermouth, and Green Chartreuse. Herbal harmony.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Combine all ingredients in a mixing glass.\n2. Stir with ice.\n3. Strain into a chilled coupe.\n4. Garnish with an orange twist.",
+      "sweetness": 4,
+      "sourness": 0,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Irish Whiskey",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Green Chartreuse",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Herbal",
+        "Complex",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.tipperary"
+    },
+    {
+      "title": "Bobby Burns",
+      "description": "A tribute to the Scottish poet. Similar to a Rob Roy but with a dash of Benedictine for added complexity.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Combine Scotch, Sweet Vermouth, and Benedictine in a mixing glass.\n2. Stir with ice.\n3. Strain into a chilled coupe.\n4. Garnish with a lemon twist and shortbread on the side (optional).",
+      "sweetness": 3,
+      "sourness": 0,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Blended Scotch Whisky",
+          "amount": "60",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Benedictine",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Herbal",
+        "Complex",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.bobby_burns"
+    },
+    {
+      "title": "Remember the Maine",
+      "description": "A Charles H. Baker discovery. A Manhattan riff with Cherry Heering and Absinthe. Named after the U.S. battleship sunk in Havana.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Rinse a chilled coupe with absinthe.\n2. Stir Rye, Sweet Vermouth, and Cherry Heering with ice.\n3. Strain into the rinsed glass.\n4. Garnish with a cherry.",
+      "sweetness": 4,
+      "sourness": 0,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Rye Whiskey",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cherry Heering",
+          "amount": "10",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Absinthe",
+          "amount": "1",
+          "unit": "rinse",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Complex",
+        "Herbal",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.remember_the_maine"
+    },
+    {
+      "title": "Widow's Kiss",
+      "description": "A very old, very potent silky cocktail. Apple Brandy, Benedictine, and Yellow Chartreuse. Intense herbal sweetness.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Combine all ingredients in a mixing glass.\n2. Stir well with ice.\n3. Strain into a chilled coupe.\n4. No garnish.",
+      "sweetness": 5,
+      "sourness": 0,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Apple Brandy",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Benedictine",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Yellow Chartreuse",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Herbal",
+        "Sweet",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.widows_kiss"
+    },
+    {
+      "title": "Revolver",
+      "description": "A modern classic from San Francisco. Bourbon and Coffee Liqueur with orange bitters. A gun-toting twist on the Black Russian/Manhattan.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "steps": "1. Combine Bourbon, Coffee Liqueur, and Orange Bitters in a mixing glass.\n2. Stir with ice.\n3. Strain into a chilled coupe.\n4. Express a flaming orange peel over the drink.",
+      "sweetness": 3,
+      "sourness": 0,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Bourbon",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Coffee Liqueur",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orange Bitters",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Bittersweet",
+        "Modern Classic",
+        "Mixing Glass",
+        "Classic"
+      ],
+      "translation_key": "recipe.revolver"
+    },
+    {
+      "title": "Fancy Free",
+      "description": "An Old Fashioned variation that uses Maraschino liqueur as the sweetener. Nutty, dry, and strong.",
+      "glassware": "Rocks",
+      "method": "Stir",
+      "steps": "1. Add Bourbon, Maraschino, and bitters to a mixing glass.\n2. Stir with ice.\n3. Strain into a rocks glass over a large cube.\n4. Garnish with an orange twist.",
+      "sweetness": 2,
+      "sourness": 0,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Bourbon",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Maraschino Liqueur",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Angostura Bitters",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        },
+        {
+          "name": "Orange Bitters",
+          "amount": "1",
+          "unit": "dash",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Nutty",
+        "Dry",
+        "Classic",
+        "Mixing Glass"
+      ],
+      "translation_key": "recipe.fancy_free"
+    },
+    {
+      "title": "Oaxaca Old Fashioned",
+      "description": "Phil Ward's modern masterpiece that put Mezcal on the map. A split base of Reposado Tequila and Mezcal. Smoky, earthy, and sublime.",
+      "glassware": "Rocks",
+      "method": "Stir",
+      "steps": "1. Combine Tequila, Mezcal, Agave syrup, and Mole bitters in a mixing glass.\n2. Stir with ice.\n3. Strain into a rocks glass over a large ice cube.\n4. Garnish with a flamed orange twist.",
+      "sweetness": 2,
+      "sourness": 0,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Reposado Tequila",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Mezcal",
+          "amount": "15",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Agave Syrup",
+          "amount": "1",
+          "unit": "tsp",
+          "strict": true
+        },
+        {
+          "name": "Mole Bitters",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Smoky",
+        "Earthy",
+        "Modern Classic",
+        "Mixing Glass",
+        "Classic"
+      ],
+      "translation_key": "recipe.oaxaca_old_fashioned"
+    },
+    {
+      "title": "Hurricane",
+      "description": "Born in New Orleans at Pat O'Brien's. A powerful fruit punch that packs a wallop of rum. Passion fruit is the key flavor.",
+      "glassware": "Hurricane",
+      "method": "Shake",
+      "steps": "1. Combine Light and Dark Rums, Passion Fruit Syrup, Orange and Lemon juice, and grenadine in a shaker.\n2. Shake hard with ice.\n3. Strain into a Hurricane glass filled with crushed ice.\n4. Garnish with an orange slice and cherry.",
+      "sweetness": 4,
+      "sourness": 3,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Dark Rum",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Light Rum",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Passion Fruit Syrup",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Orange Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Grenadine",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tropical",
+        "Fruity",
+        "Boozy",
+        "Tiki",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.hurricane"
+    },
+    {
+      "title": "Planter's Punch",
+      "description": "The rhyme goes: 'One of Sour, Two of Sweet, Three of Strong, Four of Weak.' A classic Caribbean cooler.",
+      "glassware": "Highball",
+      "method": "Shake",
+      "steps": "1. Combine Dark Rum, Lime Juice, Sugar Syrup, and Bitters in a shaker.\n2. Shake with ice.\n3. Strain into a highball glass filled with crushed ice.\n4. Garnish with a mint sprig.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Dark Rum",
+          "amount": "90",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Angostura Bitters",
+          "amount": "3",
+          "unit": "dashes",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tropical",
+        "Refreshing",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.planters_punch"
+    },
+    {
+      "title": "Navy Grog",
+      "description": "A Trader Vic classic and a favorite of Richard Nixon. A potent blend of three rums, citrus, and honey.",
+      "glassware": "Rocks",
+      "method": "Shake",
+      "steps": "1. Combine Light, Gold (Aged), and Dark Rums, grapefruit, lime, and honey in a shaker.\n2. Shake vigorously with ice.\n3. Strain into a glass with an ice cone (traditional) or crushed ice.\n4. Garnish with a lime wedge and mint.",
+      "sweetness": 3,
+      "sourness": 4,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Light Rum",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Aged Rum",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Dark Rum",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Grapefruit Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Honey Syrup",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tiki",
+        "Boozy",
+        "Tropical",
+        "Complex",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.navy_grog"
+    },
+    {
+      "title": "Scorpion",
+      "description": "A Trader Vic communal drink recipe scaled down for one. Rum, Brandy, and Orgeat create a floral, nutty tropical profile.",
+      "glassware": "Tiki Mug",
+      "method": "Shake",
+      "steps": "1. Combine Rum, Brandy, Orgeat, and juices in a shaker.\n2. Shake well with crushed ice.\n3. Pour unstrained into a mug/glass.\n4. Garnish with edible flowers (or mint).",
+      "sweetness": 4,
+      "sourness": 3,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Light Rum",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Brandy",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orgeat",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Orange Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tiki",
+        "Tropical",
+        "Fruity",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.scorpion"
+    },
+    {
+      "title": "Fog Cutter",
+      "description": "The 'Long Island Iced Tea' of Tiki, but good. Rum, Gin, Brandy, and Sherry all in one glass. 'Fog Cutter, hell. After two of these, you won't even see the stuff.'",
+      "glassware": "Highball",
+      "method": "Shake",
+      "steps": "1. Combine Rum, Gin, Brandy, Orgeat, and juices in a shaker.\n2. Shake with ice.\n3. Strain into a tall glass with crushed ice.\n4. Float sherry on top.\n5. Garnish with mint.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Light Rum",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "London Dry Gin",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Brandy",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orgeat",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Orange Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fino Sherry",
+          "amount": "15",
+          "unit": "float",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tiki",
+        "Boozy",
+        "Complex",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.fog_cutter"
+    },
+    {
+      "title": "Three Dots and a Dash",
+      "description": "Morse code for 'Victory' (V). A Don the Beachcomber classic from WWII. Uses Rhum Agricole (grassy) blended with aged rum, spice, and honey.",
+      "glassware": "Tiki Mug",
+      "method": "Shake (Flash Blend)",
+      "steps": "1. Combine rums, lime, orange, honey, falernum, and pimento dram (allspice) in a blender.\n2. Flash blend with crushed ice (or shake hard).\n3. Pour into a glass.\n4. Garnish with three cherries and a pineapple frond (Three dots and a dash).",
+      "sweetness": 4,
+      "sourness": 3,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Aged Rum",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cachaça",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Orange Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Honey Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Falernum",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Allspice Dram",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tiki",
+        "Spicy",
+        "Complex",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.three_dots_and_a_dash"
+    },
+    {
+      "title": "Saturn",
+      "description": "A rare Gin-based Tiki drink. Created by J. Popo Galsini in 1967. Passion fruit and lemon make it bright and tart.",
+      "glassware": "Coupe",
+      "method": "Shake (Flash Blend)",
+      "steps": "1. Combine Gin, lemon, passion fruit syrup, orgeat, and falernum in a blender.\n2. Flash blend with crushed ice.\n3. Pour into a coupe or snifter.\n4. Garnish with a lemon peel ring (Saturn's ring).",
+      "sweetness": 4,
+      "sourness": 4,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Passion Fruit Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orgeat",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Falernum",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tiki",
+        "Fruity",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.saturn"
+    },
+    {
+      "title": "Singapore Sling",
+      "description": "Created at the Raffles Hotel. A long, fruity, complex punch. Often degraded with premixes, but the original with Benedictine, Cherry Heering, and Cointreau is magnificent.",
+      "glassware": "Highball",
+      "method": "Shake",
+      "steps": "1. Combine Gin, Cherry Heering, Benedictine, Cointreau, Pineapple, Lime, and Grenadine in a shaker.\n2. Shake with ice.\n3. Strain into a tall glass with fresh ice.\n4. Garnish with a pineapple wedge and cherry.",
+      "sweetness": 4,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cherry Heering",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Benedictine",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cointreau",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Pineapple Juice",
+          "amount": "120",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Grenadine",
+          "amount": "10",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Angostura Bitters",
+          "amount": "1",
+          "unit": "dash",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tiki",
+        "Fruity",
+        "Complex",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.singapore_sling"
+    },
+    {
+      "title": "Chartreuse Swizzle",
+      "description": "A modern classic from Marco Dionysos. Green Chartreuse takes center stage in this tropical swizzle. Herbal fire meets pineapple ice.",
+      "glassware": "Highball",
+      "method": "Swizzle",
+      "steps": "1. Add Green Chartreuse, pineapple juice, lime juice, and falernum to a highball glass.\n2. Fill with crushed ice.\n3. Swizzle (stir rapidly with a swizzle stick) until frost forms on the glass.\n4. Top with more crushed ice and garnish with mint and nutmeg.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Green Chartreuse",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Pineapple Juice",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Falernum",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tiki",
+        "Herbal",
+        "Refreshing",
+        "Modern Classic",
+        "Classic"
+      ],
+      "translation_key": "recipe.chartreuse_swizzle"
+    },
+    {
+      "title": "Mint Julep",
+      "description": "The signature drink of the Kentucky Derby. Bourbon, mint, sugar, and ice. It demands a silver cup and plenty of crushed ice to be done right.",
+      "glassware": "Julep Cup",
+      "method": "Muddle & Build",
+      "steps": "1. Gently muddle mint leaves with sugar (or syrup) in the base of a Julep cup.\n2. Add Bourbon.\n3. Pack the cup with crushed ice, mounding it high over the top.\n4. Garnish with a generous bouquet of mint.\n5. Insert a straw right near the mint so you smell it as you sip.",
+      "sweetness": 3,
+      "sourness": 0,
+      "strength": 4,
+      "ingredients": [
+        {
+          "name": "Bourbon",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Mint",
+          "amount": "10",
+          "unit": "leaves",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spirit-Forward",
+        "Herbal",
+        "Refreshing",
+        "Classic",
+        "Muddler"
+      ],
+      "translation_key": "recipe.mint_julep"
+    },
+    {
+      "title": "Piña Colada",
+      "description": "The quintessential tropical drink. Invented in Puerto Rico in 1954 (or 1963, depending on who you ask). Aged Rum, Coconut Cream, and fresh Pineapple. It should be rich and creamy.",
+      "glassware": "Hurricane",
+      "method": "Blend or Shake",
+      "steps": "1. If you have a blender: combine all ingredients with 1 cup of crushed ice and blend until smooth.\n2. If shaking: shake extremely hard with cubed ice and strain into a glass filled with crushed ice.\n3. Garnish with a pineapple wedge and cherry.",
+      "sweetness": 5,
+      "sourness": 2,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Aged Rum",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Coconut Cream",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Pineapple Juice",
+          "amount": "90",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tropical",
+        "Sweet",
+        "Creamy",
+        "Classic",
+        "Blender"
+      ],
+      "translation_key": "recipe.pi_a_colada"
+    },
+    {
+      "title": "Long Island Iced Tea",
+      "description": "A legendary cocktail known for its potency. Equal parts of five white spirits, sour mix, and a splash of cola. Surprisingly balanced when made properly.",
+      "glassware": "Highball",
+      "method": "Build",
+      "steps": "1. Fill a highball glass with ice.\n2. Add all spirits and sour mix.\n3. Top with a splash of cola for color.\n4. Stir gently.\n5. Garnish with a lemon wedge.",
+      "sweetness": 4,
+      "sourness": 3,
+      "strength": 5,
+      "ingredients": [
+        {
+          "name": "Vodka",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "London Dry Gin",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Light Rum",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Blanco Tequila",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cointreau",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cola",
+          "amount": "Top",
+          "unit": "splash",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Boozy",
+        "Sweet",
+        "Party Drink",
+        "Classic",
+        "Highball"
+      ],
+      "translation_key": "recipe.long_island_iced_tea"
+    },
+    {
+      "title": "Tequila Sunrise",
+      "description": "An icon of the 1970s and the Rolling Stones' 1972 tour. Tequila and Orange Juice with a grenadine sink creating the sunrise effect.",
+      "glassware": "Highball",
+      "method": "Build",
+      "steps": "1. Fill a highball glass with ice.\n2. Add Tequila and Orange Juice.\n3. Slowly pour grenadine down the inside of the glass so it settles at the bottom.\n4. Do not stir (or stir very gently once for effect).\n5. Garnish with an orange slice and cherry.",
+      "sweetness": 4,
+      "sourness": 2,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Blanco Tequila",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Orange Juice",
+          "amount": "120",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Grenadine",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Fruity",
+        "Sweet",
+        "Classic",
+        "Highball"
+      ],
+      "translation_key": "recipe.tequila_sunrise"
+    },
+    {
+      "title": "Grasshopper",
+      "description": "A creamy, mint-chocolate dessert cocktail from New Orleans. Like a boozy melted mint chocolate chip ice cream.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Combine Green Crème de Menthe, White Crème de Cacao, and Cream in a shaker.\n2. Shake vigorously with ice.\n3. Strain into a chilled coupe.\n4. Garnish with a mint sprig or grated chocolate.",
+      "sweetness": 5,
+      "sourness": 0,
+      "strength": 2,
+      "ingredients": [
+        {
+          "name": "Green Crème de Menthe",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "White Crème de Cacao",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Heavy Cream",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Dessert",
+        "Creamy",
+        "Sweet",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.grasshopper"
+    },
+    {
+      "title": "Brandy Alexander",
+      "description": "The sophisticated older sibling of the Grasshopper. Cognac, Crème de Cacao, and Cream. Rich, indulgent, and timeless.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Combine Cognac, Dark Crème de Cacao, and Cream in a shaker.\n2. Shake vigorously with ice.\n3. Strain into a chilled coupe.\n4. Garnish with freshly grated nutmeg.",
+      "sweetness": 4,
+      "sourness": 0,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Cognac",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Dark Crème de Cacao",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Heavy Cream",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Dessert",
+        "Creamy",
+        "Sweet",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.brandy_alexander"
+    },
+    {
+      "title": "French Martini",
+      "description": "A popular 80s/90s cocktail consisting of Vodka, Raspberry Liqueur (Chambord), and Pineapple Juice. Fruity and easy to drink.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Combine Vodka, Raspberry Liqueur, and Pineapple Juice in a shaker.\n2. Shake vigorously with ice (this creates a nice foam).\n3. Strain into a chilled coupe.\n4. Garnish with a raspberry or lemon twist.",
+      "sweetness": 4,
+      "sourness": 2,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Vodka",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Raspberry Liqueur",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Pineapple Juice",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Fruity",
+        "Sweet",
+        "Modern Classic",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.french_martini"
+    },
+    {
+      "title": "Mary Pickford",
+      "description": "Create in Havana during Prohibition for the famous silent film actress. Rum, Pineapple, Pomegranate (Grenadine), and Maraschino.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Combine White Rum, Pineapple Juice, Grenadine, and Maraschino in a shaker.\n2. Shake well with ice.\n3. Strain into a chilled coupe.\n4. Garnish with a cherry.",
+      "sweetness": 3,
+      "sourness": 2,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Light Rum",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Pineapple Juice",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Grenadine",
+          "amount": "5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Maraschino Liqueur",
+          "amount": "5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Tropical",
+        "Fruity",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.mary_pickford"
+    },
+    {
+      "title": "Sloe Gin Fizz",
+      "description": "A long, refreshing fizz made with Sloe Gin (a liqueur made from blackthorn berries). Tart, sweet, and fruity.",
+      "glassware": "Highball",
+      "method": "Shake",
+      "steps": "1. Combine Sloe Gin, Lemon Juice, and Simple Syrup in a shaker.\n2. Shake with ice.\n3. Strain into a highball glass with fresh ice.\n4. Top with soda water.\n5. Garnish with a lemon wedge.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 2,
+      "ingredients": [
+        {
+          "name": "Sloe Gin",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Soda Water",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Fruity",
+        "Fizzy",
+        "Refreshing",
+        "Classic",
+        "Highball"
+      ],
+      "translation_key": "recipe.sloe_gin_fizz"
+    },
+    {
+      "title": "Garibaldi",
+      "description": "Named after the Italian general. Just Campari and 'fluffy' orange juice. The key is to aerate the orange juice (blender or aggressive shake) to make it texturally amazing.",
+      "glassware": "Highball",
+      "method": "Build",
+      "steps": "1. Juice oranges fresh and blend at high speed (without ice) to aerate/froth.\n2. Add Campari to a highball glass with ice.\n3. Top with the fluffy orange juice.\n4. Garnish with an orange wedge.",
+      "sweetness": 3,
+      "sourness": 2,
+      "strength": 2,
+      "ingredients": [
+        {
+          "name": "Campari",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Orange Juice",
+          "amount": "120",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Bittersweet",
+        "Fruity",
+        "Refreshing",
+        "Classic",
+        "Highball"
+      ],
+      "translation_key": "recipe.garibaldi"
+    },
+    {
+      "title": "Jasmine",
+      "description": "Created by Paul Harrington in the 90s. Gin, Campari, Cointreau, and Lemon. It tastes remarkably like grapefruit juice, despite containing none.",
+      "glassware": "Coupe",
+      "method": "Shake",
+      "steps": "1. Combine Gin, Campari, Cointreau, and Lemon Juice in a shaker.\n2. Shake with ice.\n3. Strain into a chilled coupe.\n4. Garnish with a lemon twist.",
+      "sweetness": 3,
+      "sourness": 4,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Campari",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Cointreau",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Bittersweet",
+        "Sour",
+        "Modern Classic",
+        "Shaker",
+        "Classic"
+      ],
+      "translation_key": "recipe.jasmine"
+    },
+    {
+      "title": "Sherry Cobbler",
+      "description": "Perhaps the most popular drink of the 19th Century. Ideally made with Amontillado or Oloroso sherry. Low alcohol and extremely refreshing.",
+      "glassware": "Highball",
+      "method": "Shake",
+      "steps": "1. Combine Sherry, Sugar Syrup, and Orange/Lemon Slices in a shaker.\n2. Shake lightly with ice.\n3. Pour everything (unstrained) into a glass.\n4. Pack with more crushed ice.\n5. Garnish with seasonal berries, mint, and citrus wheels.",
+      "sweetness": 3,
+      "sourness": 1,
+      "strength": 2,
+      "ingredients": [
+        {
+          "name": "Fino Sherry",
+          "amount": "90",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orange Slice",
+          "amount": "2",
+          "unit": "slices",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Fruity",
+        "Low-ABV",
+        "Refreshing",
+        "Classic",
+        "Shaker"
+      ],
+      "translation_key": "recipe.sherry_cobbler"
+    },
+    {
+      "title": "El Diablo",
+      "description": "A Trader Vic tequila classic. Tequila, Crème de Cassis, Lime, and Ginger Beer. Earthy, spicy, and fruity.",
+      "glassware": "Highball",
+      "method": "Build",
+      "steps": "1. Combine Tequila, Crème de Cassis, and Lime Juice in a shaker with ice.\n2. Shake briefly.\n3. Strain into a highball glass filled with ice.\n4. Top with Ginger Beer.\n5. Garnish with a lime wedge.",
+      "sweetness": 3,
+      "sourness": 3,
+      "strength": 3,
+      "ingredients": [
+        {
+          "name": "Reposado Tequila",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Crème de Cassis",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Ginger Beer",
+          "amount": "Top",
+          "unit": "up",
+          "strict": false
+        }
+      ],
+      "tags": [
+        "Spicy",
+        "Fruity",
+        "Refreshing",
+        "Classic",
+        "Highball"
+      ],
+      "translation_key": "recipe.el_diablo"
+    },
+    {
+      "title": "Bloody Mary",
+      "description": "The ultimate savory classic brunch cocktail. Complex, spicy, and satisfying.",
+      "glassware": "Highball",
+      "method": "Build",
+      "sweetness": 1,
+      "sourness": 3,
+      "strength": 2,
+      "tags": [
+        "Classic",
+        "Citrus Press",
+        "Sour",
+        "Spicy",
+        "Complex"
+      ],
+      "ingredients": [
+        {
+          "name": "Vodka",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Tomato Juice",
+          "amount": "90",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Worcestershire Sauce",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        },
+        {
+          "name": "Tabasco",
+          "amount": "2",
+          "unit": "dashes",
+          "strict": false
+        },
+        {
+          "name": "Celery Salt",
+          "amount": "1",
+          "unit": "pinch",
+          "strict": false
+        },
+        {
+          "name": "Black Pepper",
+          "amount": "1",
+          "unit": "pinch",
+          "strict": false
+        },
+        {
+          "name": "Celery",
+          "amount": "1",
+          "unit": "stalk",
+          "strict": false
+        }
+      ],
+      "steps": "1. Add a pinch of celery salt and black pepper to a highball glass.\n2. Add vodka, lemon juice, Worcestershire sauce, and Tabasco.\n3. Fill the glass with ice and top up with tomato juice.\n4. Stir gently to combine.\n5. Garnish with a celery stalk and optionally a lemon wedge.",
+      "translation_key": "recipe.bloody_mary"
+    },
+    {
+      "title": "Gin & Tonic",
+      "description": "The quintessential highball. Crisp, botanical, and incredibly refreshing.",
+      "glassware": "Highball",
+      "method": "Build",
+      "sweetness": 2,
+      "sourness": 2,
+      "strength": 2,
+      "tags": [
+        "Classic",
+        "Bar Spoon",
+        "Refreshing",
+        "Bitter",
+        "Fizzy"
+      ],
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "50",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Tonic Water",
+          "amount": "120",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Lime Wedge",
+          "amount": "1",
+          "unit": "slice",
+          "strict": false
+        }
+      ],
+      "steps": "1. Fill a highball or copa glass with large ice cubes.\n2. Pour the gin over the ice.\n3. Top up with tonic water.\n4. Stir gently once or twice.\n5. Express and garnish with a fresh lime slice.",
+      "translation_key": "recipe.gin_and_tonic"
+    },
+    {
+      "title": "Cuba Libre",
+      "description": "A legendary Cuban highball combining rich rum, sweet cola, and bright lime.",
+      "glassware": "Highball",
+      "method": "Build",
+      "sweetness": 3,
+      "sourness": 2,
+      "strength": 2,
+      "tags": [
+        "Classic",
+        "Refreshing",
+        "Sweet",
+        "Fizzy"
+      ],
+      "ingredients": [
+        {
+          "name": "Light Rum",
+          "amount": "50",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Coca-Cola",
+          "amount": "120",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lime Juice",
+          "amount": "10",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "steps": "1. Fill a highball glass with ice.\n2. Add the light rum and fresh lime juice.\n3. Top up with cold Coca-Cola.\n4. Stir gently to integrate.\n5. Garnish with a lime wedge.",
+      "translation_key": "recipe.cuba_libre"
+    },
+    {
+      "title": "Irish Coffee",
+      "description": "The famous warm classic. Robust hot coffee, smooth Irish whiskey, and rich cream.",
+      "glassware": "Irish Coffee Glass",
+      "method": "Build",
+      "sweetness": 3,
+      "sourness": 0,
+      "strength": 3,
+      "tags": [
+        "Classic",
+        "Bar Spoon",
+        "Creamy",
+        "Sweet",
+        "Complex"
+      ],
+      "ingredients": [
+        {
+          "name": "Irish Whiskey",
+          "amount": "40",
+          "unit": "ml",
+          "strict": true
+        },
+        {
+          "name": "Hot Coffee",
+          "amount": "80",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Demerara Sugar",
+          "amount": "1",
+          "unit": "tsp",
+          "strict": false
+        },
+        {
+          "name": "Heavy Cream",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "steps": "1. Warm an Irish coffee glass with hot water, then discard the water.\n2. Dissolve the Demerara sugar in the hot coffee in the glass.\n3. Add the Irish whiskey and stir well.\n4. Lightly whip the heavy cream so it is still pourable.\n5. Pour the cream slowly over the back of a bar spoon to float it on top.",
+      "translation_key": "recipe.irish_coffee"
+    },
+    {
+      "title": "Gin Basil Smash",
+      "description": "A modern classic that took the world by storm. Vibrant green, herbal, and sharp.",
+      "glassware": "Rocks",
+      "method": "Shake",
+      "sweetness": 2,
+      "sourness": 3,
+      "strength": 3,
+      "tags": [
+        "Classic",
+        "Muddler",
+        "Shaker",
+        "Fine Strainer",
+        "Herbal",
+        "Sour",
+        "Refreshing"
+      ],
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Lemon Juice",
+          "amount": "25",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Simple Syrup",
+          "amount": "20",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Fresh Basil",
+          "amount": "10",
+          "unit": "leaves",
+          "strict": false
+        }
+      ],
+      "steps": "1. In a shaker tin, muddle the fresh basil leaves together with the lemon juice and simple syrup.\n2. Add the gin and fill the shaker with ice.\n3. Shake vigorously to emulsify the basil oils.\n4. Double strain through a fine mesh strainer into a rocks glass filled with fresh ice.\n5. Garnish with a basil sprig.",
+      "translation_key": "recipe.gin_basil_smash"
+    },
+    {
+      "title": "Bijou",
+      "description": "A magnificent pre-prohibition masterpiece. Heavy herbal depth and rich botanical complexity.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "sweetness": 3,
+      "sourness": 1,
+      "strength": 4,
+      "tags": [
+        "Classic",
+        "Mixing Glass",
+        "Bar Spoon",
+        "Julep Strainer",
+        "Herbal",
+        "Complex",
+        "Spirit-Forward"
+      ],
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Green Chartreuse",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Sweet Vermouth",
+          "amount": "30",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Orange Bitters",
+          "amount": "1",
+          "unit": "dash",
+          "strict": false
+        }
+      ],
+      "steps": "1. Add all ingredients to a mixing glass filled with ice.\n2. Stir well for about 30 seconds until chilled and diluted.\n3. Strain into a chilled coupe glass.\n4. Express orange peel oil over the surface and garnish with a cherry.",
+      "translation_key": "recipe.bijou"
+    },
+    {
+      "title": "Gibson",
+      "description": "A crisp Martini variation featuring a savory pickled onion garnish for an elegant umami finish.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "sweetness": 1,
+      "sourness": 1,
+      "strength": 5,
+      "tags": [
+        "Classic",
+        "Mixing Glass",
+        "Bar Spoon",
+        "Julep Strainer",
+        "Dry",
+        "Spirit-Forward"
+      ],
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Dry Vermouth",
+          "amount": "10",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Pickled Pearl Onion",
+          "amount": "2",
+          "unit": "whole",
+          "strict": false
+        }
+      ],
+      "steps": "1. Add the gin and dry vermouth to a mixing glass filled with ice.\n2. Stir until ice cold (about 30-40 seconds).\n3. Strain into a chilled coupe or martini glass.\n4. Garnish with two pickled pearl onions skewered on a pick.",
+      "translation_key": "recipe.gibson"
+    },
+    {
+      "title": "Dirty Martini",
+      "description": "A highly popular savory Martini variant incorporating olive brine for an intense, salty punch.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "sweetness": 1,
+      "sourness": 1,
+      "strength": 4,
+      "tags": [
+        "Classic",
+        "Mixing Glass",
+        "Bar Spoon",
+        "Julep Strainer",
+        "Dry",
+        "Bitter",
+        "Spirit-Forward"
+      ],
+      "ingredients": [
+        {
+          "name": "London Dry Gin",
+          "amount": "60",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Dry Vermouth",
+          "amount": "10",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Olive Brine",
+          "amount": "15",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Green Olive",
+          "amount": "1",
+          "unit": "whole",
+          "strict": false
+        }
+      ],
+      "steps": "1. Pour the gin, dry vermouth, and olive brine into a mixing glass filled with ice.\n2. Stir well until cold and diluted.\n3. Strain into a chilled coupe or martini glass.\n4. Garnish with a green olive on a pick.",
+      "translation_key": "recipe.dirty_martini"
+    },
+    {
+      "title": "French Connection",
+      "description": "A sophisticated two-ingredient slow-sipping duo. Smooth brandy bridged by sweet almond.",
+      "glassware": "Rocks",
+      "method": "Build",
+      "sweetness": 4,
+      "sourness": 0,
+      "strength": 4,
+      "tags": [
+        "Classic",
+        "Sweet",
+        "Spirit-Forward"
+      ],
+      "ingredients": [
+        {
+          "name": "Cognac",
+          "amount": "35",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Amaretto",
+          "amount": "35",
+          "unit": "ml",
+          "strict": false
+        }
+      ],
+      "steps": "1. Place a large ice block or standard cubes in a rocks glass.\n2. Pour the cognac and amaretto directly over the ice.\n3. Stir gently to integrate.\n4. Serve immediately.",
+      "translation_key": "recipe.french_connection"
+    },
+    {
+      "title": "El Presidente",
+      "description": "The elegant Cuban golden-age classic. Complex sweet herbal vermouth balanced by dry citrus curaçao.",
+      "glassware": "Coupe",
+      "method": "Stir",
+      "sweetness": 3,
+      "sourness": 1,
+      "strength": 4,
+      "tags": [
+        "Classic",
+        "Mixing Glass",
+        "Bar Spoon",
+        "Julep Strainer",
+        "Sweet",
+        "Complex",
+        "Spirit-Forward"
+      ],
+      "ingredients": [
+        {
+          "name": "Aged Rum",
+          "amount": "45",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Blanc Vermouth",
+          "amount": "22.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Dry Curaçao",
+          "amount": "7.5",
+          "unit": "ml",
+          "strict": false
+        },
+        {
+          "name": "Grenadine",
+          "amount": "1",
+          "unit": "dash",
+          "strict": false
+        }
+      ],
+      "steps": "1. Combine the aged rum, blanc vermouth, dry curaçao, and grenadine in a mixing glass with ice.\n2. Stir well for 30 seconds.\n3. Strain into a chilled coupe glass.\n4. Express oil of an orange peel over the cocktail and garnish with a cherry.",
+      "translation_key": "recipe.el_presidente"
+    }
+  ]
+}

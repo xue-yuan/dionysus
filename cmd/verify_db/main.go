@@ -1,69 +1,94 @@
+// Command verify_db reports rows that exist in the database but not in the seed
+// file, which is how leftovers from manual experiments get spotted.
 package main
 
 import (
+	"context"
 	"encoding/json"
-	"io/ioutil"
+	"flag"
 	"log"
 	"os"
+	"time"
 
 	"github.com/xue-yuan/dionysus/internal/config"
 	"github.com/xue-yuan/dionysus/internal/database"
 )
 
 type SeedData struct {
+	Ingredients []struct {
+		Name string `json:"name"`
+	} `json:"ingredients"`
 	Recipes []struct {
 		Title string `json:"title"`
 	} `json:"recipes"`
 }
 
 func main() {
-	cfg := config.Load()
-	if err := database.Connect(cfg); err != nil {
-		log.Fatalf("Failed to connect to database: %v", err)
-	}
+	file := flag.String("file", "cmd/seed/seed_data.json", "path to seed_data.json")
+	flag.Parse()
 
-	jsonFile, err := os.Open("cmd/seed/seed_data.json")
+	raw, err := os.ReadFile(*file)
 	if err != nil {
-		log.Fatalf("Failed to open seed file: %v", err)
+		log.Fatalf("read %s: %v", *file, err)
 	}
-	defer jsonFile.Close()
-
-	byteValue, _ := ioutil.ReadAll(jsonFile)
 	var seed SeedData
-	json.Unmarshal(byteValue, &seed)
-
-	seedTitles := make(map[string]bool)
-	for _, r := range seed.Recipes {
-		seedTitles[r.Title] = true
+	if err := json.Unmarshal(raw, &seed); err != nil {
+		log.Fatalf("parse %s: %v", *file, err)
 	}
 
-	rows, err := database.DB.Query("SELECT title FROM recipes")
+	cfg := config.Load()
+	db, err := database.Connect(cfg)
 	if err != nil {
-		log.Fatalf("Failed to query database: %v", err)
+		log.Fatalf("connect to database: %v", err)
 	}
-	defer rows.Close()
+	defer db.Close()
 
-	var dbTitles []string
-	for rows.Next() {
-		var title string
-		if err := rows.Scan(&title); err != nil {
-			log.Fatalf("Failed to scan row: %v", err)
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
+
+	extra := 0
+	extra += report(ctx, db, "recipe", "SELECT title FROM recipes", titles(seed))
+	extra += report(ctx, db, "ingredient", "SELECT name FROM ingredients", names(seed))
+
+	if extra == 0 {
+		log.Println("database matches the seed file")
+	} else {
+		log.Printf("%d row(s) in the database are not in the seed file", extra)
+		os.Exit(1)
+	}
+}
+
+func titles(s SeedData) map[string]bool {
+	m := make(map[string]bool, len(s.Recipes))
+	for _, r := range s.Recipes {
+		m[r.Title] = true
+	}
+	return m
+}
+
+func names(s SeedData) map[string]bool {
+	m := make(map[string]bool, len(s.Ingredients))
+	for _, i := range s.Ingredients {
+		m[i.Name] = true
+	}
+	return m
+}
+
+func report(ctx context.Context, db interface {
+	SelectContext(context.Context, any, string, ...any) error
+}, label, query string, expected map[string]bool) int {
+	var found []string
+	if err := db.SelectContext(ctx, &found, query); err != nil {
+		log.Fatalf("query %ss: %v", label, err)
+	}
+
+	extra := 0
+	for _, name := range found {
+		if !expected[name] {
+			log.Printf("extra %s in database: %q", label, name)
+			extra++
 		}
-		dbTitles = append(dbTitles, title)
 	}
-
-	log.Printf("DB Total Recipes: %d", len(dbTitles))
-	log.Printf("Seed Total Recipes: %d", len(seedTitles))
-
-	extraInDB := 0
-	for _, title := range dbTitles {
-		if !seedTitles[title] {
-			log.Printf("Warning: Database contains recipe '%s' which is not in seed_data.json!", title)
-			extraInDB++
-		}
-	}
-
-	if extraInDB == 0 {
-		log.Println("Success: Database is in 100% sync with seed_data.json. No extra records found!")
-	}
+	log.Printf("%ss — database: %d, seed: %d", label, len(found), len(expected))
+	return extra
 }

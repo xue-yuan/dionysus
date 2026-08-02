@@ -11,6 +11,8 @@ type Ingredient struct {
 	Name           string    `db:"name" json:"name"`
 	Category       string    `db:"category" json:"category"`
 	TranslationKey string    `db:"translation_key" json:"translation_key"`
+	// Family groups interchangeable bottles. Empty means never substitutable.
+	Family string `db:"family" json:"family"`
 }
 
 type Recipe struct {
@@ -33,9 +35,10 @@ type Recipe struct {
 }
 
 type Tag struct {
-	ID   uuid.UUID `db:"id" json:"id"`
-	Name string    `db:"name" json:"name"`
-	Type string    `db:"type" json:"type"`
+	ID             uuid.UUID `db:"id" json:"id"`
+	Name           string    `db:"name" json:"name"`
+	Type           string    `db:"type" json:"type"`
+	TranslationKey string    `db:"translation_key" json:"translation_key"`
 }
 
 type RecipeIngredient struct {
@@ -43,6 +46,7 @@ type RecipeIngredient struct {
 	IngredientID uuid.UUID `db:"ingredient_id" json:"ingredient_id"`
 	Amount       string    `db:"amount" json:"amount"`
 	Unit         string    `db:"unit" json:"unit"`
+	Strict       bool      `db:"strict" json:"strict"`
 }
 
 type RecipeIngredientDetail struct {
@@ -50,24 +54,38 @@ type RecipeIngredientDetail struct {
 	Name           string    `db:"name" json:"name"`
 	Category       string    `db:"category" json:"category"`
 	TranslationKey string    `db:"translation_key" json:"translation_key"`
+	Family         string    `db:"family" json:"family"`
 	Amount         string    `db:"amount" json:"amount"`
 	Unit           string    `db:"unit" json:"unit"`
+	Strict         bool      `db:"strict" json:"strict"`
 }
 
 type RecipeMatch struct {
-	ID                 string   `json:"id" db:"id"`
-	Title              string   `json:"title" db:"title"`
-	Description        string   `json:"description" db:"description"`
-	ImageUrl           string   `json:"image_url" db:"image_url"`
-	TotalIngredients   int      `json:"total_ingredients" db:"total_ingredients"`
-	OwnedCount         int      `json:"owned_count" db:"owned_count"`
-	MissingCount       int      `json:"missing_count" db:"missing_count"`
+	ID               string `json:"id" db:"id"`
+	Title            string `json:"title" db:"title"`
+	Description      string `json:"description" db:"description"`
+	ImageUrl         string `json:"image_url" db:"image_url"`
+	TotalIngredients int    `json:"total_ingredients" db:"total_ingredients"`
+	OwnedCount       int    `json:"owned_count" db:"owned_count"`
+	MissingCount     int    `json:"missing_count" db:"missing_count"`
+	// Ingredient IDs the user is short of. At most one, since the matcher only
+	// returns recipes that are complete or one ingredient away.
 	MissingIngredients []string `json:"missing_ingredients,omitempty"`
-	Sweetness          int      `json:"sweetness" db:"sweetness"`
-	Sourness           int      `json:"sourness" db:"sourness"`
-	Strength           int      `json:"strength" db:"strength"`
-	Tags               []Tag    `json:"tags,omitempty"`
-	Glassware          string   `json:"glassware" db:"glassware"`
-	Method             string   `json:"method" db:"method"`
-	TranslationKey     string   `json:"translation_key" db:"translation_key"`
+	// Substitutions the matcher applied to reach this result.
+	Substitutions  []Substitution `json:"substitutions,omitempty"`
+	Sweetness      int            `json:"sweetness" db:"sweetness"`
+	Sourness       int            `json:"sourness" db:"sourness"`
+	Strength       int            `json:"strength" db:"strength"`
+	Tags           []Tag          `json:"tags,omitempty"`
+	Glassware      string         `json:"glassware" db:"glassware"`
+	Method         string         `json:"method" db:"method"`
+	TranslationKey string         `json:"translation_key" db:"translation_key"`
+}
+
+// Substitution records that a recipe called for RequiredID but the user's
+// SubstituteID from the same family was used instead.
+type Substitution struct {
+	RequiredID   string `json:"required_id" db:"required_id"`
+	SubstituteID string `json:"substitute_id" db:"substitute_id"`
+	Family       string `json:"family" db:"family"`
 }
