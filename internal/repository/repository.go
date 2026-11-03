@@ -1,3 +1,4 @@
+// Package repository
 package repository
 
 import (
@@ -484,7 +485,7 @@ func (r *Repository) FindMatchingRecipes(ctx context.Context, q MatchQuery) ([]m
 		var missingIDs, requiredIDs, substituteIDs, subFamilies pq.StringArray
 
 		if err := rows.Scan(
-			&m.ID, &m.Title, &m.Description, &m.ImageUrl, &m.Glassware, &m.Method,
+			&m.ID, &m.Title, &m.Description, &m.ImageURL, &m.Glassware, &m.Method,
 			&m.TranslationKey, &m.Sweetness, &m.Sourness, &m.Strength,
 			&m.TotalIngredients, &m.OwnedCount, &m.MissingCount,
 			&missingIDs, &requiredIDs, &substituteIDs, &subFamilies,

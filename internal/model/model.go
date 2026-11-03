@@ -1,3 +1,4 @@
+// Package model
 package model
 
 import (
@@ -64,7 +65,7 @@ type RecipeMatch struct {
 	ID               string `json:"id" db:"id"`
 	Title            string `json:"title" db:"title"`
 	Description      string `json:"description" db:"description"`
-	ImageUrl         string `json:"image_url" db:"image_url"`
+	ImageURL         string `json:"image_url" db:"image_url"`
 	TotalIngredients int    `json:"total_ingredients" db:"total_ingredients"`
 	OwnedCount       int    `json:"owned_count" db:"owned_count"`
 	MissingCount     int    `json:"missing_count" db:"missing_count"`
