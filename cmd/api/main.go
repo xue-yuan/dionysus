@@ -9,7 +9,11 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber/v3"
+	"github.com/gofiber/fiber/v3/middleware/compress"
 	"github.com/gofiber/fiber/v3/middleware/cors"
+	"github.com/gofiber/fiber/v3/middleware/etag"
+	"github.com/gofiber/fiber/v3/middleware/limiter"
+	"github.com/gofiber/fiber/v3/middleware/recover"
 	"github.com/xue-yuan/dionysus/internal/config"
 	"github.com/xue-yuan/dionysus/internal/database"
 	"github.com/xue-yuan/dionysus/internal/handler"
@@ -40,10 +44,28 @@ func main() {
 		WriteTimeout: 20 * time.Second,
 		IdleTimeout:  60 * time.Second,
 		BodyLimit:    256 * 1024,
+		// nginx forwards from the same host, so without this every visitor
+		// shares 127.0.0.1's rate limit. The header is believed only from
+		// loopback; anyone reaching the port directly cannot spoof it.
+		ProxyHeader:      "X-Real-IP",
+		TrustProxy:       true,
+		TrustProxyConfig: fiber.TrustProxyConfig{Loopback: true},
 	})
+	// Fiber does not recover panics on its own, so without this one nil
+	// dereference in a handler takes the whole process down with it.
+	app.Use(recover.New())
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: cfg.AllowedOrigins,
 		AllowMethods: []string{fiber.MethodGet, fiber.MethodPost, fiber.MethodOptions},
+	}))
+	app.Use(compress.New())
+	// The archive is read-only, so every response is a pure function of the
+	// request. ETag turns a repeat visit into a 304 with no body.
+	app.Use(etag.New())
+	// Matching is the most expensive query in the app and is open to anyone.
+	app.Use(limiter.New(limiter.Config{
+		Max:        cfg.RateLimit,
+		Expiration: time.Minute,
 	}))
 
 	h.Routes(app)

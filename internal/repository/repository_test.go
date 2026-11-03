@@ -2,6 +2,8 @@ package repository_test
 
 import (
 	"context"
+	"database/sql"
+	"errors"
 	"testing"
 
 	"github.com/jmoiron/sqlx"
@@ -282,7 +284,9 @@ func TestPaginationVisitsEveryRecipeExactlyOnce(t *testing.T) {
 	const limit = 12
 	seen := make(map[string]int)
 	for offset := 0; offset < total; offset += limit {
-		page, _, err := repo.GetRecipes(context.Background(), limit, offset, "desc", "")
+		page, _, err := repo.GetRecipes(context.Background(), repository.RecipeQuery{
+			Limit: limit, Offset: offset, SortDirection: "desc",
+		})
 		if err != nil {
 			t.Fatalf("GetRecipes(offset=%d): %v", offset, err)
 		}
@@ -305,11 +309,268 @@ func TestPaginationVisitsEveryRecipeExactlyOnce(t *testing.T) {
 func TestSearchEscapesLikeWildcards(t *testing.T) {
 	repo, _ := newRepo(t)
 
-	_, total, err := repo.GetRecipes(context.Background(), 1, 0, "desc", "%")
+	_, total, err := repo.GetRecipes(context.Background(), repository.RecipeQuery{
+		Limit: 1, SortDirection: "desc", Search: "%",
+	})
 	if err != nil {
 		t.Fatalf("GetRecipes: %v", err)
 	}
 	if total != 0 {
 		t.Errorf("search for %%%% matched %d recipes, want 0", total)
+	}
+}
+
+// The server stores only English text, so a reader searching in Chinese matches
+// nothing by title. The client resolves the query against its own dictionary and
+// passes the keys, which have to widen the result rather than narrow it.
+func TestSearchMatchesTranslationKeys(t *testing.T) {
+	repo, db := newRepo(t)
+
+	var want struct {
+		Title string `db:"title"`
+		Key   string `db:"translation_key"`
+	}
+	if err := db.Get(&want, `SELECT title, translation_key FROM recipes ORDER BY title LIMIT 1`); err != nil {
+		t.Fatalf("look up translation key: %v", err)
+	}
+
+	items, total, err := repo.GetRecipes(context.Background(), repository.RecipeQuery{
+		Limit:         10,
+		SortDirection: "desc",
+		// A query that matches no English text at all.
+		Search:          "馬丁尼",
+		TranslationKeys: []string{want.Key},
+	})
+	if err != nil {
+		t.Fatalf("GetRecipes: %v", err)
+	}
+	if total != 1 || len(items) != 1 {
+		t.Fatalf("got %d items (total %d), want exactly 1", len(items), total)
+	}
+	if items[0].Title != want.Title {
+		t.Errorf("matched %q, want %q", items[0].Title, want.Title)
+	}
+	if items[0].Tags == nil {
+		t.Error("tags were not hydrated")
+	}
+}
+
+// The window count reports the size of the filtered set, but an empty page has
+// no row to carry it. Paging past the end must still report the real total.
+func TestTotalIsCorrectOnAPageBeyondTheEnd(t *testing.T) {
+	repo, db := newRepo(t)
+
+	var want int64
+	if err := db.Get(&want, `SELECT COUNT(*) FROM recipes`); err != nil {
+		t.Fatalf("count recipes: %v", err)
+	}
+
+	items, total, err := repo.GetRecipes(context.Background(), repository.RecipeQuery{
+		Limit: 12, Offset: int(want) + 100, SortDirection: "desc",
+	})
+	if err != nil {
+		t.Fatalf("GetRecipes: %v", err)
+	}
+	if len(items) != 0 {
+		t.Errorf("got %d items past the end, want 0", len(items))
+	}
+	if total != want {
+		t.Errorf("total past the end is %d, want %d", total, want)
+	}
+}
+
+// Equipment is something the user owns, so unticking a tool has to hide the
+// drinks that need it and leave the rest alone. It used to run through the
+// palate filter instead, where "I have a shaker" meant "show only shaken drinks".
+func TestExcludedToolHidesOnlyDrinksThatNeedIt(t *testing.T) {
+	repo, db := newRepo(t)
+
+	var shaker string
+	if err := db.Get(&shaker, `SELECT id FROM tags WHERE name = 'Shaker' AND type = 'Equipment'`); err != nil {
+		t.Fatalf("look up Shaker tag: %v", err)
+	}
+
+	owned := append(recipeIngredients(t, db, "Whiskey Sour"), recipeIngredients(t, db, "Old Fashioned")...)
+	run := func(exclude []string) []model.RecipeMatch {
+		got, err := repo.FindMatchingRecipes(context.Background(), repository.MatchQuery{
+			OwnedIngredientIDs: owned,
+			ExcludeTagIDs:      exclude,
+		})
+		if err != nil {
+			t.Fatalf("FindMatchingRecipes: %v", err)
+		}
+		return got
+	}
+
+	all := run(nil)
+	if find(all, "Whiskey Sour") == nil || find(all, "Old Fashioned") == nil {
+		t.Fatal("both recipes should match before any tool is excluded")
+	}
+
+	withoutShaker := run([]string{shaker})
+	if find(withoutShaker, "Whiskey Sour") != nil {
+		t.Error("Whiskey Sour needs a shaker and should be hidden")
+	}
+	if find(withoutShaker, "Old Fashioned") == nil {
+		t.Error("Old Fashioned is stirred and should survive excluding the shaker")
+	}
+	for _, m := range withoutShaker {
+		for _, tag := range m.Tags {
+			if tag.ID.String() == shaker {
+				t.Errorf("%s carries the excluded Shaker tag", m.Title)
+			}
+		}
+	}
+}
+
+// Recipe URLs carry the translation key, not the id, so a link made against one
+// database opens on another seeded from the same file.
+func TestGetRecipeByKey(t *testing.T) {
+	repo, db := newRepo(t)
+
+	var want struct {
+		ID  string `db:"id"`
+		Key string `db:"translation_key"`
+	}
+	if err := db.Get(&want, `SELECT id, translation_key FROM recipes WHERE title = 'Negroni'`); err != nil {
+		t.Fatalf("look up Negroni: %v", err)
+	}
+
+	got, err := repo.GetRecipeByKey(context.Background(), want.Key)
+	if err != nil {
+		t.Fatalf("GetRecipeByKey: %v", err)
+	}
+	if got.ID.String() != want.ID {
+		t.Errorf("got recipe %s, want %s", got.ID, want.ID)
+	}
+	if len(got.Ingredients) == 0 {
+		t.Error("ingredients were not hydrated")
+	}
+
+	if _, err := repo.GetRecipeByKey(context.Background(), "recipe.no_such_drink"); !errors.Is(err, sql.ErrNoRows) {
+		t.Errorf("unknown key returned %v, want sql.ErrNoRows", err)
+	}
+}
+
+// tagID looks a tag up by name, failing loudly if the seed data has drifted.
+func tagID(t *testing.T, db *sqlx.DB, name string) string {
+	t.Helper()
+	var id string
+	if err := db.Get(&id, `SELECT id FROM tags WHERE name = $1`, name); err != nil {
+		t.Fatalf("tag %q not found: %v", name, err)
+	}
+	return id
+}
+
+func tagNames(tags []model.Tag) map[string]bool {
+	names := make(map[string]bool, len(tags))
+	for _, tag := range tags {
+		names[tag.Name] = true
+	}
+	return names
+}
+
+// all pages through the archive with q, so a filter is checked on every row and
+// the reported total is checked against what actually came back.
+func all(t *testing.T, repo *repository.Repository, q repository.RecipeQuery) []model.Recipe {
+	t.Helper()
+	q.Limit, q.SortDirection = 100, "desc"
+	var out []model.Recipe
+	for {
+		q.Offset = len(out)
+		items, total, err := repo.GetRecipes(context.Background(), q)
+		if err != nil {
+			t.Fatalf("GetRecipes: %v", err)
+		}
+		out = append(out, items...)
+		if len(items) == 0 || int64(len(out)) >= total {
+			if int64(len(out)) != total {
+				t.Fatalf("collected %d rows but total says %d", len(out), total)
+			}
+			return out
+		}
+	}
+}
+
+// Tags of one type are alternatives and tags of different types narrow. One
+// ANY over everything used to make "Tiki" plus "Fruity" mean tiki or fruity.
+func TestArchiveTagFilterNarrowsAcrossTypes(t *testing.T) {
+	repo, db := newRepo(t)
+	sour, fruity, tiki := tagID(t, db, "Sour"), tagID(t, db, "Fruity"), tagID(t, db, "Tiki")
+
+	either := all(t, repo, repository.RecipeQuery{TagIDs: []string{sour, fruity}})
+	for _, r := range either {
+		if names := tagNames(r.Tags); !names["Sour"] && !names["Fruity"] {
+			t.Errorf("%s carries neither Sour nor Fruity", r.Title)
+		}
+	}
+
+	both := all(t, repo, repository.RecipeQuery{TagIDs: []string{fruity, tiki}})
+	if len(both) == 0 {
+		t.Fatal("expected at least one fruity tiki drink")
+	}
+	for _, r := range both {
+		if names := tagNames(r.Tags); !names["Fruity"] || !names["Tiki"] {
+			t.Errorf("%s should carry both Fruity and Tiki", r.Title)
+		}
+	}
+	if len(both) >= len(either) {
+		t.Errorf("narrowing across types returned %d rows, no fewer than one type alone (%d)", len(both), len(either))
+	}
+}
+
+// The base filter is wider than family on purpose. Pisco Sour is a brandy
+// drink and Caipirinha a rum one, though neither spirit may substitute.
+func TestArchiveBaseFilter(t *testing.T) {
+	repo, db := newRepo(t)
+
+	for base, mustInclude := range map[string][]string{
+		"Gin":    {"Negroni"},
+		"Brandy": {"Sidecar", "Pisco Sour", "Jack Rose"},
+		"Rum":    {"Daiquiri", "Caipirinha"},
+	} {
+		got := all(t, repo, repository.RecipeQuery{Base: base})
+		titles := make(map[string]bool, len(got))
+		for _, r := range got {
+			titles[r.Title] = true
+			var n int
+			err := db.Get(&n, `
+				SELECT COUNT(*) FROM recipe_ingredients ri
+				JOIN ingredients i ON i.id = ri.ingredient_id
+				WHERE ri.recipe_id = $1 AND i.base = $2`, r.ID, base)
+			if err != nil || n == 0 {
+				t.Errorf("%s calls for no %s (%v)", r.Title, base, err)
+			}
+		}
+		for _, title := range mustInclude {
+			if !titles[title] {
+				t.Errorf("base %s should include %s", base, title)
+			}
+		}
+	}
+}
+
+func TestMatchStrengthBounds(t *testing.T) {
+	repo, db := newRepo(t)
+
+	var owned []string
+	if err := db.Select(&owned, `SELECT id FROM ingredients`); err != nil {
+		t.Fatalf("list ingredients: %v", err)
+	}
+	got, err := repo.FindMatchingRecipes(context.Background(), repository.MatchQuery{
+		OwnedIngredientIDs: owned,
+		MinStrength:        3,
+		MaxStrength:        3,
+	})
+	if err != nil {
+		t.Fatalf("FindMatchingRecipes: %v", err)
+	}
+	if len(got) == 0 {
+		t.Fatal("a full shelf should make some strength-3 drinks")
+	}
+	for _, m := range got {
+		if m.Strength != 3 {
+			t.Errorf("%s has strength %d, want 3", m.Title, m.Strength)
+		}
 	}
 }

@@ -3,6 +3,7 @@ package config
 import (
 	"os"
 	"path/filepath"
+	"strconv"
 	"strings"
 
 	"github.com/joho/godotenv"
@@ -18,6 +19,8 @@ type Config struct {
 	DBSSLMode  string
 	// AllowedOrigins restricts CORS. "*" is accepted but only sensible locally.
 	AllowedOrigins []string
+	// RateLimit is the number of requests one address may make per minute.
+	RateLimit int
 }
 
 // loadDotEnv walks up from the working directory looking for a .env file, so
@@ -45,7 +48,7 @@ func Load() *Config {
 	loadDotEnv()
 
 	return &Config{
-		Port:           getEnv("PORT", "3000"),
+		Port:           getEnv("PORT", "8080"),
 		DBHost:         getEnv("DB_HOST", "localhost"),
 		DBPort:         getEnv("DB_PORT", "5432"),
 		DBUser:         getEnv("DB_USER", "postgres"),
@@ -53,7 +56,18 @@ func Load() *Config {
 		DBName:         getEnv("DB_NAME", "dionysus"),
 		DBSSLMode:      getEnv("DB_SSLMODE", "disable"),
 		AllowedOrigins: splitList(getEnv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:4173")),
+		RateLimit:      getEnvInt("RATE_LIMIT", 240),
 	}
+}
+
+// getEnvInt falls back rather than failing, because a typo in an operational
+// knob should not stop the server from booting.
+func getEnvInt(key string, fallback int) int {
+	value, err := strconv.Atoi(getEnv(key, ""))
+	if err != nil || value < 1 {
+		return fallback
+	}
+	return value
 }
 
 func getEnv(key, fallback string) string {

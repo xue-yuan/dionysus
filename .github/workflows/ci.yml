@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    # The repository tests are integration tests; without a database they skip,
+    # which would make this job green while checking almost nothing.
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: dionysus
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DB_HOST: localhost
+      DB_PORT: "5432"
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: dionysus
+      DB_SSLMODE: disable
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - run: go build ./...
+      - run: go vet ./...
+
+      # Applies the schema and the catalogue, so the matcher tests run against
+      # the same data the app ships.
+      - name: Seed the database
+        run: go run ./cmd/seed
+
+      - run: go test ./... -count=1
+
+      # A skip here means the seeding step silently failed to connect.
+      - name: Fail if the integration tests skipped
+        run: |
+          go test ./internal/repository -count=1 -v 2>&1 | tee /tmp/out
+          if grep -q -- "--- SKIP" /tmp/out; then
+            echo "::error::repository tests skipped; the database was not reachable"
+            exit 1
+          fi

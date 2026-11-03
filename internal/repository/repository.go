@@ -45,56 +45,146 @@ func escapeLike(s string) string {
 	return s
 }
 
+// RecipeQuery describes one page of the archive.
+//
+// TranslationKeys carries the keys whose localised text matched the search. The
+// server holds only the English title and description, so a reader searching in
+// Chinese would otherwise match nothing; the client resolves the query against
+// its own dictionary and passes the keys it found. Empty unless Search is set.
+//
+// TagIDs filters as tagFilter describes. Base keeps recipes that call for any
+// bottle with that base ("Brandy" takes in Cognac, Pisco and apple brandy), which
+// is what "brandy drinks" means on the archive page. It is deliberately not
+// family: family is about substitution, and Pisco must not stand in for Cognac.
+type RecipeQuery struct {
+	Limit           int
+	Offset          int
+	SortDirection   string
+	Search          string
+	TranslationKeys []string
+	TagIDs          []string
+	Base            string
+}
+
+// tagFilter keeps recipes that carry, for every type among the selected tags,
+// at least one selected tag of that type. Within a type the tags are
+// alternatives (Sour or Fruity); across types they narrow (Tiki and Sour). A
+// single ANY over everything made picking "Tiki" and "Sour" return every sour
+// drink plus every tiki drink.
+//
+// param is the placeholder holding the uuid array, positional or named.
+func tagFilter(param string) string {
+	return fmt.Sprintf(`NOT EXISTS (
+		SELECT 1 FROM tags st
+		WHERE st.id = ANY(CAST(%[1]s AS uuid[]))
+		  AND NOT EXISTS (
+			SELECT 1 FROM recipe_tags rt
+			JOIN tags rtt ON rtt.id = rt.tag_id
+			WHERE rt.recipe_id = r.id
+			  AND rtt.type = st.type
+			  AND rt.tag_id = ANY(CAST(%[1]s AS uuid[]))
+		  )
+	)`, param)
+}
+
+// recipeWhere builds the archive's WHERE clause and its arguments. Placeholders
+// start at $next, because the list query keeps $1 and $2 for the page window.
+func recipeWhere(q RecipeQuery, next int) (string, []any) {
+	var conds []string
+	var args []any
+	arg := func(v any) string {
+		args = append(args, v)
+		return fmt.Sprintf("$%d", next+len(args)-1)
+	}
+
+	if q.Search != "" {
+		like := arg("%" + escapeLike(q.Search) + "%")
+		keys := arg(pq.Array(q.TranslationKeys))
+		conds = append(conds, fmt.Sprintf(`(r.title ILIKE %[1]s ESCAPE '\'
+		      OR r.description ILIKE %[1]s ESCAPE '\'
+		      OR r.translation_key = ANY(CAST(%[2]s AS text[])))`, like, keys))
+	}
+	if len(q.TagIDs) > 0 {
+		conds = append(conds, tagFilter(arg(pq.Array(q.TagIDs))))
+	}
+	if q.Base != "" {
+		conds = append(conds, fmt.Sprintf(`EXISTS (
+			SELECT 1 FROM recipe_ingredients ri
+			JOIN ingredients i ON i.id = ri.ingredient_id
+			WHERE ri.recipe_id = r.id AND i.base = %s)`, arg(q.Base)))
+	}
+
+	if len(conds) == 0 {
+		return "", nil
+	}
+	return "WHERE " + strings.Join(conds, " AND "), args
+}
+
+// recipeRow is a page row plus the window count, so one round trip reports both
+// the page and how many rows the filter matched.
+type recipeRow struct {
+	model.Recipe
+	TotalCount int64 `db:"total_count"`
+}
+
 // GetRecipes returns one page of recipes ordered by strength. r.id is always the
 // final sort key: strength has only a handful of distinct values, and without a
 // unique tiebreaker PostgreSQL is free to order ties differently on every query,
 // which makes OFFSET pagination skip and repeat rows.
-func (r *Repository) GetRecipes(ctx context.Context, limit, offset int, sortDirection, search string) ([]model.Recipe, int64, error) {
+func (r *Repository) GetRecipes(ctx context.Context, q RecipeQuery) ([]model.Recipe, int64, error) {
 	order := "DESC"
-	if sortDirection == "asc" {
+	if q.SortDirection == "asc" {
 		order = "ASC"
 	}
 
-	recipes := []model.Recipe{}
-	var total int64
+	// $1 and $2 are always the page window; the filter args follow.
+	where, filterArgs := recipeWhere(q, 3)
+	args := append([]any{q.Limit, q.Offset}, filterArgs...)
 
-	countQuery := `SELECT COUNT(*) FROM recipes`
+	// COUNT(*) OVER () is evaluated after WHERE but before LIMIT, so it reports
+	// the size of the whole filtered set without a second query.
+	rows := []recipeRow{}
 	listQuery := fmt.Sprintf(`
 		SELECT %s,
-		       (SELECT COUNT(*) FROM recipe_ingredients ri WHERE ri.recipe_id = r.id) AS total_ingredients
+		       (SELECT COUNT(*) FROM recipe_ingredients ri WHERE ri.recipe_id = r.id) AS total_ingredients,
+		       COUNT(*) OVER () AS total_count
 		FROM recipes r
+		%s
 		ORDER BY r.strength %s, r.id %s
-		LIMIT $1 OFFSET $2`, recipeColumns, order, order)
-	args := []any{limit, offset}
+		LIMIT $1 OFFSET $2`, recipeColumns, where, order, order)
 
-	if search != "" {
-		pattern := "%" + escapeLike(search) + "%"
-		countQuery = `SELECT COUNT(*) FROM recipes
-			WHERE title ILIKE $1 ESCAPE '\' OR description ILIKE $1 ESCAPE '\'`
-		listQuery = fmt.Sprintf(`
-			SELECT %s,
-			       (SELECT COUNT(*) FROM recipe_ingredients ri WHERE ri.recipe_id = r.id) AS total_ingredients
-			FROM recipes r
-			WHERE r.title ILIKE $3 ESCAPE '\' OR r.description ILIKE $3 ESCAPE '\'
-			ORDER BY r.strength %s, r.id %s
-			LIMIT $1 OFFSET $2`, recipeColumns, order, order)
-		args = append(args, pattern)
-
-		if err := r.DB.GetContext(ctx, &total, countQuery, pattern); err != nil {
-			return nil, 0, err
-		}
-	} else if err := r.DB.GetContext(ctx, &total, countQuery); err != nil {
+	if err := r.DB.SelectContext(ctx, &rows, listQuery, args...); err != nil {
 		return nil, 0, err
 	}
 
-	if err := r.DB.SelectContext(ctx, &recipes, listQuery, args...); err != nil {
-		return nil, 0, err
+	recipes := make([]model.Recipe, len(rows))
+	for i, row := range rows {
+		recipes[i] = row.Recipe
+	}
+
+	var total int64
+	if len(rows) > 0 {
+		total = rows[0].TotalCount
+	} else {
+		// An empty page carries no window count, and that is either a genuinely
+		// empty result or an offset past the end. Only a count separates them.
+		var err error
+		if total, err = r.countRecipes(ctx, q); err != nil {
+			return nil, 0, err
+		}
 	}
 
 	if err := r.attachTags(ctx, recipes); err != nil {
 		return nil, 0, err
 	}
 	return recipes, total, nil
+}
+
+func (r *Repository) countRecipes(ctx context.Context, q RecipeQuery) (int64, error) {
+	var total int64
+	where, args := recipeWhere(q, 1)
+	err := r.DB.GetContext(ctx, &total, `SELECT COUNT(*) FROM recipes r `+where, args...)
+	return total, err
 }
 
 // GetRecipesByIDs fetches a specific set of recipes, which lets the saved-recipes
@@ -121,18 +211,11 @@ func (r *Repository) GetRecipesByIDs(ctx context.Context, ids []string) ([]model
 	return recipes, nil
 }
 
-// attachTags hydrates tags for a page of recipes in one round trip.
-func (r *Repository) attachTags(ctx context.Context, recipes []model.Recipe) error {
-	for i := range recipes {
-		recipes[i].Tags = []model.Tag{}
-	}
-	if len(recipes) == 0 {
-		return nil
-	}
-
-	ids := make([]string, len(recipes))
-	for i, rec := range recipes {
-		ids[i] = rec.ID.String()
+// tagsByRecipe hydrates tags for a page of recipes in one round trip.
+func (r *Repository) tagsByRecipe(ctx context.Context, ids []string) (map[string][]model.Tag, error) {
+	byRecipe := make(map[string][]model.Tag, len(ids))
+	if len(ids) == 0 {
+		return byRecipe, nil
 	}
 
 	rows, err := r.DB.QueryxContext(ctx, `
@@ -141,23 +224,32 @@ func (r *Repository) attachTags(ctx context.Context, recipes []model.Recipe) err
 		JOIN tags t ON rt.tag_id = t.id
 		WHERE rt.recipe_id = ANY($1::uuid[])`, pq.Array(ids))
 	if err != nil {
-		return err
+		return nil, err
 	}
 	defer rows.Close()
 
-	byRecipe := make(map[string][]model.Tag)
 	for rows.Next() {
 		var recipeID string
 		var t model.Tag
 		if err := rows.Scan(&recipeID, &t.ID, &t.Name, &t.Type, &t.TranslationKey); err != nil {
-			return err
+			return nil, err
 		}
 		byRecipe[recipeID] = append(byRecipe[recipeID], t)
 	}
-	if err := rows.Err(); err != nil {
-		return err
+	return byRecipe, rows.Err()
+}
+
+func (r *Repository) attachTags(ctx context.Context, recipes []model.Recipe) error {
+	ids := make([]string, len(recipes))
+	for i := range recipes {
+		recipes[i].Tags = []model.Tag{}
+		ids[i] = recipes[i].ID.String()
 	}
 
+	byRecipe, err := r.tagsByRecipe(ctx, ids)
+	if err != nil {
+		return err
+	}
 	for i := range recipes {
 		if tags, ok := byRecipe[recipes[i].ID.String()]; ok {
 			recipes[i].Tags = tags
@@ -202,11 +294,32 @@ func (r *Repository) GetRecipeWithIngredients(ctx context.Context, id uuid.UUID)
 	return &recipe, nil
 }
 
+// GetRecipeByKey looks a recipe up by its translation key, which is what the
+// client's recipe URLs carry. Ids differ between databases seeded separately,
+// so a link built from one would not open on another.
+func (r *Repository) GetRecipeByKey(ctx context.Context, key string) (*model.Recipe, error) {
+	var id uuid.UUID
+	if err := r.DB.GetContext(ctx, &id, `SELECT id FROM recipes WHERE translation_key = $1`, key); err != nil {
+		return nil, err
+	}
+	return r.GetRecipeWithIngredients(ctx, id)
+}
+
 // MatchQuery describes what the user has and what they will accept.
+//
+// TagIDs narrows the result as tagFilter describes (palate and style).
+// ExcludeTagIDs drops recipes carrying any of them, which is how equipment
+// works: the user unticks a tool they do not own, and every recipe that needs
+// it disappears. Equipment used to go through TagIDs, so ticking "Shaker" hid
+// every stirred drink — the opposite of "I have a shaker".
+//
+// MinStrength and MaxStrength bound the 1–5 strength scale; zero means no bound.
 type MatchQuery struct {
 	OwnedIngredientIDs []string
 	MinStrength        int
+	MaxStrength        int
 	TagIDs             []string
+	ExcludeTagIDs      []string
 	AllowSubstitutes   bool
 }
 
@@ -343,12 +456,20 @@ func (r *Repository) FindMatchingRecipes(ctx context.Context, q MatchQuery) ([]m
 		query += " AND r.strength >= :min_strength"
 		args["min_strength"] = q.MinStrength
 	}
+	if q.MaxStrength > 0 {
+		query += " AND r.strength <= :max_strength"
+		args["max_strength"] = q.MaxStrength
+	}
 	if len(q.TagIDs) > 0 {
-		query += ` AND EXISTS (
-			SELECT 1 FROM recipe_tags rt
-			WHERE rt.recipe_id = r.id AND rt.tag_id = ANY(CAST(:tag_ids AS uuid[]))
-		)`
+		query += " AND " + tagFilter(":tag_ids")
 		args["tag_ids"] = pq.Array(q.TagIDs)
+	}
+	if len(q.ExcludeTagIDs) > 0 {
+		query += ` AND NOT EXISTS (
+			SELECT 1 FROM recipe_tags rt
+			WHERE rt.recipe_id = r.id AND rt.tag_id = ANY(CAST(:exclude_tag_ids AS uuid[]))
+		)`
+		args["exclude_tag_ids"] = pq.Array(q.ExcludeTagIDs)
 	}
 	query += " ORDER BY missing_count ASC, r.title ASC"
 
@@ -392,41 +513,16 @@ func (r *Repository) FindMatchingRecipes(ctx context.Context, q MatchQuery) ([]m
 }
 
 func (r *Repository) attachMatchTags(ctx context.Context, matches []model.RecipeMatch) error {
+	ids := make([]string, len(matches))
 	for i := range matches {
 		matches[i].Tags = []model.Tag{}
-	}
-	if len(matches) == 0 {
-		return nil
+		ids[i] = matches[i].ID
 	}
 
-	ids := make([]string, len(matches))
-	for i, m := range matches {
-		ids[i] = m.ID
-	}
-
-	rows, err := r.DB.QueryxContext(ctx, `
-		SELECT rt.recipe_id, t.id, t.name, t.type, t.translation_key
-		FROM recipe_tags rt
-		JOIN tags t ON rt.tag_id = t.id
-		WHERE rt.recipe_id = ANY($1::uuid[])`, pq.Array(ids))
+	byRecipe, err := r.tagsByRecipe(ctx, ids)
 	if err != nil {
 		return err
 	}
-	defer rows.Close()
-
-	byRecipe := make(map[string][]model.Tag)
-	for rows.Next() {
-		var recipeID string
-		var t model.Tag
-		if err := rows.Scan(&recipeID, &t.ID, &t.Name, &t.Type, &t.TranslationKey); err != nil {
-			return err
-		}
-		byRecipe[recipeID] = append(byRecipe[recipeID], t)
-	}
-	if err := rows.Err(); err != nil {
-		return err
-	}
-
 	for i := range matches {
 		if tags, ok := byRecipe[matches[i].ID]; ok {
 			matches[i].Tags = tags

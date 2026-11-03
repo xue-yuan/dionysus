@@ -8,7 +8,11 @@ CREATE TABLE IF NOT EXISTS ingredients (
     translation_key TEXT NOT NULL DEFAULT '',
     -- Interchangeable bottles share a family (e.g. every whiskey is 'Whiskey').
     -- Empty means the ingredient can never be substituted.
-    family TEXT NOT NULL DEFAULT ''
+    family TEXT NOT NULL DEFAULT '',
+    -- The kind of spirit a drink built on this bottle counts as, for the
+    -- archive's base filter. Wider than family: Pisco is a brandy without
+    -- being a substitute for Cognac. Empty for anything that is not a base.
+    base TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TABLE IF NOT EXISTS recipes (
@@ -40,7 +44,7 @@ CREATE TABLE IF NOT EXISTS recipe_ingredients (
 CREATE TABLE IF NOT EXISTS tags (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     name TEXT UNIQUE NOT NULL,
-    type TEXT NOT NULL DEFAULT 'Palate', -- 'Palate' or 'Equipment'
+    type TEXT NOT NULL DEFAULT 'Palate', -- 'Palate', 'Style' or 'Equipment'
     translation_key TEXT NOT NULL DEFAULT ''
 );
 
@@ -52,6 +56,7 @@ CREATE TABLE IF NOT EXISTS recipe_tags (
 
 -- Columns added after the initial release; these keep existing databases current.
 ALTER TABLE ingredients        ADD COLUMN IF NOT EXISTS family TEXT NOT NULL DEFAULT '';
+ALTER TABLE ingredients        ADD COLUMN IF NOT EXISTS base TEXT NOT NULL DEFAULT '';
 ALTER TABLE tags               ADD COLUMN IF NOT EXISTS translation_key TEXT NOT NULL DEFAULT '';
 ALTER TABLE recipe_ingredients ADD COLUMN IF NOT EXISTS strict BOOLEAN NOT NULL DEFAULT FALSE;
 
