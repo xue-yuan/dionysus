@@ -29,12 +29,16 @@ func main() {
 	}
 	defer db.Close()
 
-	migrateCtx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
-	defer cancel()
 	// A server whose schema did not apply answers every request with a 500.
-	// Refusing to start is the honest failure.
-	if err := database.Migrate(migrateCtx, db); err != nil {
-		log.Fatalf("migrate: %v", err)
+	// Refusing to start is the honest failure. Where MIGRATE_ON_START is off,
+	// running seed before deploying is what guarantees the schema instead.
+	if cfg.MigrateOnStart {
+		migrateCtx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+		err := database.Migrate(migrateCtx, db)
+		cancel()
+		if err != nil {
+			log.Fatalf("migrate: %v", err)
+		}
 	}
 
 	h := handler.New(repository.New(db))
@@ -63,10 +67,12 @@ func main() {
 	// request. ETag turns a repeat visit into a 304 with no body.
 	app.Use(etag.New())
 	// Matching is the most expensive query in the app and is open to anyone.
-	app.Use(limiter.New(limiter.Config{
-		Max:        cfg.RateLimit,
-		Expiration: time.Minute,
-	}))
+	if cfg.RateLimit > 0 {
+		app.Use(limiter.New(limiter.Config{
+			Max:        cfg.RateLimit,
+			Expiration: time.Minute,
+		}))
+	}
 
 	h.Routes(app)
 

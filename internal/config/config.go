@@ -21,7 +21,13 @@ type Config struct {
 	// AllowedOrigins restricts CORS. "*" is accepted but only sensible locally.
 	AllowedOrigins []string
 	// RateLimit is the number of requests one address may make per minute.
+	// Zero turns the limiter off, for hosts where it would keep one count per
+	// instance and cannot tell visitors apart.
 	RateLimit int
+	// MigrateOnStart applies the schema before listening. A serverless host
+	// starts a process per cold start, and each run of the schema's ALTER
+	// TABLEs takes an exclusive lock, so there the seeder applies it instead.
+	MigrateOnStart bool
 }
 
 // loadDotEnv walks up from the working directory looking for a .env file, so
@@ -58,6 +64,7 @@ func Load() *Config {
 		DBSSLMode:      getEnv("DB_SSLMODE", "disable"),
 		AllowedOrigins: splitList(getEnv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:4173")),
 		RateLimit:      getEnvInt("RATE_LIMIT", 240),
+		MigrateOnStart: getEnvBool("MIGRATE_ON_START", true),
 	}
 }
 
@@ -65,7 +72,15 @@ func Load() *Config {
 // knob should not stop the server from booting.
 func getEnvInt(key string, fallback int) int {
 	value, err := strconv.Atoi(getEnv(key, ""))
-	if err != nil || value < 1 {
+	if err != nil || value < 0 {
+		return fallback
+	}
+	return value
+}
+
+func getEnvBool(key string, fallback bool) bool {
+	value, err := strconv.ParseBool(getEnv(key, ""))
+	if err != nil {
 		return fallback
 	}
 	return value
